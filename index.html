@@ -42,20 +42,14 @@
     <section class="map-shell">
       <div class="map-copy">
         <p class="section-index">01 / METRO</p>
-        <h2>点击站点，<br>看房源如何聚集</h2>
-        <p>圆点大小代表当前清单数量；数字是该站参考目标价。东门按片区处理，以虚线接入老街。</p>
+        <h2>从罗湖站，<br>看真实通勤半径</h2>
+        <p>底图使用你之前标注的高德 4 公里红色半径截图，用来理解罗湖口岸周边的真实地理关系。房源采集仍执行更严格的“地铁站 500 米内”规则；下方站点按钮可继续筛选。</p>
         <button id="resetStation" class="reset">显示全部站点</button>
       </div>
-      <div class="metro-map" id="metroMap" role="img" aria-label="罗湖目标站点示意图">
-        <svg viewBox="0 0 920 560" aria-hidden="true">
-          <path class="line line-1" d="M170 355 H390 H585 V492" />
-          <path class="line line-2" d="M170 355 H585 H790" />
-          <path class="line line-3" d="M90 145 H390 Q490 145 490 245 V355" />
-          <path class="line connector" d="M390 245 V305" />
-        </svg>
-        <div id="stationLayer"></div>
-        <div class="luohu-anchor"><span>罗湖站</span><small>通勤基准</small></div>
-        <div class="legend"><i class="l1"></i>1号线 <i class="l2"></i>2/8号线 <i class="l3"></i>3号线 <i class="area"></i>片区连接</div>
+      <div class="metro-map radius-map-shell" id="metroMap" role="img" aria-label="以罗湖站为起点的高德地图四公里红色半径截图">
+        <img class="radius-map-image" src="radius-map.png" alt="以罗湖站为起点，覆盖罗湖与周边区域的高德地图四公里红色半径截图" />
+        <div id="stationLayer" aria-hidden="true"></div>
+        <div class="radius-map-caption"><b>4.00 KM / LUOHU</b><span>真实底图用于看大范围；房源实际按各站 500m 筛选</span></div>
       </div>
     </section>
 

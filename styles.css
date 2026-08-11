@@ -49,6 +49,13 @@ input[type="range"] { accent-color: var(--red); width: 100%; }
 .map-copy > p:not(.section-index),.research-intro > p:not(.section-index) { color: var(--muted); font-size: 13px; line-height: 1.75; margin-top: 30px; }
 .reset { margin-top: auto; width: fit-content; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 8px 0; cursor: pointer; font: 600 12px "IBM Plex Mono"; }
 .metro-map { min-height: 680px; position: relative; overflow: hidden; background: radial-gradient(circle at 65% 45%, rgba(255,255,255,.9), transparent 48%), linear-gradient(120deg, rgba(0,168,107,.04), rgba(255,77,56,.05)); }
+.radius-map-shell { background:#dfe6d7; }
+.radius-map-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block; filter:saturate(.92) contrast(1.03); }
+.radius-map-shell::after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(23,25,22,.2), inset 0 -120px 100px rgba(23,25,22,.22); }
+.radius-map-caption { position:absolute; z-index:3; left:28px; bottom:26px; display:grid; gap:5px; max-width:370px; background:rgba(245,242,234,.9); border:1px solid var(--ink); padding:14px 17px; backdrop-filter:blur(10px); }
+.radius-map-caption b { color:var(--red); font:700 12px "IBM Plex Mono"; letter-spacing:.12em; }
+.radius-map-caption span { font-size:11px; line-height:1.45; }
+.radius-map-shell #stationLayer { display:none; }
 .metro-map svg { position: absolute; inset: 40px 1% 20px 1%; width: 98%; height: calc(100% - 60px); overflow: visible; }
 .line { fill: none; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; opacity: .86; }
 .line-1 { stroke: var(--green); }
