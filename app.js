@@ -83,22 +83,23 @@ function resetPage() {
   state.page = 1;
 }
 
+function matchesControls(rental, { ignoreStation = false, ignoreCommunity = false } = {}) {
+  if (!ignoreStation && state.station && rental.station !== state.station) return false;
+  if (rental.rent < 2400 || rental.rent > state.maxRent) return false;
+  if (state.query && !rental.name.toLowerCase().includes(state.query.toLowerCase())) return false;
+  if (!ignoreCommunity && state.community && rental.name !== state.community) return false;
+  if (state.favoritesOnly && !review.favorites[rental.url]) return false;
+  if (state.photoMode === "all") return true;
+  const count = effectivePhotoCount(rental);
+  if (state.photoMode === "onsite") return (rentalImages[rental.url] || []).length > 0;
+  if (state.photoMode === "with") return count >= 2;
+  if (state.photoMode === "without") return count != null && count <= 1;
+  return count == null;
+}
+
 function filteredRentals() {
   return rentals
-    .filter(r => !state.station || r.station === state.station)
-    .filter(r => r.rent >= 2400)
-    .filter(r => r.rent <= state.maxRent)
-    .filter(r => !state.query || r.name.toLowerCase().includes(state.query.toLowerCase()))
-    .filter(r => !state.community || r.name === state.community)
-    .filter(r => !state.favoritesOnly || review.favorites[r.url])
-    .filter(r => {
-      if (state.photoMode === "all") return true;
-      const count = effectivePhotoCount(r);
-      if (state.photoMode === "onsite") return (rentalImages[r.url] || []).length > 0;
-      if (state.photoMode === "with") return count >= 2;
-      if (state.photoMode === "without") return count != null && count <= 1;
-      return count == null;
-    })
+    .filter(r => matchesControls(r))
     .sort((a, b) => {
       if (state.sort === "rating") return ratingOf(b.url) - ratingOf(a.url) || Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500);
       if (state.sort === "priceAsc") return a.rent - b.rent || b.area - a.area;
@@ -126,7 +127,7 @@ function renderStations() {
     const point = mapStations[s.name];
     if (!point) return "";
     const active = state.station === s.name ? " active" : "";
-    const filteredCount = rentals.filter(r => r.station === s.name && r.rent >= 2400 && r.rent <= state.maxRent).length;
+    const filteredCount = rentals.filter(r => r.station === s.name && matchesControls(r, { ignoreStation: true, ignoreCommunity: true })).length;
     return `<button class="map-station${active}${point.area ? " area" : ""}" style="left:${point.x}%;top:${point.y}%" data-station="${escapeHtml(s.name)}" aria-label="筛选${escapeHtml(s.name)}，当前${filteredCount}套"><span>${point.area ? "片区" : "地铁"}</span><b>${escapeHtml(s.name)}</b><small>${filteredCount}套</small></button>`;
   }).join("");
   stationLayer.querySelectorAll(".map-station").forEach(el => el.addEventListener("click", () => selectStation(el.dataset.station)));
@@ -134,7 +135,7 @@ function renderStations() {
 
 function renderChips() {
   const all = `<button class="chip ${!state.station ? "active" : ""}" data-station="">全部</button>`;
-  stationChips.innerHTML = all + stations.map(s => `<button class="chip ${state.station === s.name ? "active" : ""}" data-station="${escapeHtml(s.name)}">${escapeHtml(s.name)} · ${rentals.filter(r => r.station === s.name).length}</button>`).join("");
+  stationChips.innerHTML = all + stations.map(s => `<button class="chip ${state.station === s.name ? "active" : ""}" data-station="${escapeHtml(s.name)}">${escapeHtml(s.name)} · ${rentals.filter(r => r.station === s.name && matchesControls(r, { ignoreStation: true, ignoreCommunity: true })).length}</button>`).join("");
   stationChips.querySelectorAll(".chip").forEach(el => el.addEventListener("click", () => {
     state.station = el.dataset.station || null;
     state.community = "";
@@ -150,7 +151,7 @@ function renderCommunityTabs() {
     return;
   }
   communityTabs.classList.remove("is-empty");
-  const relevant = rentals.filter(r => r.station === state.station && r.rent >= 2400 && r.rent <= state.maxRent);
+  const relevant = rentals.filter(r => r.station === state.station && matchesControls(r, { ignoreCommunity: true }));
   const groups = new Map();
   relevant.forEach(r => {
     const bucket = groups.get(r.name) || { total: 0, count: 0 };
@@ -179,9 +180,10 @@ function effectivePhotoCount(rental) {
 
 function renderCommunityOptions() {
   const select = document.querySelector("#communitySelect");
-  const relevant = rentals.filter(rental => (!state.station || rental.station === state.station) && rental.rent >= 2400 && rental.rent <= state.maxRent);
+  const relevant = rentals.filter(rental => matchesControls(rental, { ignoreCommunity: true }));
   const counts = new Map();
   relevant.forEach(rental => counts.set(rental.name, (counts.get(rental.name) || 0) + 1));
+  if (state.community && !counts.has(state.community)) state.community = "";
   const options = [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"));
   select.innerHTML = `<option value="">全部小区（${options.length}）</option>` + options.map(([name, count]) => `<option value="${escapeHtml(name)}" ${state.community === name ? "selected" : ""}>${escapeHtml(name)} · ${count}套</option>`).join("");
 }
@@ -245,7 +247,7 @@ function toggleFavorite(url, keepDetailOpen = false) {
   review.favorites[url] = !review.favorites[url];
   if (!review.favorites[url]) delete review.favorites[url];
   saveReview();
-  renderListings();
+  render();
   if (keepDetailOpen) openDetail(url);
 }
 
@@ -330,11 +332,11 @@ function render() {
   renderListings();
 }
 
-document.querySelector("#searchInput").addEventListener("input", event => { state.query = event.target.value.trim(); resetPage(); renderListings(); });
+document.querySelector("#searchInput").addEventListener("input", event => { state.query = event.target.value.trim(); resetPage(); render(); });
 document.querySelector("#rentRange").addEventListener("input", event => { state.maxRent = Number(event.target.value); document.querySelector("#rentValue").textContent = `¥${money(state.maxRent)}`; resetPage(); render(); });
 document.querySelectorAll(".toggle").forEach(el => el.addEventListener("click", () => { document.querySelectorAll(".toggle").forEach(button => button.classList.remove("active")); el.classList.add("active"); state.mode = el.dataset.mode; renderListings(); }));
-document.querySelector("#favoriteFilter").addEventListener("click", () => { state.favoritesOnly = !state.favoritesOnly; resetPage(); renderListings(); });
-document.querySelector("#photoSelect").addEventListener("change", event => { state.photoMode = event.target.value; resetPage(); renderListings(); });
+document.querySelector("#favoriteFilter").addEventListener("click", () => { state.favoritesOnly = !state.favoritesOnly; resetPage(); render(); });
+document.querySelector("#photoSelect").addEventListener("change", event => { state.photoMode = event.target.value; resetPage(); render(); });
 document.querySelector("#communitySelect").addEventListener("change", event => { state.community = event.target.value; resetPage(); renderCommunityTabs(); renderListings(); });
 document.querySelector("#sortSelect").addEventListener("change", event => { state.sort = event.target.value; resetPage(); renderListings(); });
 document.querySelector("#resetStation").addEventListener("click", () => { state.station = null; state.community = ""; resetPage(); render(); });
