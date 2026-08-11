@@ -56,12 +56,12 @@ input[type="range"] { accent-color: var(--red); width: 100%; }
 .radius-map-caption b { color:var(--red); font:700 12px "IBM Plex Mono"; letter-spacing:.12em; }
 .radius-map-caption span { font-size:11px; line-height:1.45; }
 .radius-map-shell #stationLayer { position:absolute; inset:0; z-index:4; }
-.map-station { position:absolute; transform:translate(-50%,-50%); display:grid; grid-template-columns:auto auto; align-items:center; column-gap:7px; min-width:108px; padding:7px 10px 7px 7px; border:1px solid var(--ink); border-radius:3px; background:rgba(242,239,231,.92); color:var(--ink); box-shadow:0 4px 14px rgba(23,25,22,.18); backdrop-filter:blur(7px); cursor:pointer; font-family:"IBM Plex Mono",monospace; transition:transform .18s,background .18s,color .18s; }
+.map-station { position:absolute; transform:translate(-50%,-50%); display:grid; grid-template-columns:auto auto; align-items:center; column-gap:6px; min-width:96px; padding:6px 9px 6px 6px; border:1px solid rgba(23,25,22,.42); border-radius:3px; background:rgba(242,239,231,.4); color:var(--ink); box-shadow:0 2px 7px rgba(23,25,22,.07); cursor:pointer; font-family:"IBM Plex Mono",monospace; transition:transform .18s,background .18s,color .18s,opacity .18s; opacity:.62; }
 .map-station::before { content:""; position:absolute; left:50%; top:100%; width:1px; height:9px; background:var(--ink); }
-.map-station span { grid-row:1/3; display:grid; place-items:center; width:31px; height:31px; border-radius:50%; background:var(--green); color:white; font-size:8px; letter-spacing:.04em; }
-.map-station b { font:800 13px "Noto Serif SC",serif; line-height:1; white-space:nowrap; }
+.map-station span { grid-row:1/3; display:grid; place-items:center; width:27px; height:27px; border-radius:50%; background:rgba(0,168,107,.72); color:white; font-size:7px; letter-spacing:.04em; }
+.map-station b { font:800 12px "Noto Serif SC",serif; line-height:1; white-space:nowrap; }
 .map-station small { color:var(--muted); font-size:8px; line-height:1; }
-.map-station:hover,.map-station.active { transform:translate(-50%,-50%) translateY(-3px); background:var(--ink); color:white; z-index:5; }
+.map-station:hover,.map-station.active { transform:translate(-50%,-50%) translateY(-3px); background:rgba(23,25,22,.9); color:white; z-index:5; opacity:1; }
 .map-station:hover small,.map-station.active small { color:rgba(255,255,255,.72); }
 .map-station.active span { background:var(--red); }
 .map-station.area span { border-radius:3px; background:var(--purple); }

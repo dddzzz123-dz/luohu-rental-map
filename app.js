@@ -1,10 +1,11 @@
 const baseData = window.RENTAL_DATA;
 const scanData = window.RENTAL_SCAN || { rentals: [], communities: [], stats: {} };
 const photoData = window.RENTAL_PHOTO_COUNTS || { counts: {}, stats: {} };
-const scanStations = new Set(["国贸", "老街", "大剧院"]);
+const scanStations = new Set(["国贸", "老街", "大剧院", "罗湖"]);
 const scannedRentals = scanData.rentals.map(item => ({ ...item, photoCount: Number(photoData.counts[item.url] ?? item.photoCount ?? 0) }));
 const rentals = [...scannedRentals, ...baseData.rentals.filter(item => !scanStations.has(item.station))];
-const { stations, research } = baseData;
+const stations = [...baseData.stations, { name: "罗湖", x: 49.6, y: 92.5, count: 0, target: 3500, line: "1" }];
+const { research } = baseData;
 const rentalImages = window.RENTAL_IMAGES || {};
 const PAGE_SIZE = 8;
 const mapStations = {
@@ -15,7 +16,8 @@ const mapStations = {
   "大剧院": { x: 36.0, y: 60.4 },
   "湖贝": { x: 57.8, y: 54.8 },
   "黄贝岭": { x: 71.3, y: 50.7 },
-  "国贸": { x: 49.6, y: 65.6 }
+  "国贸": { x: 49.6, y: 65.6 },
+  "罗湖": { x: 49.6, y: 92.4 }
 };
 
 const STORAGE_KEY = "luohu-rental-review-v1";
