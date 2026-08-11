@@ -1,10 +1,13 @@
 const baseData = window.RENTAL_DATA;
 const scanData = window.RENTAL_SCAN || { rentals: [], communities: [], stats: {} };
 const photoData = window.RENTAL_PHOTO_COUNTS || { counts: {}, stats: {} };
-const scanStations = new Set(["国贸", "老街", "大剧院", "罗湖"]);
-const scannedRentals = scanData.rentals.map(item => ({ ...item, photoCount: Number(photoData.counts[item.url] ?? item.photoCount ?? 0) }));
+const scanStations = new Set(["红岭", "老街", "晒布", "东门片区", "大剧院", "湖贝", "黄贝岭", "国贸", "罗湖"]);
+const scannedRentals = scanData.rentals.map(item => {
+  const rawPhotoCount = photoData.counts[item.url] ?? item.photoCount;
+  return { ...item, photoCount: rawPhotoCount == null ? null : Number(rawPhotoCount) };
+});
 const rentals = [...scannedRentals, ...baseData.rentals.filter(item => !scanStations.has(item.station))];
-const stations = [...baseData.stations, { name: "罗湖", x: 49.6, y: 92.5, count: 0, target: 3500, line: "1" }];
+const stations = [...baseData.stations.filter(item => item.name !== "东门片区"), { name: "罗湖", x: 49.6, y: 92.5, count: 0, target: 3500, line: "1" }];
 const { research } = baseData;
 const rentalImages = window.RENTAL_IMAGES || {};
 const PAGE_SIZE = 8;
@@ -88,7 +91,14 @@ function filteredRentals() {
     .filter(r => !state.query || r.name.toLowerCase().includes(state.query.toLowerCase()))
     .filter(r => !state.community || r.name === state.community)
     .filter(r => !state.favoritesOnly || review.favorites[r.url])
-    .filter(r => state.photoMode === "all" || (state.photoMode === "with" ? effectivePhotoCount(r) >= 2 : effectivePhotoCount(r) <= 1))
+    .filter(r => {
+      if (state.photoMode === "all") return true;
+      const count = effectivePhotoCount(r);
+      if (state.photoMode === "onsite") return (rentalImages[r.url] || []).length > 0;
+      if (state.photoMode === "with") return count >= 2;
+      if (state.photoMode === "without") return count != null && count <= 1;
+      return count == null;
+    })
     .sort((a, b) => {
       if (state.sort === "rating") return ratingOf(b.url) - ratingOf(a.url) || Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500);
       if (state.sort === "priceAsc") return a.rent - b.rent || b.area - a.area;
@@ -97,7 +107,9 @@ function filteredRentals() {
       if (state.sort === "distanceAsc") return (a.distance ?? 9999) - (b.distance ?? 9999) || a.rent - b.rent;
       if (state.sort === "photosDesc") return effectivePhotoCount(b) - effectivePhotoCount(a) || a.rent - b.rent;
       if (state.mode === "target") return (a.rent - a.target) - (b.rent - b.target) || b.area - a.area;
-      return Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500) || b.area - a.area;
+      const onsiteRank = Number((rentalImages[b.url] || []).length > 0) - Number((rentalImages[a.url] || []).length > 0);
+      const photoRank = Number(effectivePhotoCount(b) >= 2) - Number(effectivePhotoCount(a) >= 2);
+      return onsiteRank || photoRank || Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500) || b.area - a.area;
     });
 }
 
@@ -159,9 +171,10 @@ function renderCommunityTabs() {
 }
 
 function effectivePhotoCount(rental) {
-  const verified = Number(rental.photoCount);
-  if (Number.isFinite(verified)) return verified;
-  return (rentalImages[rental.url] || []).length;
+  const galleryCount = (rentalImages[rental.url] || []).length;
+  if (galleryCount) return Math.max(galleryCount, Number(rental.photoCount) || 0);
+  if (rental.photoCount != null && Number.isFinite(Number(rental.photoCount))) return Number(rental.photoCount);
+  return null;
 }
 
 function renderCommunityOptions() {
@@ -179,7 +192,8 @@ function imageMarkup(rental) {
   const count = effectivePhotoCount(rental);
   if (image) return `<img src="${image}" alt="${escapeHtml(rental.name)}房源实拍封面" loading="lazy"><span class="photo-status live">有图</span><span class="photo-count">▣ ${count}</span>`;
   const hasImages = count >= 2;
-  return `<div class="photo-placeholder"><b>${escapeHtml(rental.station)}</b><span>${escapeHtml(rental.name)}</span><small>${hasImages ? `乐有家原站 ${count} 张图` : `${count} 张图 · 按无图处理`}</small></div><span class="photo-status ${hasImages ? "live" : "empty"}">${hasImages ? "有图" : "无图"}</span><span class="photo-count">▣ ${count}</span>`;
+  const isUnknown = count == null;
+  return `<div class="photo-placeholder"><b>${escapeHtml(rental.station)}</b><span>${escapeHtml(rental.name)}</span><small>${isUnknown ? "图片状态等待补核" : hasImages ? `乐有家原站 ${count} 张图` : `${count} 张图 · 按无图处理`}</small></div><span class="photo-status ${isUnknown ? "pending" : hasImages ? "live" : "empty"}">${isUnknown ? "待核" : hasImages ? "有图" : "无图"}</span><span class="photo-count">${isUnknown ? "图片待核" : `▣ ${count}`}</span>`;
 }
 
 function renderListings() {
@@ -249,7 +263,7 @@ function openDetail(url) {
     <div class="detail-layout">
       <section class="detail-gallery">
         ${images.length ? `<div class="detail-stage"><img id="detailHero" class="detail-hero" src="${images[0]}" alt="${escapeHtml(rental.name)}房源实拍"><span id="galleryIndex" class="gallery-index">01 / ${String(images.length).padStart(2, "0")}</span>${images.length > 1 ? `<button id="galleryPrev" class="gallery-nav prev" type="button" aria-label="上一张">←</button><button id="galleryNext" class="gallery-nav next" type="button" aria-label="下一张">→</button>` : ""}</div><div class="thumb-strip">${images.map((image, index) => `<button type="button" data-gallery-index="${index}" class="${index === 0 ? "active" : ""}"><img src="${image}" alt="第${index + 1}张"></button>`).join("")}</div>` : `<div class="detail-empty"><b>此套封面尚未抓取</b><p>乐有家详情页仍可查看完整照片和视频；你的评分与笔记可以先保存。</p></div>`}
-        <div class="gallery-caption"><span>${effectivePhotoCount(rental) >= 2 ? `乐有家原站已核验 ${effectivePhotoCount(rental)} 张图` : `${effectivePhotoCount(rental)} 张图，按无图处理`}</span><a href="${sourceUrl(rental.url)}" target="_blank" rel="noreferrer">打开乐有家完整相册 ↗</a></div>
+        <div class="gallery-caption"><span>${effectivePhotoCount(rental) == null ? "图片状态等待补核" : effectivePhotoCount(rental) >= 2 ? `乐有家原站已核验 ${effectivePhotoCount(rental)} 张图` : `${effectivePhotoCount(rental)} 张图，按无图处理`}</span><a href="${sourceUrl(rental.url)}" target="_blank" rel="noreferrer">打开乐有家完整相册 ↗</a></div>
       </section>
       <aside class="detail-panel">
         <p class="detail-kicker">${escapeHtml(rental.station)} · ${escapeHtml(rental.rec)}</p>

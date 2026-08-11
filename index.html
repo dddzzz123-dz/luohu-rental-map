@@ -18,7 +18,7 @@
     <div class="masthead-meta">
       <span><b id="totalCount">169</b> 个唯一链接</span>
       <span><b>¥4,500</b> 预算上限</span>
-      <span class="publish-badge">500m 近站优先</span>
+      <span class="publish-badge">地铁 1km / 口岸 4km</span>
     </div>
   </header>
 
@@ -43,13 +43,13 @@
       <div class="map-copy">
         <p class="section-index">01 / METRO</p>
         <h2>从罗湖站，<br>看真实通勤半径</h2>
-        <p>底图使用你新截取的高德 4 公里范围图，已完整覆盖大剧院、老街和国贸。点地图站点即可筛选；房源采集仍执行更严格的“地铁站 500 米内”规则。</p>
+        <p>底图使用你新截取的高德 4 公里范围图。点地图站点即可筛选；住宅候选必须同时满足“距正式地铁站 1 公里内”与“距罗湖口岸 4 公里内”。</p>
         <button id="resetStation" class="reset">显示全部站点</button>
       </div>
       <div class="metro-map radius-map-shell" id="metroMap" role="img" aria-label="以罗湖站为起点的高德地图四公里红色半径截图">
         <img class="radius-map-image" src="radius-map.png" alt="以罗湖站为起点，完整覆盖大剧院、老街、国贸及周边区域的高德地图四公里范围截图" />
         <div id="stationLayer" aria-label="可点击地铁站"></div>
-        <div class="radius-map-caption"><b>4.00 KM / LUOHU</b><span>真实底图用于看大范围；房源实际按各站 500m 筛选</span></div>
+        <div class="radius-map-caption"><b>4.00 KM / LUOHU PORT</b><span>口岸 4km 总边界 · 正式地铁站 1km 住宅圈</span></div>
       </div>
     </section>
 
@@ -66,8 +66,10 @@
         <label>图片
           <select id="photoSelect">
             <option value="all">全部图片状态</option>
-            <option value="with">有图（≥2张）</option>
+            <option value="onsite">本站已有相册</option>
+            <option value="with">原站有图（≥2张）</option>
             <option value="without">无图（≤1张）</option>
+            <option value="pending">待核图片状态</option>
           </select>
         </label>
         <label>小区
@@ -109,7 +111,7 @@
   </dialog>
 
   <footer>
-    <p>基础库为 2026-08-07 乐有家快照；2026-08-11 已补入高德 500 米住宅 POI 前置筛选后的新房源。联系前请核实在租状态、实际步行距离、水电及中介费。</p>
+    <p>基础库为 2026-08-07 乐有家快照；2026-08-11 已按“罗湖口岸 4 公里内、正式地铁站 1 公里内”重扫住宅 POI 与一居室房源。地图距离为直线近似值；联系前请核实在租状态、实际步行距离、水电及中介费。</p>
   </footer>
   <script src="data.js"></script>
   <script src="images.js"></script>
