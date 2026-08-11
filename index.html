@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="罗湖通勤租房地铁关系图" />
+  <title>罗湖通勤租房控制台</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">LUOHU RENTAL SIGNAL / 2026.08.11</p>
+      <h1>把房源放回<br><em>地铁线路</em>里看</h1>
+    </div>
+    <div class="masthead-meta">
+      <span><b id="totalCount">169</b> 个唯一链接</span>
+      <span><b>¥4,500</b> 预算上限</span>
+      <span class="publish-badge">500m 近站优先</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="control-strip" aria-label="房源筛选器">
+      <label class="search-box">
+        <span>搜索小区</span>
+        <input id="searchInput" type="search" placeholder="世濠大厦 / 佳兆业中心…" />
+      </label>
+      <label class="range-box">
+        <span>最高租金 <strong id="rentValue">¥5,000</strong></span>
+        <input id="rentRange" type="range" min="2400" max="4500" step="100" value="4500" />
+      </label>
+      <div class="toggle-box">
+        <span>价格视角</span>
+        <button class="toggle active" data-mode="absolute">月租</button>
+        <button class="toggle" data-mode="target">相对目标价</button>
+      </div>
+    </section>
+
+    <section class="map-shell">
+      <div class="map-copy">
+        <p class="section-index">01 / METRO</p>
+        <h2>点击站点，<br>看房源如何聚集</h2>
+        <p>圆点大小代表当前清单数量；数字是该站参考目标价。东门按片区处理，以虚线接入老街。</p>
+        <button id="resetStation" class="reset">显示全部站点</button>
+      </div>
+      <div class="metro-map" id="metroMap" role="img" aria-label="罗湖目标站点示意图">
+        <svg viewBox="0 0 920 560" aria-hidden="true">
+          <path class="line line-1" d="M170 355 H390 H585 V492" />
+          <path class="line line-2" d="M170 355 H585 H790" />
+          <path class="line line-3" d="M90 145 H390 Q490 145 490 245 V355" />
+          <path class="line connector" d="M390 245 V305" />
+        </svg>
+        <div id="stationLayer"></div>
+        <div class="luohu-anchor"><span>罗湖站</span><small>通勤基准</small></div>
+        <div class="legend"><i class="l1"></i>1号线 <i class="l2"></i>2/8号线 <i class="l3"></i>3号线 <i class="area"></i>片区连接</div>
+      </div>
+    </section>
+
+    <section class="listing-shell">
+      <div class="listing-head">
+        <div>
+          <p class="section-index">02 / INVENTORY</p>
+          <h2 id="listingTitle">全部房源</h2>
+        </div>
+        <div class="listing-stat"><strong id="visibleCount">0</strong><span>当前结果</span></div>
+      </div>
+      <div class="collection-bar">
+        <button id="favoriteFilter" class="collection-toggle" type="button">♡ 只看收藏 <b id="favoriteCount">0</b></button>
+        <button id="photoFilter" class="collection-toggle" type="button">▣ 只看 ≥2 张图</button>
+        <label>排序
+          <select id="sortSelect">
+            <option value="recommend">接近 ¥3,500</option>
+            <option value="rating">我的评分</option>
+            <option value="price">租金从低到高</option>
+          </select>
+        </label>
+        <span><i></i> 已接入真实房源封面，点击卡片进入看房详情</span>
+      </div>
+      <div class="station-chips" id="stationChips"></div>
+      <div class="listing-grid" id="listingGrid"></div>
+      <button id="showMore" class="show-more">再显示 18 套</button>
+    </section>
+
+    <section class="research-shell">
+      <div class="research-intro">
+        <p class="section-index">03 / SOCIAL CHECK</p>
+        <h2>小红书口碑<br>核验入口</h2>
+        <p>房源广告和真实居住体验混在一起。这里优先保留“看房记录、避雷、通勤体验”入口；标题命中不等于内容已证实。</p>
+      </div>
+      <div class="research-list" id="researchList"></div>
+    </section>
+  </main>
+
+  <dialog id="detailDialog" class="detail-dialog">
+    <div id="detailContent"></div>
+  </dialog>
+
+  <footer>
+    <p>基础库为 2026-08-07 乐有家快照；2026-08-11 已补入高德 500 米住宅 POI 前置筛选后的新房源。联系前请核实在租状态、实际步行距离、水电及中介费。</p>
+  </footer>
+  <script src="data.js"></script>
+  <script src="images.js"></script>
+  <script src="latest.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

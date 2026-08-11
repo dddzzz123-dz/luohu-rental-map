@@ -1,0 +1,8 @@
+*.png
+*.jpg
+*.jpeg
+debug-*
+preview-*
+chrome-*
+xhs-*
+
