@@ -6,6 +6,17 @@ const scannedRentals = scanData.rentals.map(item => ({ ...item, photoCount: Numb
 const rentals = [...scannedRentals, ...baseData.rentals.filter(item => !scanStations.has(item.station))];
 const { stations, research } = baseData;
 const rentalImages = window.RENTAL_IMAGES || {};
+const PAGE_SIZE = 8;
+const mapStations = {
+  "红岭": { x: 32.0, y: 45.3 },
+  "老街": { x: 47.5, y: 58.0 },
+  "晒布": { x: 54.4, y: 43.6 },
+  "东门片区": { x: 49.4, y: 51.7, area: true },
+  "大剧院": { x: 36.0, y: 60.4 },
+  "湖贝": { x: 57.8, y: 54.8 },
+  "黄贝岭": { x: 71.3, y: 50.7 },
+  "国贸": { x: 49.6, y: 65.6 }
+};
 
 const STORAGE_KEY = "luohu-rental-review-v1";
 const state = {
@@ -14,7 +25,7 @@ const state = {
   query: "",
   community: "",
   mode: "absolute",
-  limit: 18,
+  page: 1,
   favoritesOnly: false,
   photoMode: "all",
   sort: "recommend"
@@ -22,6 +33,7 @@ const state = {
 const review = loadReview();
 const stationLayer = document.querySelector("#stationLayer");
 const stationChips = document.querySelector("#stationChips");
+const communityTabs = document.querySelector("#communityTabs");
 const listingGrid = document.querySelector("#listingGrid");
 const researchList = document.querySelector("#researchList");
 const detailDialog = document.querySelector("#detailDialog");
@@ -58,6 +70,14 @@ function ratingOf(url) {
   return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
 }
 
+function sourceUrl(url) {
+  return `${url}${url.includes("?") ? "&" : "?"}utm_term=lyj_token_fks`;
+}
+
+function resetPage() {
+  state.page = 1;
+}
+
 function filteredRentals() {
   return rentals
     .filter(r => !state.station || r.station === state.station)
@@ -69,7 +89,11 @@ function filteredRentals() {
     .filter(r => state.photoMode === "all" || (state.photoMode === "with" ? effectivePhotoCount(r) >= 2 : effectivePhotoCount(r) <= 1))
     .sort((a, b) => {
       if (state.sort === "rating") return ratingOf(b.url) - ratingOf(a.url) || Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500);
-      if (state.sort === "price") return a.rent - b.rent || b.area - a.area;
+      if (state.sort === "priceAsc") return a.rent - b.rent || b.area - a.area;
+      if (state.sort === "priceDesc") return b.rent - a.rent || b.area - a.area;
+      if (state.sort === "areaDesc") return (b.area || 0) - (a.area || 0) || a.rent - b.rent;
+      if (state.sort === "distanceAsc") return (a.distance ?? 9999) - (b.distance ?? 9999) || a.rent - b.rent;
+      if (state.sort === "photosDesc") return effectivePhotoCount(b) - effectivePhotoCount(a) || a.rent - b.rent;
       if (state.mode === "target") return (a.rent - a.target) - (b.rent - b.target) || b.area - a.area;
       return Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500) || b.area - a.area;
     });
@@ -78,20 +102,20 @@ function filteredRentals() {
 function selectStation(name) {
   state.station = state.station === name ? null : name;
   state.community = "";
-  state.limit = 18;
+  resetPage();
   render();
   document.querySelector(".listing-shell").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function renderStations() {
   stationLayer.innerHTML = stations.map(s => {
+    const point = mapStations[s.name];
+    if (!point) return "";
     const active = state.station === s.name ? " active" : "";
-    const filteredCount = rentals.filter(r => r.station === s.name && r.rent <= state.maxRent).length;
-    const size = Math.max(44, Math.min(78, 42 + Math.sqrt(filteredCount) * 4.3));
-    return `<button class="station${active}" style="left:${s.x}%;top:${s.y}%;--size:${size}px" data-station="${escapeHtml(s.name)}" aria-label="${escapeHtml(s.name)}，${filteredCount}套"><b>${filteredCount}</b></button>
-      <div class="station-label" style="left:${s.x}%;top:${s.y}%">${escapeHtml(s.name)}<small>目标 ¥${money(s.target)}</small></div>`;
+    const filteredCount = rentals.filter(r => r.station === s.name && r.rent >= 2400 && r.rent <= state.maxRent).length;
+    return `<button class="map-station${active}${point.area ? " area" : ""}" style="left:${point.x}%;top:${point.y}%" data-station="${escapeHtml(s.name)}" aria-label="筛选${escapeHtml(s.name)}，当前${filteredCount}套"><span>${point.area ? "片区" : "地铁"}</span><b>${escapeHtml(s.name)}</b><small>${filteredCount}套</small></button>`;
   }).join("");
-  stationLayer.querySelectorAll(".station").forEach(el => el.addEventListener("click", () => selectStation(el.dataset.station)));
+  stationLayer.querySelectorAll(".map-station").forEach(el => el.addEventListener("click", () => selectStation(el.dataset.station)));
 }
 
 function renderChips() {
@@ -100,8 +124,35 @@ function renderChips() {
   stationChips.querySelectorAll(".chip").forEach(el => el.addEventListener("click", () => {
     state.station = el.dataset.station || null;
     state.community = "";
-    state.limit = 18;
+    resetPage();
     render();
+  }));
+}
+
+function renderCommunityTabs() {
+  if (!state.station) {
+    communityTabs.innerHTML = `<p>先选择一个地铁站，这里会列出该站小区、当前均租和房源数。</p>`;
+    communityTabs.classList.add("is-empty");
+    return;
+  }
+  communityTabs.classList.remove("is-empty");
+  const relevant = rentals.filter(r => r.station === state.station && r.rent >= 2400 && r.rent <= state.maxRent);
+  const groups = new Map();
+  relevant.forEach(r => {
+    const bucket = groups.get(r.name) || { total: 0, count: 0 };
+    bucket.total += r.rent;
+    bucket.count += 1;
+    groups.set(r.name, bucket);
+  });
+  const items = [...groups.entries()].map(([name, value]) => ({ name, count: value.count, average: Math.round(value.total / value.count) }))
+    .sort((a, b) => a.average - b.average || b.count - a.count);
+  communityTabs.innerHTML = `<button class="community-tab ${!state.community ? "active" : ""}" data-community=""><b>全部小区</b><span>${items.length}个 · ${relevant.length}套</span></button>` + items.map(item => `<button class="community-tab ${state.community === item.name ? "active" : ""}" data-community="${escapeHtml(item.name)}"><b>${escapeHtml(item.name)}</b><span>均租 ¥${money(item.average)} · ${item.count}套</span></button>`).join("");
+  communityTabs.querySelectorAll("[data-community]").forEach(button => button.addEventListener("click", () => {
+    state.community = button.dataset.community;
+    document.querySelector("#communitySelect").value = state.community;
+    resetPage();
+    renderCommunityTabs();
+    renderListings();
   }));
 }
 
@@ -131,38 +182,47 @@ function imageMarkup(rental) {
 
 function renderListings() {
   const result = filteredRentals();
+  const pageCount = Math.max(1, Math.ceil(result.length / PAGE_SIZE));
+  state.page = Math.min(state.page, pageCount);
+  const pageStart = (state.page - 1) * PAGE_SIZE;
   document.querySelector("#visibleCount").textContent = result.length;
   document.querySelector("#listingTitle").textContent = state.community ? `${state.community}全部房源` : state.station ? `${state.station}房源` : (state.favoritesOnly ? "我的收藏" : "全部房源");
-  listingGrid.innerHTML = result.slice(0, state.limit).map((r, i) => {
+  listingGrid.innerHTML = result.slice(pageStart, pageStart + PAGE_SIZE).map((r, i) => {
     const delta = r.rent - r.target;
     const priceLabel = state.mode === "target" ? `${delta > 0 ? "+" : ""}${delta} vs目标` : `${r.rent <= 3500 ? "理想预算" : "可接受"}`;
     const isFavorite = Boolean(review.favorites[r.url]);
     const rating = ratingOf(r.url);
-    return `<article class="listing-card" data-url="${r.url}" tabindex="0" style="animation-delay:${Math.min(i, 12) * 25}ms">
+    return `<article class="listing-card" data-url="${r.url}" style="animation-delay:${Math.min(i, 12) * 25}ms">
       <button class="card-photo" type="button" aria-label="打开${escapeHtml(r.name)}详情">${imageMarkup(r)}</button>
       <button class="heart ${isFavorite ? "active" : ""}" type="button" data-favorite="${r.url}" aria-label="${isFavorite ? "取消收藏" : "收藏"}">${isFavorite ? "♥" : "♡"}</button>
       <div class="card-body">
         <div class="card-top"><span class="card-station">${escapeHtml(r.station)}${r.distance ? ` · ${r.distance}m` : ""} / ${priceLabel}</span><span class="card-rec">${escapeHtml(r.rec)}</span></div>
         <h3>${escapeHtml(r.name)}</h3>
         <div class="card-facts"><span>${r.area || "—"}㎡</span><span>${escapeHtml(r.layout)}</span><span>${escapeHtml(r.propertyClass || r.direction || "类型待核")}</span><span>${escapeHtml(r.decor)}</span></div>
-        <div class="card-bottom"><div class="card-rent"><strong>¥${money(r.rent)}</strong><span>/月</span></div><span class="mini-rating">${rating ? `★ ${rating.toFixed(1)}` : "未评分"}</span><button class="detail-link" type="button">看图评分 →</button></div>
+        <div class="card-bottom"><div class="card-rent"><strong>¥${money(r.rent)}</strong><span>/月</span></div><span class="mini-rating">${rating ? `★ ${rating.toFixed(1)}` : "未评分"}</span></div>
+        <div class="card-actions"><a class="source-link" href="${sourceUrl(r.url)}" target="_blank" rel="noreferrer">打开乐有家房源 ↗</a><button class="detail-link" type="button">看图 / 评分 / 笔记</button></div>
       </div>
     </article>`;
   }).join("") || `<p class="empty-state">当前条件下没有房源。可以取消“只看收藏”、提高租金上限或清空搜索。</p>`;
 
-  listingGrid.querySelectorAll(".listing-card").forEach(card => {
-    card.addEventListener("click", event => {
-      if (event.target.closest("[data-favorite]")) return;
-      openDetail(card.dataset.url);
-    });
-    card.addEventListener("keydown", event => { if (event.key === "Enter") openDetail(card.dataset.url); });
-  });
+  listingGrid.querySelectorAll(".card-photo, .detail-link").forEach(button => button.addEventListener("click", () => openDetail(button.closest(".listing-card").dataset.url)));
   listingGrid.querySelectorAll("[data-favorite]").forEach(button => button.addEventListener("click", () => toggleFavorite(button.dataset.favorite)));
 
-  const more = document.querySelector("#showMore");
-  more.hidden = result.length <= state.limit;
-  more.textContent = `再显示 ${Math.min(18, result.length - state.limit)} 套`;
+  renderPagination(pageCount, result.length);
   renderCollectionState();
+}
+
+function renderPagination(pageCount, total) {
+  const pagination = document.querySelector("#pagination");
+  if (!total) { pagination.innerHTML = ""; return; }
+  const windowStart = Math.max(1, Math.min(state.page - 2, pageCount - 4));
+  const pages = Array.from({ length: Math.min(5, pageCount) }, (_, index) => windowStart + index);
+  pagination.innerHTML = `<button data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""}>← 上一页</button>${pages.map(page => `<button data-page="${page}" class="${page === state.page ? "active" : ""}">${page}</button>`).join("")}<button data-page="${state.page + 1}" ${state.page === pageCount ? "disabled" : ""}>下一页 →</button><span>第 ${state.page} / ${pageCount} 页 · 共 ${total} 套</span>`;
+  pagination.querySelectorAll("button:not([disabled])").forEach(button => button.addEventListener("click", () => {
+    state.page = Number(button.dataset.page);
+    renderListings();
+    document.querySelector(".listing-grid").scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
 }
 
 function toggleFavorite(url, keepDetailOpen = false) {
@@ -187,7 +247,7 @@ function openDetail(url) {
     <div class="detail-layout">
       <section class="detail-gallery">
         ${images.length ? `<div class="detail-stage"><img id="detailHero" class="detail-hero" src="${images[0]}" alt="${escapeHtml(rental.name)}房源实拍"><span id="galleryIndex" class="gallery-index">01 / ${String(images.length).padStart(2, "0")}</span>${images.length > 1 ? `<button id="galleryPrev" class="gallery-nav prev" type="button" aria-label="上一张">←</button><button id="galleryNext" class="gallery-nav next" type="button" aria-label="下一张">→</button>` : ""}</div><div class="thumb-strip">${images.map((image, index) => `<button type="button" data-gallery-index="${index}" class="${index === 0 ? "active" : ""}"><img src="${image}" alt="第${index + 1}张"></button>`).join("")}</div>` : `<div class="detail-empty"><b>此套封面尚未抓取</b><p>乐有家详情页仍可查看完整照片和视频；你的评分与笔记可以先保存。</p></div>`}
-        <div class="gallery-caption"><span>${effectivePhotoCount(rental) >= 2 ? `乐有家原站已核验 ${effectivePhotoCount(rental)} 张图` : `${effectivePhotoCount(rental)} 张图，按无图处理`}</span><a href="${rental.url}?utm_term=lyj_token_fks" target="_blank" rel="noreferrer">打开乐有家完整相册 ↗</a></div>
+        <div class="gallery-caption"><span>${effectivePhotoCount(rental) >= 2 ? `乐有家原站已核验 ${effectivePhotoCount(rental)} 张图` : `${effectivePhotoCount(rental)} 张图，按无图处理`}</span><a href="${sourceUrl(rental.url)}" target="_blank" rel="noreferrer">打开乐有家完整相册 ↗</a></div>
       </section>
       <aside class="detail-panel">
         <p class="detail-kicker">${escapeHtml(rental.station)} · ${escapeHtml(rental.rec)}</p>
@@ -202,7 +262,7 @@ function openDetail(url) {
           ${starRow(url, "light", "采光")}
         </div>
         <label class="note-box">看房笔记<textarea id="detailNote" placeholder="例如：床垫要换、窗外不压抑、厨房收纳少……">${escapeHtml(review.notes[url] || "")}</textarea><small id="noteStatus">输入后自动保存</small></label>
-        <a class="source-button" href="${rental.url}?utm_term=lyj_token_fks" target="_blank" rel="noreferrer">去乐有家核实状态 / 看全部图片</a>
+        <a class="source-button" href="${sourceUrl(rental.url)}" target="_blank" rel="noreferrer">去乐有家核实状态 / 看全部图片</a>
       </aside>
     </div>`;
 
@@ -250,18 +310,18 @@ function render() {
   renderStations();
   renderChips();
   renderCommunityOptions();
+  renderCommunityTabs();
   renderListings();
 }
 
-document.querySelector("#searchInput").addEventListener("input", event => { state.query = event.target.value.trim(); state.limit = 18; renderListings(); });
-document.querySelector("#rentRange").addEventListener("input", event => { state.maxRent = Number(event.target.value); document.querySelector("#rentValue").textContent = `¥${money(state.maxRent)}`; state.limit = 18; render(); });
+document.querySelector("#searchInput").addEventListener("input", event => { state.query = event.target.value.trim(); resetPage(); renderListings(); });
+document.querySelector("#rentRange").addEventListener("input", event => { state.maxRent = Number(event.target.value); document.querySelector("#rentValue").textContent = `¥${money(state.maxRent)}`; resetPage(); render(); });
 document.querySelectorAll(".toggle").forEach(el => el.addEventListener("click", () => { document.querySelectorAll(".toggle").forEach(button => button.classList.remove("active")); el.classList.add("active"); state.mode = el.dataset.mode; renderListings(); }));
-document.querySelector("#favoriteFilter").addEventListener("click", () => { state.favoritesOnly = !state.favoritesOnly; state.limit = 18; renderListings(); });
-document.querySelector("#photoSelect").addEventListener("change", event => { state.photoMode = event.target.value; state.limit = 18; renderListings(); });
-document.querySelector("#communitySelect").addEventListener("change", event => { state.community = event.target.value; state.limit = 18; renderListings(); });
-document.querySelector("#sortSelect").addEventListener("change", event => { state.sort = event.target.value; renderListings(); });
-document.querySelector("#resetStation").addEventListener("click", () => { state.station = null; state.community = ""; state.limit = 18; render(); });
-document.querySelector("#showMore").addEventListener("click", () => { state.limit += 18; renderListings(); });
+document.querySelector("#favoriteFilter").addEventListener("click", () => { state.favoritesOnly = !state.favoritesOnly; resetPage(); renderListings(); });
+document.querySelector("#photoSelect").addEventListener("change", event => { state.photoMode = event.target.value; resetPage(); renderListings(); });
+document.querySelector("#communitySelect").addEventListener("change", event => { state.community = event.target.value; resetPage(); renderCommunityTabs(); renderListings(); });
+document.querySelector("#sortSelect").addEventListener("change", event => { state.sort = event.target.value; resetPage(); renderListings(); });
+document.querySelector("#resetStation").addEventListener("click", () => { state.station = null; state.community = ""; resetPage(); render(); });
 detailDialog.addEventListener("click", event => { if (event.target === detailDialog) detailDialog.close(); });
 
 renderResearch();

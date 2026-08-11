@@ -43,12 +43,12 @@
       <div class="map-copy">
         <p class="section-index">01 / METRO</p>
         <h2>从罗湖站，<br>看真实通勤半径</h2>
-        <p>底图使用你之前标注的高德 4 公里红色半径截图，用来理解罗湖口岸周边的真实地理关系。房源采集仍执行更严格的“地铁站 500 米内”规则；下方站点按钮可继续筛选。</p>
+        <p>底图使用你新截取的高德 4 公里范围图，已完整覆盖大剧院、老街和国贸。点地图站点即可筛选；房源采集仍执行更严格的“地铁站 500 米内”规则。</p>
         <button id="resetStation" class="reset">显示全部站点</button>
       </div>
       <div class="metro-map radius-map-shell" id="metroMap" role="img" aria-label="以罗湖站为起点的高德地图四公里红色半径截图">
-        <img class="radius-map-image" src="radius-map.png" alt="以罗湖站为起点，覆盖罗湖与周边区域的高德地图四公里红色半径截图" />
-        <div id="stationLayer" aria-hidden="true"></div>
+        <img class="radius-map-image" src="radius-map.png" alt="以罗湖站为起点，完整覆盖大剧院、老街、国贸及周边区域的高德地图四公里范围截图" />
+        <div id="stationLayer" aria-label="可点击地铁站"></div>
         <div class="radius-map-caption"><b>4.00 KM / LUOHU</b><span>真实底图用于看大范围；房源实际按各站 500m 筛选</span></div>
       </div>
     </section>
@@ -79,14 +79,19 @@
           <select id="sortSelect">
             <option value="recommend">接近 ¥3,500</option>
             <option value="rating">我的评分</option>
-            <option value="price">租金从低到高</option>
+            <option value="priceAsc">租金从低到高</option>
+            <option value="priceDesc">租金从高到低</option>
+            <option value="areaDesc">面积从大到小</option>
+            <option value="distanceAsc">距地铁从近到远</option>
+            <option value="photosDesc">图片从多到少</option>
           </select>
         </label>
         <span id="dataPulse"><i></i> 高德 131 个候选 · 乐有家 19 个命中小区 · 142 条新房源</span>
       </div>
       <div class="station-chips" id="stationChips"></div>
+      <div class="community-tabs" id="communityTabs" aria-label="当前站点的小区与均租"></div>
       <div class="listing-grid" id="listingGrid"></div>
-      <button id="showMore" class="show-more">再显示 18 套</button>
+      <nav id="pagination" class="pagination" aria-label="房源分页"></nav>
     </section>
 
     <section class="research-shell">
