@@ -94,6 +94,7 @@ input[type="range"] { accent-color: var(--red); width: 100%; }
 .photo-placeholder small { color:var(--muted); margin-top:12px; }
 .photo-status { position:absolute; left:12px; top:12px; background:var(--ink); color:#fff; padding:5px 7px; font-size:9px; letter-spacing:.08em; }
 .photo-status.live { background:var(--green); }
+.photo-status.empty { background:var(--red); }
 .photo-count { position:absolute; right:12px; bottom:12px; background:rgba(23,25,22,.78); color:#fff; padding:5px 8px; font-size:9px; backdrop-filter:blur(7px); }
 .heart { position:absolute; z-index:4; right:12px; top:12px; width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.75); background:rgba(23,25,22,.74); color:#fff; backdrop-filter:blur(8px); font-size:21px; cursor:pointer; }
 .heart.active { background:var(--red); border-color:var(--red); }

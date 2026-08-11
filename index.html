@@ -29,7 +29,7 @@
         <input id="searchInput" type="search" placeholder="世濠大厦 / 佳兆业中心…" />
       </label>
       <label class="range-box">
-        <span>最高租金 <strong id="rentValue">¥5,000</strong></span>
+        <span>最高租金 <strong id="rentValue">¥4,500</strong></span>
         <input id="rentRange" type="range" min="2400" max="4500" step="100" value="4500" />
       </label>
       <div class="toggle-box">
@@ -69,7 +69,18 @@
       </div>
       <div class="collection-bar">
         <button id="favoriteFilter" class="collection-toggle" type="button">♡ 只看收藏 <b id="favoriteCount">0</b></button>
-        <button id="photoFilter" class="collection-toggle" type="button">▣ 只看 ≥2 张图</button>
+        <label>图片
+          <select id="photoSelect">
+            <option value="all">全部图片状态</option>
+            <option value="with">有图（≥2张）</option>
+            <option value="without">无图（≤1张）</option>
+          </select>
+        </label>
+        <label>小区
+          <select id="communitySelect">
+            <option value="">全部小区</option>
+          </select>
+        </label>
         <label>排序
           <select id="sortSelect">
             <option value="recommend">接近 ¥3,500</option>
@@ -77,7 +88,7 @@
             <option value="price">租金从低到高</option>
           </select>
         </label>
-        <span><i></i> 已接入真实房源封面，点击卡片进入看房详情</span>
+        <span id="dataPulse"><i></i> 高德 131 个候选 · 乐有家 19 个命中小区 · 142 条新房源</span>
       </div>
       <div class="station-chips" id="stationChips"></div>
       <div class="listing-grid" id="listingGrid"></div>
@@ -103,7 +114,8 @@
   </footer>
   <script src="data.js"></script>
   <script src="images.js"></script>
-  <script src="latest.js"></script>
+  <script src="scan.js"></script>
+  <script src="photo-counts.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

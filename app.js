@@ -1,7 +1,9 @@
 const baseData = window.RENTAL_DATA;
-const latestData = window.RENTAL_LATEST || { rentals: [] };
-const latestUrls = new Set(latestData.rentals.map(item => item.url));
-const rentals = [...latestData.rentals, ...baseData.rentals.filter(item => !latestUrls.has(item.url))];
+const scanData = window.RENTAL_SCAN || { rentals: [], communities: [], stats: {} };
+const photoData = window.RENTAL_PHOTO_COUNTS || { counts: {}, stats: {} };
+const scanStations = new Set(["国贸", "老街", "大剧院"]);
+const scannedRentals = scanData.rentals.map(item => ({ ...item, photoCount: Number(photoData.counts[item.url] ?? item.photoCount ?? 0) }));
+const rentals = [...scannedRentals, ...baseData.rentals.filter(item => !scanStations.has(item.station))];
 const { stations, research } = baseData;
 const rentalImages = window.RENTAL_IMAGES || {};
 
@@ -10,10 +12,11 @@ const state = {
   station: null,
   maxRent: 4500,
   query: "",
+  community: "",
   mode: "absolute",
   limit: 18,
   favoritesOnly: false,
-  photosOnly: false,
+  photoMode: "all",
   sort: "recommend"
 };
 const review = loadReview();
@@ -25,6 +28,9 @@ const detailDialog = document.querySelector("#detailDialog");
 const detailContent = document.querySelector("#detailContent");
 
 document.querySelector("#totalCount").textContent = rentals.length;
+if (scanData.stats?.amapUniqueCommunities) {
+  document.querySelector("#dataPulse").innerHTML = `<i></i> 高德 ${scanData.stats.amapUniqueCommunities} 个候选 · 乐有家 ${scanData.stats.communitiesWithListings} 个命中小区 · ${scanData.stats.matchedRentals} 条新房源 · ${photoData.stats?.withImages || 0} 条有图`;
+}
 
 function loadReview() {
   try {
@@ -55,10 +61,12 @@ function ratingOf(url) {
 function filteredRentals() {
   return rentals
     .filter(r => !state.station || r.station === state.station)
+    .filter(r => r.rent >= 2400)
     .filter(r => r.rent <= state.maxRent)
     .filter(r => !state.query || r.name.toLowerCase().includes(state.query.toLowerCase()))
+    .filter(r => !state.community || r.name === state.community)
     .filter(r => !state.favoritesOnly || review.favorites[r.url])
-    .filter(r => !state.photosOnly || (rentalImages[r.url] || []).length >= 2 || Number(r.photoCount) >= 2)
+    .filter(r => state.photoMode === "all" || (state.photoMode === "with" ? effectivePhotoCount(r) >= 2 : effectivePhotoCount(r) <= 1))
     .sort((a, b) => {
       if (state.sort === "rating") return ratingOf(b.url) - ratingOf(a.url) || Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500);
       if (state.sort === "price") return a.rent - b.rent || b.area - a.area;
@@ -69,6 +77,7 @@ function filteredRentals() {
 
 function selectStation(name) {
   state.station = state.station === name ? null : name;
+  state.community = "";
   state.limit = 18;
   render();
   document.querySelector(".listing-shell").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -90,23 +99,40 @@ function renderChips() {
   stationChips.innerHTML = all + stations.map(s => `<button class="chip ${state.station === s.name ? "active" : ""}" data-station="${escapeHtml(s.name)}">${escapeHtml(s.name)} · ${rentals.filter(r => r.station === s.name).length}</button>`).join("");
   stationChips.querySelectorAll(".chip").forEach(el => el.addEventListener("click", () => {
     state.station = el.dataset.station || null;
+    state.community = "";
     state.limit = 18;
     render();
   }));
 }
 
+function effectivePhotoCount(rental) {
+  const verified = Number(rental.photoCount);
+  if (Number.isFinite(verified)) return verified;
+  return (rentalImages[rental.url] || []).length;
+}
+
+function renderCommunityOptions() {
+  const select = document.querySelector("#communitySelect");
+  const relevant = rentals.filter(rental => (!state.station || rental.station === state.station) && rental.rent >= 2400 && rental.rent <= state.maxRent);
+  const counts = new Map();
+  relevant.forEach(rental => counts.set(rental.name, (counts.get(rental.name) || 0) + 1));
+  const options = [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"));
+  select.innerHTML = `<option value="">全部小区（${options.length}）</option>` + options.map(([name, count]) => `<option value="${escapeHtml(name)}" ${state.community === name ? "selected" : ""}>${escapeHtml(name)} · ${count}套</option>`).join("");
+}
+
 function imageMarkup(rental) {
   const gallery = rentalImages[rental.url] || [];
   const image = gallery[0];
-  if (image) return `<img src="${image}" alt="${escapeHtml(rental.name)}房源实拍封面" loading="lazy"><span class="photo-status live">乐有家实拍</span><span class="photo-count">▣ ${gallery.length}</span>`;
-  const verified = Number(rental.photoCount) >= 2;
-  return `<div class="photo-placeholder"><b>${escapeHtml(rental.station)}</b><span>${escapeHtml(rental.name)}</span><small>${verified ? `原站已核验 ${rental.photoCount} 张图` : "点击进入详情 · 原站查看完整相册"}</small></div><span class="photo-status ${verified ? "live" : ""}">${verified ? `原站 ${rental.photoCount} 图` : "待补图"}</span>`;
+  const count = effectivePhotoCount(rental);
+  if (image) return `<img src="${image}" alt="${escapeHtml(rental.name)}房源实拍封面" loading="lazy"><span class="photo-status live">有图</span><span class="photo-count">▣ ${count}</span>`;
+  const hasImages = count >= 2;
+  return `<div class="photo-placeholder"><b>${escapeHtml(rental.station)}</b><span>${escapeHtml(rental.name)}</span><small>${hasImages ? `乐有家原站 ${count} 张图` : `${count} 张图 · 按无图处理`}</small></div><span class="photo-status ${hasImages ? "live" : "empty"}">${hasImages ? "有图" : "无图"}</span><span class="photo-count">▣ ${count}</span>`;
 }
 
 function renderListings() {
   const result = filteredRentals();
   document.querySelector("#visibleCount").textContent = result.length;
-  document.querySelector("#listingTitle").textContent = state.station ? `${state.station}房源` : (state.favoritesOnly ? "我的收藏" : "全部房源");
+  document.querySelector("#listingTitle").textContent = state.community ? `${state.community}全部房源` : state.station ? `${state.station}房源` : (state.favoritesOnly ? "我的收藏" : "全部房源");
   listingGrid.innerHTML = result.slice(0, state.limit).map((r, i) => {
     const delta = r.rent - r.target;
     const priceLabel = state.mode === "target" ? `${delta > 0 ? "+" : ""}${delta} vs目标` : `${r.rent <= 3500 ? "理想预算" : "可接受"}`;
@@ -161,7 +187,7 @@ function openDetail(url) {
     <div class="detail-layout">
       <section class="detail-gallery">
         ${images.length ? `<div class="detail-stage"><img id="detailHero" class="detail-hero" src="${images[0]}" alt="${escapeHtml(rental.name)}房源实拍"><span id="galleryIndex" class="gallery-index">01 / ${String(images.length).padStart(2, "0")}</span>${images.length > 1 ? `<button id="galleryPrev" class="gallery-nav prev" type="button" aria-label="上一张">←</button><button id="galleryNext" class="gallery-nav next" type="button" aria-label="下一张">→</button>` : ""}</div><div class="thumb-strip">${images.map((image, index) => `<button type="button" data-gallery-index="${index}" class="${index === 0 ? "active" : ""}"><img src="${image}" alt="第${index + 1}张"></button>`).join("")}</div>` : `<div class="detail-empty"><b>此套封面尚未抓取</b><p>乐有家详情页仍可查看完整照片和视频；你的评分与笔记可以先保存。</p></div>`}
-        <div class="gallery-caption"><span>${images.length ? `已接入 ${images.length} 张真实房源图片` : (rental.photoCount ? `乐有家原站已核验 ${rental.photoCount} 张图` : "图片待补充")}</span><a href="${rental.url}" target="_blank" rel="noreferrer">打开乐有家完整相册 ↗</a></div>
+        <div class="gallery-caption"><span>${effectivePhotoCount(rental) >= 2 ? `乐有家原站已核验 ${effectivePhotoCount(rental)} 张图` : `${effectivePhotoCount(rental)} 张图，按无图处理`}</span><a href="${rental.url}?utm_term=lyj_token_fks" target="_blank" rel="noreferrer">打开乐有家完整相册 ↗</a></div>
       </section>
       <aside class="detail-panel">
         <p class="detail-kicker">${escapeHtml(rental.station)} · ${escapeHtml(rental.rec)}</p>
@@ -176,7 +202,7 @@ function openDetail(url) {
           ${starRow(url, "light", "采光")}
         </div>
         <label class="note-box">看房笔记<textarea id="detailNote" placeholder="例如：床垫要换、窗外不压抑、厨房收纳少……">${escapeHtml(review.notes[url] || "")}</textarea><small id="noteStatus">输入后自动保存</small></label>
-        <a class="source-button" href="${rental.url}" target="_blank" rel="noreferrer">去乐有家核实状态 / 看全部图片</a>
+        <a class="source-button" href="${rental.url}?utm_term=lyj_token_fks" target="_blank" rel="noreferrer">去乐有家核实状态 / 看全部图片</a>
       </aside>
     </div>`;
 
@@ -214,7 +240,6 @@ function renderCollectionState() {
   const count = Object.keys(review.favorites).length;
   document.querySelector("#favoriteCount").textContent = count;
   document.querySelector("#favoriteFilter").classList.toggle("active", state.favoritesOnly);
-  document.querySelector("#photoFilter").classList.toggle("active", state.photosOnly);
 }
 
 function renderResearch() {
@@ -224,6 +249,7 @@ function renderResearch() {
 function render() {
   renderStations();
   renderChips();
+  renderCommunityOptions();
   renderListings();
 }
 
@@ -231,9 +257,10 @@ document.querySelector("#searchInput").addEventListener("input", event => { stat
 document.querySelector("#rentRange").addEventListener("input", event => { state.maxRent = Number(event.target.value); document.querySelector("#rentValue").textContent = `¥${money(state.maxRent)}`; state.limit = 18; render(); });
 document.querySelectorAll(".toggle").forEach(el => el.addEventListener("click", () => { document.querySelectorAll(".toggle").forEach(button => button.classList.remove("active")); el.classList.add("active"); state.mode = el.dataset.mode; renderListings(); }));
 document.querySelector("#favoriteFilter").addEventListener("click", () => { state.favoritesOnly = !state.favoritesOnly; state.limit = 18; renderListings(); });
-document.querySelector("#photoFilter").addEventListener("click", () => { state.photosOnly = !state.photosOnly; state.limit = 18; renderListings(); });
+document.querySelector("#photoSelect").addEventListener("change", event => { state.photoMode = event.target.value; state.limit = 18; renderListings(); });
+document.querySelector("#communitySelect").addEventListener("change", event => { state.community = event.target.value; state.limit = 18; renderListings(); });
 document.querySelector("#sortSelect").addEventListener("change", event => { state.sort = event.target.value; renderListings(); });
-document.querySelector("#resetStation").addEventListener("click", () => { state.station = null; state.limit = 18; render(); });
+document.querySelector("#resetStation").addEventListener("click", () => { state.station = null; state.community = ""; state.limit = 18; render(); });
 document.querySelector("#showMore").addEventListener("click", () => { state.limit += 18; renderListings(); });
 detailDialog.addEventListener("click", event => { if (event.target === detailDialog) detailDialog.close(); });
 
