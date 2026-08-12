@@ -44,10 +44,12 @@
         <p>底图使用你新截取的高德 4 公里范围图。点地图站点即可筛选；住宅候选必须同时满足“距正式地铁站 1 公里内”与“距罗湖口岸 4 公里内”。</p>
         <button id="resetStation" class="reset">显示全部站点</button>
       </div>
-      <div class="metro-map radius-map-shell" id="metroMap" role="img" aria-label="以罗湖站为起点的高德地图四公里红色半径截图">
-        <img class="radius-map-image" src="radius-map.png" alt="以罗湖站为起点，完整覆盖大剧院、老街、国贸及周边区域的高德地图四公里范围截图" />
-        <div id="stationLayer" aria-label="可点击地铁站"></div>
-        <div class="radius-map-caption"><b>4.00 KM / LUOHU PORT</b><span>口岸 4km 总边界 · 正式地铁站 1km 住宅圈</span></div>
+      <div class="mobile-map-scroll" id="mapScroller" aria-label="地图可横向拖动">
+        <div class="metro-map radius-map-shell" id="metroMap" role="img" aria-label="以罗湖站为起点的高德地图四公里红色半径截图">
+          <img class="radius-map-image" src="radius-map.png" alt="以罗湖站为起点，完整覆盖大剧院、老街、国贸及周边区域的高德地图四公里范围截图" />
+          <div id="stationLayer" aria-label="可点击地铁站"></div>
+          <div class="radius-map-caption"><b>4.00 KM / LUOHU PORT</b><span>口岸 4km 总边界 · 正式地铁站 1km 住宅圈</span></div>
+        </div>
       </div>
     </section>
 

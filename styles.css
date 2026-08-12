@@ -51,7 +51,8 @@ input[type="search"] { border: 0; border-bottom: 1px solid var(--ink); backgroun
 .map-copy h2,.listing-head h2,.research-intro h2 { font-size: clamp(38px,5vw,72px); }
 .map-copy > p:not(.section-index),.research-intro > p:not(.section-index) { color: var(--muted); font-size: 13px; line-height: 1.75; margin-top: 30px; }
 .reset { margin-top: auto; width: fit-content; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 8px 0; cursor: pointer; font: 600 12px "IBM Plex Mono"; }
-.metro-map { min-height: 680px; position: relative; overflow: hidden; background: radial-gradient(circle at 65% 45%, rgba(255,255,255,.9), transparent 48%), linear-gradient(120deg, rgba(0,168,107,.04), rgba(255,77,56,.05)); }
+.mobile-map-scroll { min-width:0; overflow:hidden; background:#dfe6d7; }
+.metro-map { min-height: 680px; height:100%; position: relative; overflow: hidden; background: radial-gradient(circle at 65% 45%, rgba(255,255,255,.9), transparent 48%), linear-gradient(120deg, rgba(0,168,107,.04), rgba(255,77,56,.05)); }
 .radius-map-shell { background:#dfe6d7; }
 .radius-map-image { position:absolute; inset:0; width:100%; height:100%; object-fit:fill; display:block; filter:saturate(.92) contrast(1.03); }
 .radius-map-shell::after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(23,25,22,.2), inset 0 -120px 100px rgba(23,25,22,.22); }
@@ -206,8 +207,80 @@ footer { padding:25px 5vw 40px; color:var(--muted); font-size:10px; line-height:
 @keyframes rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
 @media (max-width:900px){
-  .masthead{min-height:380px;display:block}.masthead-meta{margin-top:50px;width:100%}.control-strip{grid-template-columns:1fr}.map-shell,.research-shell{grid-template-columns:1fr}.map-copy,.research-intro{border-right:0;border-bottom:1px solid var(--ink)}.map-copy{min-height:320px}.reset{margin-top:40px}.metro-map{min-height:520px}.listing-grid{grid-template-columns:1fr 1fr}.toggle-box{justify-content:start}.detail-layout{grid-template-columns:1fr;height:auto}.detail-gallery{min-height:52vh;border-right:0;border-bottom:1px solid var(--ink)}.detail-dialog{overflow:auto}.detail-panel{overflow:visible}.collection-bar>span{margin-left:0;width:100%}.map-station{transform:translate(-50%,-50%) scale(.82)}.map-station:hover,.map-station.active{transform:translate(-50%,-50%) scale(.86) translateY(-2px)}
+  .masthead{min-height:380px;display:block}.masthead-meta{margin-top:50px;width:100%}.control-strip{grid-template-columns:1fr}.map-shell,.research-shell{grid-template-columns:1fr}.map-copy,.research-intro{border-right:0;border-bottom:1px solid var(--ink)}.map-copy{min-height:320px}.reset{margin-top:40px}.metro-map{min-height:520px}.listing-grid{grid-template-columns:1fr 1fr}.detail-layout{grid-template-columns:1fr;height:auto}.detail-gallery{min-height:52vh;border-right:0;border-bottom:1px solid var(--ink)}.detail-dialog{overflow:auto}.detail-panel{overflow:visible}.collection-bar>span{margin-left:0;width:100%}.map-station{transform:translate(-50%,-50%) scale(.82)}.map-station:hover,.map-station.active{transform:translate(-50%,-50%) scale(.86) translateY(-2px)}
 }
 @media (max-width:600px){
-  .masthead{padding-top:35px}.masthead::before{font-size:280px}.listing-grid{grid-template-columns:1fr}.listing-head{align-items:start}.listing-stat strong{font-size:46px}.metro-map{min-height:430px}.station-label{font-size:14px;transform:translate(-50%,30px)}.station{--size:44px;border-width:3px}.legend{display:none}.luohu-anchor{top:90%;font-size:12px}.research-item{grid-template-columns:1fr auto}.research-tag{grid-column:1/-1}.control-strip{position:relative}.collection-bar label{width:100%;justify-content:space-between}.collection-bar select{max-width:calc(100% - 50px);width:100%}
+  body{overflow-x:hidden}
+  .grain{opacity:.1}
+  .masthead{min-height:0;padding:30px 18px 26px}
+  .masthead::before{right:-34px;top:-18px;font-size:230px}
+  .eyebrow{font-size:9px;letter-spacing:.12em}
+  h1{font-size:clamp(43px,13vw,56px);line-height:1.02}
+  .masthead-meta{margin-top:32px;gap:10px}
+  .masthead-meta span{padding-bottom:8px}
+  .masthead-meta a{min-height:46px;display:grid;place-items:center;margin-top:8px}
+  .control-strip{position:relative;padding:16px 18px 18px;gap:17px}
+  .control-strip label,.range-box{gap:7px}
+  input[type="search"]{font-size:16px;padding:9px 0}
+  .range-box strong{font-size:16px}
+  .dual-range,.dual-range input[type="range"]{height:44px}
+  .dual-range input[type="range"]::-webkit-slider-thumb{width:22px;height:22px;box-shadow:0 0 0 5px rgba(255,77,56,.17)}
+  .dual-range input[type="range"]::-moz-range-thumb{width:19px;height:19px;box-shadow:0 0 0 5px rgba(255,77,56,.17)}
+  .map-copy{min-height:0;padding:34px 18px 28px}
+  .map-copy h2,.listing-head h2,.research-intro h2{font-size:40px}
+  .map-copy>p:not(.section-index){margin-top:20px;font-size:12px}
+  .reset{min-height:44px;margin-top:22px}
+  .mobile-map-scroll{overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .mobile-map-scroll::before{content:"左右拖动地图 · 点击站点筛选";position:sticky;left:14px;top:12px;z-index:8;display:inline-block;margin:12px 0 -36px;padding:7px 9px;background:rgba(23,25,22,.82);color:#fff;font-size:9px;letter-spacing:.08em;pointer-events:none}
+  .metro-map{width:720px;min-width:720px;height:418px;min-height:418px}
+  .map-station{transform:translate(-50%,-50%) scale(.78);opacity:.72}
+  .map-station:hover,.map-station.active{transform:translate(-50%,-50%) scale(.82) translateY(-2px)}
+  .radius-map-caption{left:18px;bottom:17px;max-width:310px;padding:10px 12px}
+  .listing-shell{padding:44px 18px 58px}
+  .listing-head{align-items:flex-start;gap:12px}
+  .listing-stat strong{font-size:44px}
+  .collection-bar{display:grid;grid-template-columns:1fr;margin-top:24px;gap:10px}
+  .collection-toggle{width:100%;min-height:44px;text-align:left}
+  .collection-bar label{width:100%;min-height:44px;justify-content:space-between;border-bottom:1px solid var(--rule);padding-bottom:10px}
+  .collection-bar select{width:min(72%,270px);max-width:none;min-height:40px;font-size:12px}
+  .collection-bar>span{line-height:1.55;padding-top:5px}
+  .station-chips{flex-wrap:nowrap;overflow-x:auto;margin:24px -18px 16px;padding:0 18px 8px;scrollbar-width:none}
+  .station-chips::-webkit-scrollbar,.community-tabs::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;min-height:44px}
+  .community-tabs{margin-left:-18px;margin-right:-18px;padding:0 18px 16px;scrollbar-width:none}
+  .community-tab{min-width:145px;min-height:58px}
+  .listing-grid{grid-template-columns:1fr;border-left:0}
+  .listing-card{min-height:0;border-left:1px solid var(--ink)}
+  .listing-card:hover{transform:none}
+  .card-photo{aspect-ratio:4/3}
+  .card-body{padding:17px 16px 18px}
+  .listing-card h3{font-size:23px;margin:14px 0}
+  .card-rent strong{font-size:28px}
+  .heart{width:44px;height:44px}
+  .source-link,.card-actions .detail-link{min-height:44px;display:grid;place-items:center}
+  .pagination{gap:6px;margin-top:25px}
+  .pagination button{min-width:44px;height:44px}
+  .research-intro{padding:44px 18px 34px}
+  .research-list{padding:18px 18px 48px}
+  .research-item{grid-template-columns:1fr auto;gap:10px 14px;padding:19px 0}
+  .research-tag{grid-column:1/-1}
+  footer{padding:22px 18px calc(30px + env(safe-area-inset-bottom))}
+  .detail-dialog{inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;border:0;overflow:auto}
+  .detail-topbar{position:sticky;top:0;z-index:20;height:54px;padding:0 14px;background:rgba(242,239,231,.96);backdrop-filter:blur(12px)}
+  .detail-topbar button{width:44px;height:44px}
+  .detail-layout{display:flex;flex-direction:column;height:auto;min-height:calc(100dvh - 54px)}
+  .detail-gallery{min-height:0;height:auto;border-right:0}
+  .detail-stage{height:46dvh;min-height:310px;flex:none}
+  .gallery-nav{width:44px;height:58px}
+  .gallery-nav.prev{left:8px}.gallery-nav.next{right:8px}
+  .thumb-strip{height:80px;padding:8px}
+  .thumb-strip button{flex-basis:92px;height:62px}
+  .gallery-caption{height:auto;min-height:52px;padding:10px 14px;gap:12px}
+  .detail-panel{padding:28px 18px calc(34px + env(safe-area-inset-bottom));overflow:visible}
+  .detail-panel h2{font-size:40px;margin:12px 0 16px}
+  .detail-price{font-size:38px}
+  .detail-favorite,.source-button{min-height:48px}
+  .stars button{min-width:36px;min-height:40px}
+  .note-box textarea{font-size:16px}
 }
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.listing-card{animation:none}.card-photo img,.listing-card,.map-station{transition:none}}

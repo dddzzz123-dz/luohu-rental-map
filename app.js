@@ -200,7 +200,7 @@ function imageMarkup(rental) {
   const gallery = rentalImages[rental.url] || [];
   const image = gallery[0];
   const count = effectivePhotoCount(rental);
-  if (image) return `<img src="${image}" alt="${escapeHtml(rental.name)}房源实拍封面" loading="lazy"><span class="photo-status live">有图</span><span class="photo-count">▣ ${count}</span>`;
+  if (image) return `<img src="${image}" alt="${escapeHtml(rental.name)}房源实拍封面" loading="lazy" decoding="async"><span class="photo-status live">有图</span><span class="photo-count">▣ ${count}</span>`;
   const hasImages = count >= 2;
   const isUnknown = count == null;
   return `<div class="photo-placeholder"><b>${escapeHtml(rental.station)}</b><span>${escapeHtml(rental.name)}</span><small>${isUnknown ? "图片状态等待补核" : hasImages ? `乐有家原站 ${count} 张图` : `${count} 张图 · 按无图处理`}</small></div><span class="photo-status ${isUnknown ? "pending" : hasImages ? "live" : "empty"}">${isUnknown ? "待核" : hasImages ? "有图" : "无图"}</span><span class="photo-count">${isUnknown ? "图片待核" : `▣ ${count}`}</span>`;
@@ -271,7 +271,7 @@ function openDetail(url) {
   detailContent.innerHTML = `<div class="detail-topbar"><span>ROOM REVIEW / ${escapeHtml(rental.station)}</span><button id="closeDetail" type="button" aria-label="关闭">×</button></div>
     <div class="detail-layout">
       <section class="detail-gallery">
-        ${images.length ? `<div class="detail-stage"><img id="detailHero" class="detail-hero" src="${images[0]}" alt="${escapeHtml(rental.name)}房源实拍"><span id="galleryIndex" class="gallery-index">01 / ${String(images.length).padStart(2, "0")}</span>${images.length > 1 ? `<button id="galleryPrev" class="gallery-nav prev" type="button" aria-label="上一张">←</button><button id="galleryNext" class="gallery-nav next" type="button" aria-label="下一张">→</button>` : ""}</div><div class="thumb-strip">${images.map((image, index) => `<button type="button" data-gallery-index="${index}" class="${index === 0 ? "active" : ""}"><img src="${image}" alt="第${index + 1}张"></button>`).join("")}</div>` : `<div class="detail-empty"><b>此套封面尚未抓取</b><p>乐有家详情页仍可查看完整照片和视频；你的评分与笔记可以先保存。</p></div>`}
+        ${images.length ? `<div class="detail-stage"><img id="detailHero" class="detail-hero" src="${images[0]}" alt="${escapeHtml(rental.name)}房源实拍" decoding="async"><span id="galleryIndex" class="gallery-index">01 / ${String(images.length).padStart(2, "0")}</span>${images.length > 1 ? `<button id="galleryPrev" class="gallery-nav prev" type="button" aria-label="上一张">←</button><button id="galleryNext" class="gallery-nav next" type="button" aria-label="下一张">→</button>` : ""}</div><div class="thumb-strip">${images.map((image, index) => `<button type="button" data-gallery-index="${index}" class="${index === 0 ? "active" : ""}"><img src="${image}" alt="第${index + 1}张" loading="lazy" decoding="async"></button>`).join("")}</div>` : `<div class="detail-empty"><b>此套封面尚未抓取</b><p>乐有家详情页仍可查看完整照片和视频；你的评分与笔记可以先保存。</p></div>`}
         <div class="gallery-caption"><span>${effectivePhotoCount(rental) == null ? "图片状态等待补核" : effectivePhotoCount(rental) >= 2 ? `乐有家原站已核验 ${effectivePhotoCount(rental)} 张图` : `${effectivePhotoCount(rental)} 张图，按无图处理`}</span><a href="${sourceUrl(rental.url)}" target="_blank" rel="noreferrer">打开乐有家完整相册 ↗</a></div>
       </section>
       <aside class="detail-panel">
@@ -372,3 +372,7 @@ detailDialog.addEventListener("click", event => { if (event.target === detailDia
 
 renderResearch();
 render();
+const mapScroller = document.querySelector("#mapScroller");
+if (window.matchMedia("(max-width: 600px)").matches) {
+  requestAnimationFrame(() => { mapScroller.scrollLeft = Math.max(0, (mapScroller.scrollWidth - mapScroller.clientWidth) / 2); });
+}
