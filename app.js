@@ -7,7 +7,7 @@ const scannedRentals = scanData.rentals.map(item => {
   return { ...item, photoCount: rawPhotoCount == null ? null : Number(rawPhotoCount) };
 });
 const rentals = [...scannedRentals, ...baseData.rentals.filter(item => !scanStations.has(item.station))];
-const stations = [...baseData.stations.filter(item => item.name !== "东门片区"), { name: "罗湖", x: 49.6, y: 92.5, count: 0, target: 3500, line: "1" }];
+const stations = [...baseData.stations.filter(item => item.name !== "东门片区"), { name: "罗湖", x: 49.6, y: 92.5, count: 0, line: "1" }];
 const { research } = baseData;
 const rentalImages = window.RENTAL_IMAGES || {};
 const PAGE_SIZE = 8;
@@ -26,14 +26,14 @@ const mapStations = {
 const STORAGE_KEY = "luohu-rental-review-v1";
 const state = {
   station: null,
-  maxRent: 4500,
+  minRent: 2400,
+  maxRent: 5000,
   query: "",
   community: "",
-  mode: "absolute",
   page: 1,
   favoritesOnly: false,
   photoMode: "all",
-  sort: "recommend"
+  sort: "commute"
 };
 const review = loadReview();
 const stationLayer = document.querySelector("#stationLayer");
@@ -85,7 +85,7 @@ function resetPage() {
 
 function matchesControls(rental, { ignoreStation = false, ignoreCommunity = false } = {}) {
   if (!ignoreStation && state.station && rental.station !== state.station) return false;
-  if (rental.rent < 2400 || rental.rent > state.maxRent) return false;
+  if (rental.rent < state.minRent || rental.rent > state.maxRent) return false;
   if (state.query && !rental.name.toLowerCase().includes(state.query.toLowerCase())) return false;
   if (!ignoreCommunity && state.community && rental.name !== state.community) return false;
   if (state.favoritesOnly && !review.favorites[rental.url]) return false;
@@ -101,16 +101,24 @@ function filteredRentals() {
   return rentals
     .filter(r => matchesControls(r))
     .sort((a, b) => {
-      if (state.sort === "rating") return ratingOf(b.url) - ratingOf(a.url) || Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500);
+      if (state.sort === "commute") {
+        const safety = rental => ["普通住宅", "住宅"].includes(rental.propertyClass) ? 0 : 1;
+        const distanceBand = rental => rental.distance <= 300 ? 0 : rental.distance <= 500 ? 1 : rental.distance <= 800 ? 2 : 3;
+        return safety(a) - safety(b)
+          || distanceBand(a) - distanceBand(b)
+          || Number((rentalImages[b.url] || []).length >= 2) - Number((rentalImages[a.url] || []).length >= 2)
+          || (a.distance ?? 9999) - (b.distance ?? 9999)
+          || a.rent - b.rent;
+      }
+      if (state.sort === "rating") return ratingOf(b.url) - ratingOf(a.url) || (a.distance ?? 9999) - (b.distance ?? 9999) || a.rent - b.rent;
       if (state.sort === "priceAsc") return a.rent - b.rent || b.area - a.area;
       if (state.sort === "priceDesc") return b.rent - a.rent || b.area - a.area;
       if (state.sort === "areaDesc") return (b.area || 0) - (a.area || 0) || a.rent - b.rent;
       if (state.sort === "distanceAsc") return (a.distance ?? 9999) - (b.distance ?? 9999) || a.rent - b.rent;
       if (state.sort === "photosDesc") return effectivePhotoCount(b) - effectivePhotoCount(a) || a.rent - b.rent;
-      if (state.mode === "target") return (a.rent - a.target) - (b.rent - b.target) || b.area - a.area;
       const onsiteRank = Number((rentalImages[b.url] || []).length > 0) - Number((rentalImages[a.url] || []).length > 0);
       const photoRank = Number(effectivePhotoCount(b) >= 2) - Number(effectivePhotoCount(a) >= 2);
-      return onsiteRank || photoRank || Math.abs(a.rent - 3500) - Math.abs(b.rent - 3500) || b.area - a.area;
+      return onsiteRank || photoRank || (a.distance ?? 9999) - (b.distance ?? 9999) || a.rent - b.rent;
     });
 }
 
@@ -206,8 +214,7 @@ function renderListings() {
   document.querySelector("#visibleCount").textContent = result.length;
   document.querySelector("#listingTitle").textContent = state.community ? `${state.community}全部房源` : state.station ? `${state.station}房源` : (state.favoritesOnly ? "我的收藏" : "全部房源");
   listingGrid.innerHTML = result.slice(pageStart, pageStart + PAGE_SIZE).map((r, i) => {
-    const delta = r.rent - r.target;
-    const priceLabel = state.mode === "target" ? `${delta > 0 ? "+" : ""}${delta} vs目标` : `${r.rent <= 3500 ? "理想预算" : "可接受"}`;
+    const priceLabel = ["普通住宅", "住宅"].includes(r.propertyClass) ? "住宅" : (r.propertyClass || "类型待核");
     const isFavorite = Boolean(review.favorites[r.url]);
     const rating = ratingOf(r.url);
     return `<article class="listing-card" data-url="${r.url}" style="animation-delay:${Math.min(i, 12) * 25}ms">
@@ -333,8 +340,29 @@ function render() {
 }
 
 document.querySelector("#searchInput").addEventListener("input", event => { state.query = event.target.value.trim(); resetPage(); render(); });
-document.querySelector("#rentRange").addEventListener("input", event => { state.maxRent = Number(event.target.value); document.querySelector("#rentValue").textContent = `¥${money(state.maxRent)}`; resetPage(); render(); });
-document.querySelectorAll(".toggle").forEach(el => el.addEventListener("click", () => { document.querySelectorAll(".toggle").forEach(button => button.classList.remove("active")); el.classList.add("active"); state.mode = el.dataset.mode; renderListings(); }));
+function updateRentRange(changed) {
+  const minInput = document.querySelector("#rentMinRange");
+  const maxInput = document.querySelector("#rentMaxRange");
+  let min = Number(minInput.value);
+  let max = Number(maxInput.value);
+  if (max - min < 100) {
+    if (changed === "min") min = max - 100;
+    else max = min + 100;
+  }
+  minInput.value = min;
+  maxInput.value = max;
+  state.minRent = min;
+  state.maxRent = max;
+  const span = 5000 - 2400;
+  const slider = document.querySelector("#rentSlider");
+  slider.style.setProperty("--min-pct", `${((min - 2400) / span) * 100}%`);
+  slider.style.setProperty("--max-pct", `${((max - 2400) / span) * 100}%`);
+  document.querySelector("#rentValue").textContent = `¥${money(min)}–${money(max)}`;
+  resetPage();
+  render();
+}
+document.querySelector("#rentMinRange").addEventListener("input", () => updateRentRange("min"));
+document.querySelector("#rentMaxRange").addEventListener("input", () => updateRentRange("max"));
 document.querySelector("#favoriteFilter").addEventListener("click", () => { state.favoritesOnly = !state.favoritesOnly; resetPage(); render(); });
 document.querySelector("#photoSelect").addEventListener("change", event => { state.photoMode = event.target.value; resetPage(); render(); });
 document.querySelector("#communitySelect").addEventListener("change", event => { state.community = event.target.value; resetPage(); renderCommunityTabs(); renderListings(); });

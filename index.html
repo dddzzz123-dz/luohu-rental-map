@@ -17,7 +17,7 @@
     </div>
     <div class="masthead-meta">
       <span><b id="totalCount">169</b> 个唯一链接</span>
-      <span><b>¥4,500</b> 预算上限</span>
+      <span><b>¥5,000</b> 预算上限</span>
       <span class="publish-badge">地铁 1km / 口岸 4km</span>
     </div>
   </header>
@@ -28,14 +28,12 @@
         <span>搜索小区</span>
         <input id="searchInput" type="search" placeholder="世濠大厦 / 佳兆业中心…" />
       </label>
-      <label class="range-box">
-        <span>最高租金 <strong id="rentValue">¥4,500</strong></span>
-        <input id="rentRange" type="range" min="2400" max="4500" step="100" value="4500" />
-      </label>
-      <div class="toggle-box">
-        <span>价格视角</span>
-        <button class="toggle active" data-mode="absolute">月租</button>
-        <button class="toggle" data-mode="target">相对目标价</button>
+      <div class="range-box">
+        <span>月租范围 <strong id="rentValue">¥2,400–5,000</strong></span>
+        <div class="dual-range" id="rentSlider" style="--min-pct:0%;--max-pct:100%">
+          <input id="rentMinRange" aria-label="最低租金" type="range" min="2400" max="5000" step="100" value="2400" />
+          <input id="rentMaxRange" aria-label="最高租金" type="range" min="2400" max="5000" step="100" value="5000" />
+        </div>
       </div>
     </section>
 
@@ -79,7 +77,7 @@
         </label>
         <label>排序
           <select id="sortSelect">
-            <option value="recommend">接近 ¥3,500</option>
+            <option value="commute">通勤安全优先</option>
             <option value="rating">我的评分</option>
             <option value="priceAsc">租金从低到高</option>
             <option value="priceDesc">租金从高到低</option>
