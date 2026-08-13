@@ -12,13 +12,14 @@
   <div class="grain"></div>
   <header class="masthead">
     <div>
-      <p class="eyebrow">LUOHU RENTAL SIGNAL / 2026.08.11</p>
+      <p class="eyebrow">LUOHU RENTAL SIGNAL / 2026.08.13</p>
       <h1>把房源放回<br><em>地铁线路</em>里看</h1>
     </div>
     <div class="masthead-meta">
-      <span><b id="totalCount">169</b> 个唯一链接</span>
+      <span><b id="totalCount">1,068</b> 个唯一链接</span>
       <span><b>¥5,000</b> 预算上限</span>
       <span class="publish-badge">地铁 1km / 口岸 4km</span>
+      <a href="罗湖通勤租房_小区均价与步行通勤决策表_2026-08-13.xlsx" download>下载完整 Excel ↘</a>
     </div>
   </header>
 
@@ -96,9 +97,22 @@
       <nav id="pagination" class="pagination" aria-label="房源分页"></nav>
     </section>
 
+    <section class="insight-shell" id="communityInsights">
+      <div class="insight-head">
+        <div><p class="section-index">03 / COMMUNITY LENS</p><h2>先看小区，<br>再看单套房</h2></div>
+        <p>均价采用异常与疑似重复挂牌清洗后的稳健样本；通勤使用高德实际步行路线。安全分只负责提示门禁和混合物业风险，不能替代夜间实地看房。</p>
+      </div>
+      <div class="insight-controls">
+        <label>小区排序<select id="communitySort"><option value="score">综合初选</option><option value="walk">步行最快</option><option value="rent">中位租金最低</option><option value="stock">有效库存最多</option><option value="safety">安全基础分最高</option></select></label>
+        <label class="safe-check"><input id="residentialOnly" type="checkbox" /> 优先住宅 / 安全分 ≥ 3.5</label>
+        <span id="analysisPulse"></span>
+      </div>
+      <div class="community-insight-grid" id="communityInsightGrid"></div>
+    </section>
+
     <section class="research-shell">
       <div class="research-intro">
-        <p class="section-index">03 / SOCIAL CHECK</p>
+        <p class="section-index">04 / SOCIAL CHECK</p>
         <h2>小红书口碑<br>核验入口</h2>
         <p>房源广告和真实居住体验混在一起。这里优先保留“看房记录、避雷、通勤体验”入口；标题命中不等于内容已证实。</p>
       </div>
@@ -111,11 +125,12 @@
   </dialog>
 
   <footer>
-    <p>基础库为 2026-08-07 乐有家快照；2026-08-11 已按“罗湖口岸 4 公里内、正式地铁站 1 公里内”重扫住宅 POI 与一居室房源。地图距离为直线近似值；联系前请核实在租状态、实际步行距离、水电及中介费。</p>
+    <p>更新至 2026-08-13：乐有家 1,068 条一居挂牌、790 条清洗后有效样本，覆盖 116 个有房小区；高德已计算 268 条实际步行路线。小区安全分为初筛线索，签约前仍需核实在租状态、门禁、夜间路线、水电及中介费。</p>
   </footer>
   <script src="data.js"></script>
   <script src="images.js"></script>
   <script src="scan.js"></script>
+  <script src="analysis.js"></script>
   <script src="photo-counts.js"></script>
   <script src="app.js"></script>
 </body>

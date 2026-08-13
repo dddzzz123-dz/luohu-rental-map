@@ -1,6 +1,8 @@
 const baseData = window.RENTAL_DATA;
 const scanData = window.RENTAL_SCAN || { rentals: [], communities: [], stats: {} };
 const photoData = window.RENTAL_PHOTO_COUNTS || { counts: {}, stats: {} };
+const analysisData = window.RENTAL_ANALYSIS || { communities: [], evidence: [], stats: {} };
+const communityMetrics = new Map(analysisData.communities.map(item => [item.name, item]));
 const scanStations = new Set(["红岭", "老街", "晒布", "东门片区", "大剧院", "湖贝", "黄贝岭", "国贸", "罗湖"]);
 const scannedRentals = scanData.rentals.map(item => {
   const rawPhotoCount = photoData.counts[item.url] ?? item.photoCount;
@@ -43,6 +45,7 @@ const listingGrid = document.querySelector("#listingGrid");
 const researchList = document.querySelector("#researchList");
 const detailDialog = document.querySelector("#detailDialog");
 const detailContent = document.querySelector("#detailContent");
+const communityInsightGrid = document.querySelector("#communityInsightGrid");
 
 document.querySelector("#totalCount").textContent = rentals.length;
 if (scanData.stats?.amapUniqueCommunities) {
@@ -167,9 +170,9 @@ function renderCommunityTabs() {
     bucket.count += 1;
     groups.set(r.name, bucket);
   });
-  const items = [...groups.entries()].map(([name, value]) => ({ name, count: value.count, average: Math.round(value.total / value.count) }))
-    .sort((a, b) => a.average - b.average || b.count - a.count);
-  communityTabs.innerHTML = `<button class="community-tab ${!state.community ? "active" : ""}" data-community=""><b>全部小区</b><span>${items.length}个 · ${relevant.length}套</span></button>` + items.map(item => `<button class="community-tab ${state.community === item.name ? "active" : ""}" data-community="${escapeHtml(item.name)}"><b>${escapeHtml(item.name)}</b><span>均租 ¥${money(item.average)} · ${item.count}套</span></button>`).join("");
+  const items = [...groups.entries()].map(([name, value]) => ({ name, count: value.count, average: Math.round(value.total / value.count), metric: communityMetrics.get(name) }))
+    .sort((a, b) => (a.metric?.median ?? a.average) - (b.metric?.median ?? b.average) || b.count - a.count);
+  communityTabs.innerHTML = `<button class="community-tab ${!state.community ? "active" : ""}" data-community=""><b>全部小区</b><span>${items.length}个 · ${relevant.length}套</span></button>` + items.map(item => `<button class="community-tab ${state.community === item.name ? "active" : ""}" data-community="${escapeHtml(item.name)}"><b>${escapeHtml(item.name)}</b><span>中位 ¥${money(item.metric?.median ?? item.average)} · 有效 ${item.metric?.effectiveCount ?? item.count}套</span><small>${item.metric ? `步行 ${item.metric.walkMinutes} 分 · 安全 ${item.metric.safety}` : "待补小区统计"}</small></button>`).join("");
   communityTabs.querySelectorAll("[data-community]").forEach(button => button.addEventListener("click", () => {
     state.community = button.dataset.community;
     document.querySelector("#communitySelect").value = state.community;
@@ -328,7 +331,29 @@ function renderCollectionState() {
 }
 
 function renderResearch() {
-  researchList.innerHTML = research.map(item => `<a class="research-item" href="${item.url}" target="_blank" rel="noreferrer"><span class="research-tag">${escapeHtml(item.tag)}</span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.note)}</p></div><span class="research-arrow">→</span></a>`).join("");
+  const verified = analysisData.evidence.slice(0, 12).map(item => ({ tag: item.source, title: `${item.community}｜${item.evidenceType}`, note: item.summary, url: item.url }));
+  researchList.innerHTML = [...verified, ...research].map(item => `<a class="research-item" href="${item.url}" target="_blank" rel="noreferrer"><span class="research-tag">${escapeHtml(item.tag)}</span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.note)}</p></div><span class="research-arrow">→</span></a>`).join("");
+}
+
+function renderCommunityInsights() {
+  if (!communityInsightGrid) return;
+  let items = analysisData.communities.filter(item => !state.station || item.station === state.station);
+  const residentialOnly = document.querySelector("#residentialOnly")?.checked;
+  if (residentialOnly) items = items.filter(item => item.safety >= 3.5 && !item.propertyUse.includes("写字楼"));
+  const sort = document.querySelector("#communitySort")?.value || "score";
+  items.sort((a,b) => sort === "walk" ? a.walkMinutes-b.walkMinutes : sort === "rent" ? a.median-b.median : sort === "stock" ? b.effectiveCount-a.effectiveCount : sort === "safety" ? b.safety-a.safety : b.score-a.score);
+  document.querySelector("#analysisPulse").textContent = `${items.length} 个小区 · ${analysisData.stats.effective || 0} 条有效样本`;
+  communityInsightGrid.innerHTML = items.slice(0, 16).map(item => `<article class="insight-card" data-community="${escapeHtml(item.name)}">
+    <div class="insight-rank"><span>#${String(item.rank).padStart(2,"0")}</span><b>${item.score}</b></div>
+    <div class="insight-main"><p>${escapeHtml(item.station)} · 步行 ${item.walkMinutes} 分 / ${item.walkDistance}m</p><h3>${escapeHtml(item.name)}</h3><div class="insight-price"><strong>¥${money(item.median)}</strong><span>中位租金</span></div></div>
+    <div class="insight-facts"><span>稳健均租 <b>¥${money(item.robustAverage)}</b></span><span>区间 <b>¥${money(item.p25)}–${money(item.p75)}</b></span><span>有效库存 <b>${item.effectiveCount}/${item.rawCount}</b></span><span>安全基础 <b>${item.safety}/5</b></span></div>
+    <div class="insight-note"><span>${escapeHtml(item.closure)} · ${escapeHtml(item.propertyUse)}</span><small>${item.evidenceCount ? `${item.evidenceCount} 条跨平台证据` : "评价证据待补"}</small></div>
+    <button type="button">筛选该小区房源 →</button></article>`).join("") || `<p class="empty-state">当前条件下没有符合要求的小区。</p>`;
+  communityInsightGrid.querySelectorAll(".insight-card button").forEach(button => button.addEventListener("click", () => {
+    const name = button.closest(".insight-card").dataset.community; const metric = communityMetrics.get(name);
+    state.station = metric?.station || null; state.community = name; resetPage(); render();
+    document.querySelector("#communitySelect").value = name; document.querySelector(".listing-shell").scrollIntoView({behavior:"smooth"});
+  }));
 }
 
 function render() {
@@ -337,6 +362,7 @@ function render() {
   renderCommunityOptions();
   renderCommunityTabs();
   renderListings();
+  renderCommunityInsights();
 }
 
 document.querySelector("#searchInput").addEventListener("input", event => { state.query = event.target.value.trim(); resetPage(); render(); });
@@ -369,6 +395,8 @@ document.querySelector("#communitySelect").addEventListener("change", event => {
 document.querySelector("#sortSelect").addEventListener("change", event => { state.sort = event.target.value; resetPage(); renderListings(); });
 document.querySelector("#resetStation").addEventListener("click", () => { state.station = null; state.community = ""; resetPage(); render(); });
 detailDialog.addEventListener("click", event => { if (event.target === detailDialog) detailDialog.close(); });
+document.querySelector("#communitySort")?.addEventListener("change", renderCommunityInsights);
+document.querySelector("#residentialOnly")?.addEventListener("change", renderCommunityInsights);
 
 renderResearch();
 render();
