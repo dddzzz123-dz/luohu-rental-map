@@ -3,21 +3,28 @@ const scanData = window.RENTAL_SCAN || { rentals: [], communities: [], stats: {}
 const photoData = window.RENTAL_PHOTO_COUNTS || { counts: {}, stats: {} };
 const analysisData = window.RENTAL_ANALYSIS || { communities: [], evidence: [], stats: {} };
 const communityMetrics = new Map(analysisData.communities.map(item => [item.name, item]));
-const scanStations = new Set(["红岭", "老街", "晒布", "东门片区", "大剧院", "湖贝", "黄贝岭", "国贸", "罗湖"]);
+const stationCommute = analysisData.stationCommute || {};
+const primaryStationNames = ["国贸", "老街", "大剧院", "科学馆", "红岭", "晒布", "通新岭", "翠竹", "湖贝", "燕南", "东门"];
+const scanStations = new Set([...primaryStationNames, "东门片区", "黄贝岭", "罗湖"]);
 const scannedRentals = scanData.rentals.map(item => {
   const rawPhotoCount = photoData.counts[item.url] ?? item.photoCount;
   return { ...item, photoCount: rawPhotoCount == null ? null : Number(rawPhotoCount) };
 });
 const rentals = [...scannedRentals, ...baseData.rentals.filter(item => !scanStations.has(item.station))];
-const stations = [...baseData.stations.filter(item => item.name !== "东门片区"), { name: "罗湖", x: 49.6, y: 92.5, count: 0, line: "1" }];
+const stationLines = { 国贸: "1", 老街: "1/3", 大剧院: "1/2", 科学馆: "1/6", 红岭: "3", 晒布: "3", 通新岭: "3/6", 翠竹: "3", 湖贝: "2/5", 燕南: "2", 东门: "5", 黄贝岭: "2/5", 罗湖: "1" };
+const stations = [...primaryStationNames, "黄贝岭", "罗湖"].map(name => ({ name, count: 0, line: stationLines[name] }));
 const { research } = baseData;
 const rentalImages = window.RENTAL_IMAGES || {};
 const PAGE_SIZE = 8;
 const mapStations = {
+  "通新岭": { x: 21.6, y: 43.6 },
   "红岭": { x: 32.0, y: 45.3 },
-  "老街": { x: 47.5, y: 58.0 },
+  "科学馆": { x: 20.2, y: 63.0 },
+  "燕南": { x: 17.0, y: 54.3 },
+  "老街": { x: 46.2, y: 56.5 },
+  "东门": { x: 47.6, y: 58.0 },
   "晒布": { x: 54.4, y: 43.6 },
-  "东门片区": { x: 49.4, y: 51.7, area: true },
+  "翠竹": { x: 63.4, y: 27.1 },
   "大剧院": { x: 36.0, y: 60.4 },
   "湖贝": { x: 57.8, y: 54.8 },
   "黄贝岭": { x: 71.3, y: 50.7 },
@@ -106,9 +113,9 @@ function filteredRentals() {
     .sort((a, b) => {
       if (state.sort === "commute") {
         const safety = rental => ["普通住宅", "住宅"].includes(rental.propertyClass) ? 0 : 1;
-        const distanceBand = rental => rental.distance <= 300 ? 0 : rental.distance <= 500 ? 1 : rental.distance <= 800 ? 2 : 3;
+        const metric = rental => communityMetrics.get(rental.sourceCommunity) || communityMetrics.get(rental.name);
         return safety(a) - safety(b)
-          || distanceBand(a) - distanceBand(b)
+          || (metric(a)?.totalCommuteMinutes ?? 99) - (metric(b)?.totalCommuteMinutes ?? 99)
           || Number((rentalImages[b.url] || []).length >= 2) - Number((rentalImages[a.url] || []).length >= 2)
           || (a.distance ?? 9999) - (b.distance ?? 9999)
           || a.rent - b.rent;
@@ -146,7 +153,7 @@ function renderStations() {
 
 function renderChips() {
   const all = `<button class="chip ${!state.station ? "active" : ""}" data-station="">全部</button>`;
-  stationChips.innerHTML = all + stations.map(s => `<button class="chip ${state.station === s.name ? "active" : ""}" data-station="${escapeHtml(s.name)}">${escapeHtml(s.name)} · ${rentals.filter(r => r.station === s.name && matchesControls(r, { ignoreStation: true, ignoreCommunity: true })).length}</button>`).join("");
+  stationChips.innerHTML = all + stations.map(s => `<button class="chip ${state.station === s.name ? "active" : ""}" data-station="${escapeHtml(s.name)}">${escapeHtml(s.name)} · ${rentals.filter(r => r.station === s.name && matchesControls(r, { ignoreStation: true, ignoreCommunity: true })).length}${stationCommute[s.name] ? ` · 约${stationCommute[s.name].minutes}分` : ""}</button>`).join("");
   stationChips.querySelectorAll(".chip").forEach(el => el.addEventListener("click", () => {
     state.station = el.dataset.station || null;
     state.community = "";
@@ -218,13 +225,14 @@ function renderListings() {
   document.querySelector("#listingTitle").textContent = state.community ? `${state.community}全部房源` : state.station ? `${state.station}房源` : (state.favoritesOnly ? "我的收藏" : "全部房源");
   listingGrid.innerHTML = result.slice(pageStart, pageStart + PAGE_SIZE).map((r, i) => {
     const priceLabel = ["普通住宅", "住宅"].includes(r.propertyClass) ? "住宅" : (r.propertyClass || "类型待核");
+    const metric = communityMetrics.get(r.sourceCommunity) || communityMetrics.get(r.name);
     const isFavorite = Boolean(review.favorites[r.url]);
     const rating = ratingOf(r.url);
     return `<article class="listing-card" data-url="${r.url}" style="animation-delay:${Math.min(i, 12) * 25}ms">
       <button class="card-photo" type="button" aria-label="打开${escapeHtml(r.name)}详情">${imageMarkup(r)}</button>
       <button class="heart ${isFavorite ? "active" : ""}" type="button" data-favorite="${r.url}" aria-label="${isFavorite ? "取消收藏" : "收藏"}">${isFavorite ? "♥" : "♡"}</button>
       <div class="card-body">
-        <div class="card-top"><span class="card-station">${escapeHtml(r.station)}${r.distance ? ` · ${r.distance}m` : ""} / ${priceLabel}</span><span class="card-rec">${escapeHtml(r.rec)}</span></div>
+        <div class="card-top"><span class="card-station">${escapeHtml(r.station)}${r.distance ? ` · ${r.distance}m` : ""}${metric?.totalCommuteMinutes != null ? ` · 约${metric.totalCommuteMinutes}分到罗湖` : ""} / ${priceLabel}</span><span class="card-rec">${escapeHtml(r.rec)}</span></div>
         <h3>${escapeHtml(r.name)}</h3>
         <div class="card-facts"><span>${r.area || "—"}㎡</span><span>${escapeHtml(r.layout)}</span><span>${escapeHtml(r.propertyClass || r.direction || "类型待核")}</span><span>${escapeHtml(r.decor)}</span></div>
         <div class="card-bottom"><div class="card-rent"><strong>¥${money(r.rent)}</strong><span>/月</span></div><span class="mini-rating">${rating ? `★ ${rating.toFixed(1)}` : "未评分"}</span></div>
@@ -341,11 +349,11 @@ function renderCommunityInsights() {
   const residentialOnly = document.querySelector("#residentialOnly")?.checked;
   if (residentialOnly) items = items.filter(item => item.safety >= 3.5 && !item.propertyUse.includes("写字楼"));
   const sort = document.querySelector("#communitySort")?.value || "score";
-  items.sort((a,b) => sort === "walk" ? a.walkMinutes-b.walkMinutes : sort === "rent" ? a.median-b.median : sort === "stock" ? b.effectiveCount-a.effectiveCount : sort === "safety" ? b.safety-a.safety : b.score-a.score);
+  items.sort((a,b) => sort === "commute" ? a.totalCommuteMinutes-b.totalCommuteMinutes : sort === "walk" ? a.walkMinutes-b.walkMinutes : sort === "rent" ? a.median-b.median : sort === "stock" ? b.effectiveCount-a.effectiveCount : sort === "safety" ? b.safety-a.safety : b.score-a.score);
   document.querySelector("#analysisPulse").textContent = `${items.length} 个小区 · ${analysisData.stats.effective || 0} 条有效样本`;
   communityInsightGrid.innerHTML = items.slice(0, 16).map(item => `<article class="insight-card" data-community="${escapeHtml(item.name)}">
     <div class="insight-rank"><span>#${String(item.rank).padStart(2,"0")}</span><b>${item.score}</b></div>
-    <div class="insight-main"><p>${escapeHtml(item.station)} · 步行 ${item.walkMinutes} 分 / ${item.walkDistance}m</p><h3>${escapeHtml(item.name)}</h3><div class="insight-price"><strong>¥${money(item.median)}</strong><span>中位租金</span></div></div>
+    <div class="insight-main"><p>${escapeHtml(item.station)} · 步行 ${item.walkMinutes} 分 / ${item.walkDistance}m · 全程约 ${item.totalCommuteMinutes} 分</p><h3>${escapeHtml(item.name)}</h3><div class="insight-price"><strong>¥${money(item.median)}</strong><span>中位租金</span></div></div>
     <div class="insight-facts"><span>稳健均租 <b>¥${money(item.robustAverage)}</b></span><span>区间 <b>¥${money(item.p25)}–${money(item.p75)}</b></span><span>有效库存 <b>${item.effectiveCount}/${item.rawCount}</b></span><span>安全基础 <b>${item.safety}/5</b></span></div>
     <div class="insight-note"><span>${escapeHtml(item.closure)} · ${escapeHtml(item.propertyUse)}</span><small>${item.evidenceCount ? `${item.evidenceCount} 条跨平台证据` : "评价证据待补"}</small></div>
     <button type="button">筛选该小区房源 →</button></article>`).join("") || `<p class="empty-state">当前条件下没有符合要求的小区。</p>`;
