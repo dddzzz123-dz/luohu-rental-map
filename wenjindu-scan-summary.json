@@ -1,0 +1,18 @@
+{
+  "updated": "2026-08-15T17:07:49.228Z",
+  "port": "文锦渡口岸@114.131476,22.538479",
+  "stations": {
+    "文锦": "114.131123,22.542455",
+    "向西村": "114.125767,22.539792"
+  },
+  "amapRawRecords": 718,
+  "amapUniqueCommunities": 296,
+  "stationCoverage": {
+    "文锦": 208,
+    "向西村": 200
+  },
+  "queriedCommunities": 296,
+  "communitiesWithListings": 46,
+  "matchedRentals": 352,
+  "errors": 3
+}

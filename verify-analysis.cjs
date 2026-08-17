@@ -1,0 +1,26 @@
+const { chromium } = require("playwright");
+const path = require("path");
+(async()=>{
+  const browser = await chromium.launch({headless:true,channel:"chrome"});
+  const page = await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
+  const errors=[]; page.on("pageerror",e=>errors.push(e.message));
+  await page.goto("file:///"+path.resolve("index.html").replace(/\\/g,"/"),{waitUntil:"load"});
+  const primaryStations=["国贸","老街","大剧院","科学馆","红岭","晒布","通新岭","翠竹","湖贝","燕南","东门"];
+  const stationLabels=await page.locator("#stationChips .chip").allTextContents();
+  const missingStations=primaryStations.filter(name=>!stationLabels.some(label=>label.startsWith(name+" ·")));
+  await page.locator('#stationChips .chip[data-station="通新岭"]').click();
+  const tongxinlingCount=Number(await page.locator("#visibleCount").textContent());
+  await page.locator('#stationChips .chip[data-station=""]').click();
+  await page.locator("#communityInsights").scrollIntoViewIfNeeded();
+  await page.screenshot({path:"preview-mobile-analysis.png"});
+  const initial=await page.locator(".insight-card").count();
+  const first=await page.locator(".insight-card").first().evaluate(el=>({name:el.querySelector("h3")?.textContent,price:el.querySelector(".insight-price strong")?.textContent,text:el.innerText}));
+  await page.selectOption("#communitySort","rent");
+  const cheapest=await page.locator(".insight-card h3").first().textContent();
+  await page.check("#residentialOnly");
+  const safeCount=await page.locator(".insight-card").count();
+  await page.selectOption("#communitySort","commute");
+  const fastest=await page.locator(".insight-card").first().evaluate(el=>({name:el.querySelector("h3")?.textContent,text:el.innerText}));
+  console.log(JSON.stringify({initial,first,cheapest,fastest,safeCount,total:await page.locator("#totalCount").textContent(),stationLabels,missingStations,tongxinlingCount,errors},null,2));
+  await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

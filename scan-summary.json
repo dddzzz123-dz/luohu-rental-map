@@ -1,0 +1,20 @@
+{
+  "amapRawRecords": 2835,
+  "amapUniqueCommunities": 726,
+  "stationCoverage": {
+    "红岭": 156,
+    "国贸": 246,
+    "老街": 235,
+    "晒布": 238,
+    "大剧院": 163,
+    "湖贝": 264,
+    "黄贝岭": 193,
+    "罗湖": 111
+  },
+  "queriedCommunities": 726,
+  "communitiesWithListings": 124,
+  "matchedRentals": 975,
+  "stationRadiusMeters": 1000,
+  "portRadiusMeters": 4000,
+  "errors": 0
+}

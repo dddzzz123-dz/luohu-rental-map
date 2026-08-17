@@ -1,0 +1,842 @@
+{
+  "森威大厦": {
+    "community": "森威大厦",
+    "location": "114.129707,22.540217",
+    "nearestStation": "文锦",
+    "straightStation": 288,
+    "straightPort": 265,
+    "portWalk": {
+      "distance": 1418,
+      "duration": 1134
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 404,
+      "duration": 323
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 404,
+        "duration": 323
+      },
+      {
+        "station": "向西村",
+        "distance": 493,
+        "duration": 394
+      }
+    ]
+  },
+  "朗钜御风庭": {
+    "community": "朗钜御风庭",
+    "location": "114.131619,22.541571",
+    "nearestStation": "文锦",
+    "straightStation": 110,
+    "straightPort": 344,
+    "portWalk": {
+      "distance": 1766,
+      "duration": 1413
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 155,
+      "duration": 124
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 155,
+        "duration": 124
+      },
+      {
+        "station": "向西村",
+        "distance": 850,
+        "duration": 680
+      }
+    ]
+  },
+  "文星花园": {
+    "community": "文星花园",
+    "location": "114.128230,22.541033",
+    "nearestStation": "向西村",
+    "straightStation": 288,
+    "straightPort": 438,
+    "portWalk": {
+      "distance": 1557,
+      "duration": 1246
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 414,
+      "duration": 331
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 414,
+        "duration": 331
+      },
+      {
+        "station": "文锦",
+        "distance": 448,
+        "duration": 358
+      }
+    ]
+  },
+  "阳光新干线家园": {
+    "community": "阳光新干线家园",
+    "location": "114.127082,22.537625",
+    "nearestStation": "向西村",
+    "straightStation": 276,
+    "straightPort": 461,
+    "portWalk": {
+      "distance": 1100,
+      "duration": 880
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 522,
+      "duration": 418
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 522,
+        "duration": 418
+      },
+      {
+        "station": "文锦",
+        "distance": 857,
+        "duration": 686
+      }
+    ]
+  },
+  "钻石时代": {
+    "community": "钻石时代",
+    "location": "114.128832,22.542100",
+    "nearestStation": "文锦",
+    "straightStation": 238,
+    "straightPort": 486,
+    "portWalk": {
+      "distance": 1593,
+      "duration": 1274
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 276,
+      "duration": 221
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 276,
+        "duration": 221
+      },
+      {
+        "station": "向西村",
+        "distance": 555,
+        "duration": 444
+      }
+    ]
+  },
+  "高嘉大厦": {
+    "community": "高嘉大厦",
+    "location": "114.130381,22.542791",
+    "nearestStation": "文锦",
+    "straightStation": 84,
+    "straightPort": 492,
+    "portWalk": {
+      "distance": 1884,
+      "duration": 1507
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 170,
+      "duration": 136
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 170,
+        "duration": 136
+      },
+      {
+        "station": "向西村",
+        "distance": 766,
+        "duration": 613
+      }
+    ]
+  },
+  "长丰苑": {
+    "community": "长丰苑",
+    "location": "114.127205,22.541235",
+    "nearestStation": "向西村",
+    "straightStation": 218,
+    "straightPort": 535,
+    "portWalk": {
+      "distance": 1511,
+      "duration": 1209
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 218,
+      "duration": 174
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 218,
+        "duration": 174
+      },
+      {
+        "station": "文锦",
+        "distance": 493,
+        "duration": 394
+      }
+    ]
+  },
+  "凯悦华庭": {
+    "community": "凯悦华庭",
+    "location": "114.126414,22.540034",
+    "nearestStation": "向西村",
+    "straightStation": 71,
+    "straightPort": 548,
+    "portWalk": {
+      "distance": 1407,
+      "duration": 1126
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 114,
+      "duration": 91
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 114,
+        "duration": 91
+      },
+      {
+        "station": "文锦",
+        "distance": 677,
+        "duration": 542
+      }
+    ]
+  },
+  "联城美园": {
+    "community": "联城美园",
+    "location": "114.128622,22.543379",
+    "nearestStation": "文锦",
+    "straightStation": 276,
+    "straightPort": 619,
+    "portWalk": {
+      "distance": 1759,
+      "duration": 1407
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 362,
+      "duration": 290
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 362,
+        "duration": 290
+      },
+      {
+        "station": "向西村",
+        "distance": 641,
+        "duration": 513
+      }
+    ]
+  },
+  "金色都汇": {
+    "community": "金色都汇",
+    "location": "114.125670,22.540460",
+    "nearestStation": "向西村",
+    "straightStation": 75,
+    "straightPort": 636,
+    "portWalk": {
+      "distance": 1366,
+      "duration": 1093
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 206,
+      "duration": 165
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 206,
+        "duration": 165
+      },
+      {
+        "station": "文锦",
+        "distance": 667,
+        "duration": 534
+      }
+    ]
+  },
+  "新天地名居": {
+    "community": "新天地名居",
+    "location": "114.134065,22.544361",
+    "nearestStation": "文锦",
+    "straightStation": 369,
+    "straightPort": 706,
+    "portWalk": {
+      "distance": 2202,
+      "duration": 1762
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 573,
+      "duration": 458
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 573,
+        "duration": 458
+      },
+      {
+        "station": "向西村",
+        "distance": 1284,
+        "duration": 1027
+      }
+    ]
+  },
+  "南华大厦": {
+    "community": "南华大厦",
+    "location": "114.126809,22.543230",
+    "nearestStation": "向西村",
+    "straightStation": 397,
+    "straightPort": 713,
+    "portWalk": {
+      "distance": 1793,
+      "duration": 1434
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 500,
+      "duration": 400
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 500,
+        "duration": 400
+      },
+      {
+        "station": "文锦",
+        "distance": 559,
+        "duration": 447
+      }
+    ]
+  },
+  "龙园苑": {
+    "community": "龙园苑",
+    "location": "114.137554,22.542407",
+    "nearestStation": "文锦",
+    "straightStation": 661,
+    "straightPort": 762,
+    "portWalk": {
+      "distance": 2148,
+      "duration": 1718
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 921,
+      "duration": 737
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 921,
+        "duration": 737
+      },
+      {
+        "station": "向西村",
+        "distance": 1517,
+        "duration": 1214
+      }
+    ]
+  },
+  "福德花园": {
+    "community": "福德花园",
+    "location": "114.133319,22.546338",
+    "nearestStation": "文锦",
+    "straightStation": 487,
+    "straightPort": 894,
+    "portWalk": {
+      "distance": 2499,
+      "duration": 1999
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 630,
+      "duration": 504
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 630,
+        "duration": 504
+      },
+      {
+        "station": "向西村",
+        "distance": 1314,
+        "duration": 1051
+      }
+    ]
+  },
+  "海珑华苑": {
+    "community": "海珑华苑",
+    "location": "114.132473,22.546559",
+    "nearestStation": "文锦",
+    "straightStation": 477,
+    "straightPort": 904,
+    "portWalk": {
+      "distance": 2460,
+      "duration": 1968
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 658,
+      "duration": 526
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 658,
+        "duration": 526
+      },
+      {
+        "station": "向西村",
+        "distance": 1342,
+        "duration": 1074
+      }
+    ]
+  },
+  "罗湖金岸": {
+    "community": "罗湖金岸",
+    "location": "114.123581,22.534208",
+    "nearestStation": "向西村",
+    "straightStation": 660,
+    "straightPort": 940,
+    "portWalk": {
+      "distance": 1072,
+      "duration": 858
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 929,
+      "duration": 743
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 929,
+        "duration": 743
+      },
+      {
+        "station": "文锦",
+        "distance": 1441,
+        "duration": 1153
+      }
+    ]
+  },
+  "集浩大厦": {
+    "community": "集浩大厦",
+    "location": "114.135445,22.546456",
+    "nearestStation": "文锦",
+    "straightStation": 629,
+    "straightPort": 976,
+    "portWalk": {
+      "distance": 2449,
+      "duration": 1959
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 816,
+      "duration": 653
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 816,
+        "duration": 653
+      },
+      {
+        "station": "向西村",
+        "distance": 1527,
+        "duration": 1222
+      }
+    ]
+  },
+  "天俊大厦": {
+    "community": "天俊大厦",
+    "location": "114.122219,22.541603",
+    "nearestStation": "向西村",
+    "straightStation": 416,
+    "straightPort": 1012,
+    "portWalk": {
+      "distance": 1599,
+      "duration": 1279
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 555,
+      "duration": 444
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 555,
+        "duration": 444
+      },
+      {
+        "station": "文锦",
+        "distance": 1132,
+        "duration": 906
+      }
+    ]
+  },
+  "寸金大厦": {
+    "community": "寸金大厦",
+    "location": "114.122101,22.541962",
+    "nearestStation": "向西村",
+    "straightStation": 447,
+    "straightPort": 1038,
+    "portWalk": {
+      "distance": 1635,
+      "duration": 1308
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 591,
+      "duration": 473
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 591,
+        "duration": 473
+      },
+      {
+        "station": "文锦",
+        "distance": 1168,
+        "duration": 934
+      }
+    ]
+  },
+  "金龙大厦": {
+    "community": "金龙大厦",
+    "location": "114.122072,22.542325",
+    "nearestStation": "向西村",
+    "straightStation": 473,
+    "straightPort": 1056,
+    "portWalk": {
+      "distance": 1678,
+      "duration": 1342
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 634,
+      "duration": 507
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 634,
+        "duration": 507
+      },
+      {
+        "station": "文锦",
+        "distance": 1211,
+        "duration": 969
+      }
+    ]
+  },
+  "东门广场": {
+    "community": "东门广场",
+    "location": "114.123861,22.544904",
+    "nearestStation": "向西村",
+    "straightStation": 601,
+    "straightPort": 1059,
+    "portWalk": {
+      "distance": 2056,
+      "duration": 1645
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 992,
+      "duration": 794
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 992,
+        "duration": 794
+      },
+      {
+        "station": "文锦",
+        "distance": 1101,
+        "duration": 881
+      }
+    ]
+  },
+  "金城华庭": {
+    "community": "金城华庭",
+    "location": "114.133701,22.549352",
+    "nearestStation": "文锦",
+    "straightStation": 812,
+    "straightPort": 1230,
+    "portWalk": {
+      "distance": 2862,
+      "duration": 2290
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 1060,
+      "duration": 848
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 1060,
+        "duration": 848
+      },
+      {
+        "station": "向西村",
+        "distance": 1746,
+        "duration": 1397
+      }
+    ]
+  },
+  "鸿基大厦": {
+    "community": "鸿基大厦",
+    "location": "114.121455,22.544725",
+    "nearestStation": "向西村",
+    "straightStation": 705,
+    "straightPort": 1242,
+    "portWalk": {
+      "distance": 2024,
+      "duration": 1619
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 1032,
+      "duration": 826
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 1032,
+        "duration": 826
+      },
+      {
+        "station": "文锦",
+        "distance": 1340,
+        "duration": 1072
+      }
+    ]
+  },
+  "都心名苑": {
+    "community": "都心名苑",
+    "location": "114.126114,22.549101",
+    "nearestStation": "文锦",
+    "straightStation": 901,
+    "straightPort": 1303,
+    "portWalk": {
+      "distance": 2725,
+      "duration": 2180
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 1308,
+      "duration": 1046
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 1308,
+        "duration": 1046
+      },
+      {
+        "station": "向西村",
+        "distance": 1504,
+        "duration": 1203
+      }
+    ]
+  },
+  "名都大厦": {
+    "community": "名都大厦",
+    "location": "114.130026,22.550372",
+    "nearestStation": "文锦",
+    "straightStation": 888,
+    "straightPort": 1331,
+    "portWalk": {
+      "distance": 2759,
+      "duration": 2207
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 985,
+      "duration": 788
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 985,
+        "duration": 788
+      },
+      {
+        "station": "向西村",
+        "distance": 1596,
+        "duration": 1277
+      }
+    ]
+  },
+  "一品东门雅园": {
+    "community": "一品东门雅园",
+    "location": "114.127664,22.550008",
+    "nearestStation": "文锦",
+    "straightStation": 912,
+    "straightPort": 1340,
+    "portWalk": {
+      "distance": 2649,
+      "duration": 2119
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 1249,
+      "duration": 999
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 1249,
+        "duration": 999
+      },
+      {
+        "station": "向西村",
+        "distance": 1428,
+        "duration": 1142
+      }
+    ]
+  },
+  "广东省银行大厦": {
+    "community": "广东省银行大厦",
+    "location": "114.118501,22.535090",
+    "nearestStation": "向西村",
+    "straightStation": 912,
+    "straightPort": 1385,
+    "portWalk": {
+      "distance": 1772,
+      "duration": 1418
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 1035,
+      "duration": 828
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 1035,
+        "duration": 828
+      },
+      {
+        "station": "文锦",
+        "distance": 1742,
+        "duration": 1394
+      }
+    ]
+  },
+  "华隆园": {
+    "community": "华隆园",
+    "location": "114.126939,22.550282",
+    "nearestStation": "文锦",
+    "straightStation": 971,
+    "straightPort": 1393,
+    "portWalk": {
+      "distance": 2605,
+      "duration": 2084
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 1188,
+      "duration": 950
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 1188,
+        "duration": 950
+      },
+      {
+        "station": "向西村",
+        "distance": 1384,
+        "duration": 1107
+      }
+    ]
+  },
+  "名阳阁": {
+    "community": "名阳阁",
+    "location": "114.129225,22.550929",
+    "nearestStation": "文锦",
+    "straightStation": 963,
+    "straightPort": 1404,
+    "portWalk": {
+      "distance": 2858,
+      "duration": 2286
+    },
+    "bestStation": {
+      "station": "文锦",
+      "distance": 1084,
+      "duration": 867
+    },
+    "stationWalks": [
+      {
+        "station": "文锦",
+        "distance": 1084,
+        "duration": 867
+      },
+      {
+        "station": "向西村",
+        "distance": 1695,
+        "duration": 1356
+      }
+    ]
+  },
+  "南洋大厦": {
+    "community": "南洋大厦",
+    "location": "114.116966,22.539757",
+    "nearestStation": "向西村",
+    "straightStation": 904,
+    "straightPort": 1497,
+    "portWalk": {
+      "distance": 1923,
+      "duration": 1538
+    },
+    "bestStation": {
+      "station": "向西村",
+      "distance": 1080,
+      "duration": 864
+    },
+    "stationWalks": [
+      {
+        "station": "向西村",
+        "distance": 1080,
+        "duration": 864
+      },
+      {
+        "station": "文锦",
+        "distance": 1667,
+        "duration": 1334
+      }
+    ]
+  }
+}

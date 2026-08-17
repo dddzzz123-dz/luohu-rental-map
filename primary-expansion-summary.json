@@ -1,0 +1,30 @@
+{
+  "updated": "2026-08-14T02:15:42.917Z",
+  "stationsAdded": [
+    "通新岭",
+    "科学馆",
+    "燕南",
+    "翠竹",
+    "东门"
+  ],
+  "amapRows": 1660,
+  "amapUniqueAroundAddedStations": 674,
+  "newlyDiscoveredCommunities": 262,
+  "totalCommunities": 988,
+  "totalRentals": 1355,
+  "stationCoverage": {
+    "通新岭": 125,
+    "科学馆": 178,
+    "燕南": 182,
+    "翠竹": 185,
+    "东门": 240
+  },
+  "stationListings": {
+    "通新岭": 57,
+    "科学馆": 41,
+    "燕南": 219,
+    "翠竹": 72,
+    "东门": 3
+  },
+  "errors": []
+}

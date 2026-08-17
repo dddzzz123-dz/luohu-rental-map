@@ -1,0 +1,4470 @@
+{
+  "completed": {
+    "名仕阁": {
+      "community": "名仕阁",
+      "amapName": "名仕阁",
+      "location": "114.108225,22.542862",
+      "address": "桂园街道解放路4068号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1947,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 137,
+        "duration": 110
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 137,
+          "duration": 110
+        },
+        {
+          "station": "老街",
+          "distance": 975,
+          "duration": 780
+        },
+        {
+          "station": "红岭",
+          "distance": 996,
+          "duration": 797
+        },
+        {
+          "station": "东门",
+          "distance": 1082,
+          "duration": 866
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:50.781Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "京基100大厦": {
+      "community": "京基100大厦",
+      "amapName": "京基100大厦",
+      "location": "114.106854,22.543012",
+      "address": "深南东路5016号",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2042,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 289,
+        "duration": 231
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 289,
+          "duration": 231
+        },
+        {
+          "station": "红岭",
+          "distance": 818,
+          "duration": 654
+        },
+        {
+          "station": "老街",
+          "distance": 1328,
+          "duration": 1062
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:53.623Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "都市名园": {
+      "community": "都市名园",
+      "amapName": "都市名园",
+      "location": "114.109595,22.539598",
+      "address": "书城路1号(大剧院地铁站F口步行300米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1570,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 970,
+        "duration": 776
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 970,
+          "duration": 776
+        },
+        {
+          "station": "老街",
+          "distance": 1330,
+          "duration": 1064
+        },
+        {
+          "station": "国贸",
+          "distance": 1377,
+          "duration": 1102
+        }
+      ],
+      "measuredAt": "2026-08-13T01:43:56.531Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "御河堤": {
+      "community": "御河堤",
+      "amapName": "御河堤",
+      "location": "114.103966,22.538029",
+      "address": "东园路28号(红岭南地铁站C口步行240米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1871,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 953,
+        "duration": 762
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 953,
+          "duration": 762
+        },
+        {
+          "station": "科学馆",
+          "distance": 1246,
+          "duration": 997
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:10.292Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "东园新村": {
+      "community": "东园新村",
+      "amapName": "东园新村",
+      "location": "114.102887,22.539041",
+      "address": "埔尾路16号(红岭南地铁站C口步行240米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2026,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 922,
+        "duration": 738
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 922,
+          "duration": 738
+        },
+        {
+          "station": "科学馆",
+          "distance": 1082,
+          "duration": 866
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:12.387Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "华瑞大厦": {
+      "community": "华瑞大厦",
+      "amapName": "华瑞大厦",
+      "location": "114.109424,22.536500",
+      "address": "宝安南路1001号(鹿丹村地铁站C口步行70米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1326,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 1234,
+        "duration": 987
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 1234,
+          "duration": 987
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:13.883Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "鹿苑小区": {
+      "community": "鹿苑小区",
+      "amapName": "鹿苑小区",
+      "location": "114.108363,22.534597",
+      "address": "滨河大道1005号(鹿丹村地铁站A2口步行130米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1283,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 1673,
+        "duration": 1338
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 1673,
+          "duration": 1338
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:15.296Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "滨河新村(东园路)": {
+      "community": "滨河新村(东园路)",
+      "amapName": "滨河新村(东园路)",
+      "location": "114.102507,22.536447",
+      "address": "东园路17号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1907,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 1158,
+        "duration": 926
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 1158,
+          "duration": 926
+        },
+        {
+          "station": "科学馆",
+          "distance": 1172,
+          "duration": 938
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:18.021Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "南洋大厦": {
+      "community": "南洋大厦",
+      "amapName": "南洋大厦",
+      "location": "114.116966,22.539757",
+      "address": "罗湖建设路2004号",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1279,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 218,
+        "duration": 174
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 218,
+          "duration": 174
+        },
+        {
+          "station": "东门",
+          "distance": 879,
+          "duration": 703
+        },
+        {
+          "station": "老街",
+          "distance": 963,
+          "duration": 770
+        },
+        {
+          "station": "罗湖",
+          "distance": 1067,
+          "duration": 854
+        },
+        {
+          "station": "大剧院",
+          "distance": 1420,
+          "duration": 1136
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:30.545Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "友谊大厦": {
+      "community": "友谊大厦",
+      "amapName": "友谊大厦",
+      "location": "114.117350,22.538143",
+      "address": "建设路1098号(国贸地铁站E口步行160米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1096,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 427,
+        "duration": 342
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 427,
+          "duration": 342
+        },
+        {
+          "station": "罗湖",
+          "distance": 818,
+          "duration": 654
+        },
+        {
+          "station": "东门",
+          "distance": 1024,
+          "duration": 819
+        },
+        {
+          "station": "老街",
+          "distance": 1108,
+          "duration": 886
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:34.206Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "银座金钻": {
+      "community": "银座金钻",
+      "amapName": "银座金钻",
+      "location": "114.121687,22.541474",
+      "address": "东门南路3003号(国贸地铁站B口步行350米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1483,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 448,
+        "duration": 358
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 448,
+          "duration": 358
+        },
+        {
+          "station": "湖贝",
+          "distance": 680,
+          "duration": 544
+        },
+        {
+          "station": "东门",
+          "distance": 882,
+          "duration": 706
+        },
+        {
+          "station": "老街",
+          "distance": 970,
+          "duration": 776
+        },
+        {
+          "station": "晒布",
+          "distance": 988,
+          "duration": 790
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:38.598Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "置地逸轩": {
+      "community": "置地逸轩",
+      "amapName": "置地逸轩",
+      "location": "114.121125,22.537275",
+      "address": "春风路与春风路高架桥交叉口西120米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1014,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 551,
+        "duration": 441
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 551,
+          "duration": 441
+        },
+        {
+          "station": "罗湖",
+          "distance": 863,
+          "duration": 690
+        },
+        {
+          "station": "湖贝",
+          "distance": 1121,
+          "duration": 897
+        },
+        {
+          "station": "东门",
+          "distance": 1205,
+          "duration": 964
+        },
+        {
+          "station": "老街",
+          "distance": 1357,
+          "duration": 1086
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:42.771Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "天俊大厦": {
+      "community": "天俊大厦",
+      "amapName": "天俊大厦",
+      "location": "114.122219,22.541603",
+      "address": "东门南路3001号(向西村地铁站D1口步行370米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1508,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 584,
+        "duration": 467
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 584,
+          "duration": 467
+        },
+        {
+          "station": "湖贝",
+          "distance": 614,
+          "duration": 491
+        },
+        {
+          "station": "东门",
+          "distance": 816,
+          "duration": 653
+        },
+        {
+          "station": "晒布",
+          "distance": 922,
+          "duration": 738
+        },
+        {
+          "station": "老街",
+          "distance": 964,
+          "duration": 771
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:47.644Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "粤海花园": {
+      "community": "粤海花园",
+      "amapName": "粤海花园",
+      "location": "114.120899,22.542833",
+      "address": "南湖路3044号(国贸地铁站B口步行480米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1619,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 555,
+        "duration": 444
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 555,
+          "duration": 444
+        },
+        {
+          "station": "湖贝",
+          "distance": 569,
+          "duration": 455
+        },
+        {
+          "station": "东门",
+          "distance": 667,
+          "duration": 534
+        },
+        {
+          "station": "老街",
+          "distance": 819,
+          "duration": 655
+        },
+        {
+          "station": "晒布",
+          "distance": 877,
+          "duration": 702
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:22.452Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "寸金大厦": {
+      "community": "寸金大厦",
+      "amapName": "寸金大厦",
+      "location": "114.122101,22.541962",
+      "address": "东门南路3005号(湖贝地铁站F口步行290米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇|商务住宅;楼宇;商务写字楼",
+      "portStraightDistance": 1544,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 542,
+        "duration": 434
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 542,
+          "duration": 434
+        },
+        {
+          "station": "湖贝",
+          "distance": 586,
+          "duration": 469
+        },
+        {
+          "station": "东门",
+          "distance": 788,
+          "duration": 630
+        },
+        {
+          "station": "晒布",
+          "distance": 894,
+          "duration": 715
+        },
+        {
+          "station": "老街",
+          "distance": 936,
+          "duration": 749
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:52.028Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "国际名园": {
+      "community": "国际名园",
+      "amapName": "国际名园",
+      "location": "114.123371,22.538699",
+      "address": "江背路18号(向西村地铁站D2口步行280米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1235,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 614,
+        "duration": 491
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 614,
+          "duration": 491
+        },
+        {
+          "station": "湖贝",
+          "distance": 910,
+          "duration": 728
+        },
+        {
+          "station": "罗湖",
+          "distance": 1210,
+          "duration": 968
+        },
+        {
+          "station": "东门",
+          "distance": 1210,
+          "duration": 968
+        },
+        {
+          "station": "老街",
+          "distance": 1358,
+          "duration": 1086
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:56.301Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "城市天地广场": {
+      "community": "城市天地广场",
+      "amapName": "城市天地广场",
+      "location": "114.113112,22.537679",
+      "address": "嘉宾路4055号",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1191,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 723,
+        "duration": 578
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 723,
+          "duration": 578
+        },
+        {
+          "station": "大剧院",
+          "distance": 1064,
+          "duration": 851
+        },
+        {
+          "station": "东门",
+          "distance": 1070,
+          "duration": 856
+        },
+        {
+          "station": "老街",
+          "distance": 1154,
+          "duration": 923
+        },
+        {
+          "station": "罗湖",
+          "distance": 1428,
+          "duration": 1142
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:00.832Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "庐山花园": {
+      "community": "庐山花园",
+      "amapName": "庐山花园",
+      "location": "114.124126,22.536657",
+      "address": "南湖街道嘉南社区春风路3019号(江背路3-15号)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1064,
+      "bestRoute": {
+        "station": "国贸",
+        "distance": 856,
+        "duration": 685
+      },
+      "routes": [
+        {
+          "station": "国贸",
+          "distance": 856,
+          "duration": 685
+        },
+        {
+          "station": "湖贝",
+          "distance": 1041,
+          "duration": 833
+        },
+        {
+          "station": "罗湖",
+          "distance": 1150,
+          "duration": 920
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:03.657Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "园岭新村一区": {
+      "community": "园岭新村一区",
+      "amapName": "园岭新村一区",
+      "location": "114.103277,22.550099",
+      "address": "红荔路(红岭地铁站C1口步行60米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2898,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 334,
+        "duration": 267
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 334,
+          "duration": 267
+        },
+        {
+          "station": "通新岭",
+          "distance": 821,
+          "duration": 657
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:05.839Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "能源宿舍": {
+      "community": "能源宿舍",
+      "amapName": "能源宿舍",
+      "location": "114.105384,22.546309",
+      "address": "红岭中路(红岭地铁站F口步行200米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2428,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 310,
+        "duration": 248
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 310,
+          "duration": 248
+        },
+        {
+          "station": "大剧院",
+          "distance": 933,
+          "duration": 746
+        },
+        {
+          "station": "通新岭",
+          "distance": 1270,
+          "duration": 1016
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:08.830Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "红桂二街2号大院": {
+      "community": "红桂二街2号大院",
+      "amapName": "红桂二街2号大院",
+      "location": "114.107227,22.549262",
+      "address": "红桂二街与红桂横街交叉口北60米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2612,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 412,
+        "duration": 330
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 412,
+          "duration": 330
+        },
+        {
+          "station": "大剧院",
+          "distance": 940,
+          "duration": 752
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:11.274Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "松园小区": {
+      "community": "松园小区",
+      "amapName": "松园小区",
+      "location": "114.106737,22.551159",
+      "address": "松园西街52号(红岭地铁站C2口步行250米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2823,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 496,
+        "duration": 397
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 496,
+          "duration": 397
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:12.672Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "幸福华府": {
+      "community": "幸福华府",
+      "amapName": "幸福华府",
+      "location": "114.108867,22.548881",
+      "address": "宝安南路101号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2500,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 666,
+        "duration": 533
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 666,
+          "duration": 533
+        },
+        {
+          "station": "大剧院",
+          "distance": 1354,
+          "duration": 1083
+        },
+        {
+          "station": "老街",
+          "distance": 1588,
+          "duration": 1270
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:15.497Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "红桂皇冠名庭": {
+      "community": "红桂皇冠名庭",
+      "amapName": "红桂皇冠名庭",
+      "location": "114.109010,22.550063",
+      "address": "宝安南路2169(红岭地铁站C2口步行410米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2615,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 566,
+        "duration": 453
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 566,
+          "duration": 453
+        },
+        {
+          "station": "大剧院",
+          "distance": 1214,
+          "duration": 971
+        },
+        {
+          "station": "老街",
+          "distance": 1451,
+          "duration": 1161
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:18.180Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "怡正发大厦": {
+      "community": "怡正发大厦",
+      "amapName": "怡正发大厦",
+      "location": "114.106535,22.552434",
+      "address": "蔡屋围松园路89号(园岭地铁站C口步行400米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2959,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 661,
+        "duration": 529
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 661,
+          "duration": 529
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:19.534Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "景园大厦(松园路)": {
+      "community": "景园大厦(松园路)",
+      "amapName": "景园大厦(松园路)",
+      "location": "114.105420,22.552768",
+      "address": "松园路88号",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 3043,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 619,
+        "duration": 495
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 619,
+          "duration": 495
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:20.899Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "日豪名园2A": {
+      "community": "日豪名园2A",
+      "amapName": "日豪名园2A",
+      "location": "114.109575,22.549075",
+      "address": "宝安南路与煤场路交叉口西80米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2491,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 846,
+        "duration": 677
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 846,
+          "duration": 677
+        },
+        {
+          "station": "大剧院",
+          "distance": 1091,
+          "duration": 873
+        },
+        {
+          "station": "老街",
+          "distance": 1325,
+          "duration": 1060
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:23.595Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "洪二村": {
+      "community": "洪二村",
+      "amapName": "洪二村",
+      "location": "114.109649,22.548165",
+      "address": "宝安南路与煤场路交叉口西南100米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2395,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 902,
+        "duration": 722
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 902,
+          "duration": 722
+        },
+        {
+          "station": "大剧院",
+          "distance": 1025,
+          "duration": 820
+        },
+        {
+          "station": "老街",
+          "distance": 1277,
+          "duration": 1022
+        },
+        {
+          "station": "东门",
+          "distance": 1384,
+          "duration": 1107
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:27.013Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "中南小区(宝安南路)": {
+      "community": "中南小区(宝安南路)",
+      "amapName": "中南小区(宝安南路)",
+      "location": "114.108993,22.551171",
+      "address": "宝安南路3007号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2729,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 677,
+        "duration": 542
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 677,
+          "duration": 542
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:28.426Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "骏庭名园": {
+      "community": "骏庭名园",
+      "amapName": "骏庭名园",
+      "location": "114.109963,22.547789",
+      "address": "宝安南路2107号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2344,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 892,
+        "duration": 714
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 892,
+          "duration": 714
+        },
+        {
+          "station": "红岭",
+          "distance": 1091,
+          "duration": 873
+        },
+        {
+          "station": "老街",
+          "distance": 1137,
+          "duration": 910
+        },
+        {
+          "station": "东门",
+          "distance": 1243,
+          "duration": 994
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:31.843Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "中航凯特公寓": {
+      "community": "中航凯特公寓",
+      "amapName": "中航凯特公寓",
+      "location": "114.108900,22.551453",
+      "address": "宝安南路3019号(红岭地铁站C2口步行490米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2762,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 669,
+        "duration": 535
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 669,
+          "duration": 535
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:33.257Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "红岭大厦": {
+      "community": "红岭大厦",
+      "amapName": "红岭大厦",
+      "location": "114.104117,22.539569",
+      "address": "红岭南路1049号(红岭南地铁站c口)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1962,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 674,
+        "duration": 539
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 674,
+          "duration": 539
+        },
+        {
+          "station": "红岭",
+          "distance": 1147,
+          "duration": 918
+        },
+        {
+          "station": "科学馆",
+          "distance": 1365,
+          "duration": 1092
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:08.275Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "深港豪苑": {
+      "community": "深港豪苑",
+      "amapName": "深港豪苑",
+      "location": "114.109884,22.550027",
+      "address": "桂园街道桂木园社区宝安南路2078号(红岭H口步行约600m)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2577,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 762,
+        "duration": 610
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 762,
+          "duration": 610
+        },
+        {
+          "station": "大剧院",
+          "distance": 1169,
+          "duration": 935
+        },
+        {
+          "station": "老街",
+          "distance": 1320,
+          "duration": 1056
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:35.934Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "风格名苑": {
+      "community": "风格名苑",
+      "amapName": "风格名苑",
+      "location": "114.109836,22.551085",
+      "address": "红桂路1038号(近宝安南路)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2689,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 681,
+        "duration": 545
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 681,
+          "duration": 545
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:37.359Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "鸿翔花园": {
+      "community": "鸿翔花园",
+      "amapName": "鸿翔花园",
+      "location": "114.106379,22.553893",
+      "address": "松园路68号(园岭地铁站C口步行150米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3113,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 788,
+        "duration": 630
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 788,
+          "duration": 630
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:38.808Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "国都花园": {
+      "community": "国都花园",
+      "amapName": "国都花园",
+      "location": "114.110919,22.548487",
+      "address": "宝安南路2060号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2380,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 979,
+        "duration": 783
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 979,
+          "duration": 783
+        },
+        {
+          "station": "大剧院",
+          "distance": 1050,
+          "duration": 840
+        },
+        {
+          "station": "老街",
+          "distance": 1111,
+          "duration": 889
+        },
+        {
+          "station": "东门",
+          "distance": 1256,
+          "duration": 1005
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:42.296Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "嘉福苑": {
+      "community": "嘉福苑",
+      "amapName": "嘉福苑",
+      "location": "114.110693,22.550117",
+      "address": "红桂路1041号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2558,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 879,
+        "duration": 703
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 879,
+          "duration": 703
+        },
+        {
+          "station": "老街",
+          "distance": 1258,
+          "duration": 1006
+        },
+        {
+          "station": "大剧院",
+          "distance": 1258,
+          "duration": 1006
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:45.102Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "建设集团大院": {
+      "community": "建设集团大院",
+      "amapName": "建设集团大院",
+      "location": "114.105266,22.554742",
+      "address": "红岭中路与园岭六街交叉口东80米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3247,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 761,
+        "duration": 609
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 761,
+          "duration": 609
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:50.220Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "长虹大厦": {
+      "community": "长虹大厦",
+      "amapName": "长虹大厦",
+      "location": "114.107706,22.555320",
+      "address": "笋岗东路3013号(园岭地铁站C口步行340米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 3207,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 1228,
+        "duration": 982
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 1228,
+          "duration": 982
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:51.809Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "松园南小区": {
+      "community": "松园南小区",
+      "amapName": "松园南小区",
+      "location": "114.111303,22.552650",
+      "address": "宝安南路3042号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2808,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 1061,
+        "duration": 849
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 1061,
+          "duration": 849
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:53.241Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "西湖小区": {
+      "community": "西湖小区",
+      "amapName": "西湖小区",
+      "location": "114.110681,22.554027",
+      "address": "桂园北街与松园东街交叉口东120米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2973,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 1190,
+        "duration": 952
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 1190,
+          "duration": 952
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:54.770Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金园花园": {
+      "community": "金园花园",
+      "amapName": "金园花园",
+      "location": "114.110080,22.554726",
+      "address": "宝安南路3088号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3065,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 1122,
+        "duration": 898
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 1122,
+          "duration": 898
+        }
+      ],
+      "measuredAt": "2026-08-13T01:46:07.136Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "鹏盛村": {
+      "community": "鹏盛村",
+      "amapName": "鹏盛村",
+      "location": "114.102304,22.556690",
+      "address": "八卦一路39号(园岭地铁站A口步行150米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3578,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 1148,
+        "duration": 918
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 1148,
+          "duration": 918
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:07.540Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "盛夏公寓": {
+      "community": "盛夏公寓",
+      "amapName": "盛夏公寓",
+      "location": "114.095226,22.547671",
+      "address": "上步中路1043号深勘大厦旁",
+      "poiType": "商务住宅;住宅区;住宅区",
+      "portStraightDistance": 3241,
+      "bestRoute": {
+        "station": "通新岭",
+        "distance": 257,
+        "duration": 206
+      },
+      "routes": [
+        {
+          "station": "通新岭",
+          "distance": 257,
+          "duration": 206
+        },
+        {
+          "station": "燕南",
+          "distance": 660,
+          "duration": 528
+        },
+        {
+          "station": "红岭",
+          "distance": 1217,
+          "duration": 974
+        },
+        {
+          "station": "科学馆",
+          "distance": 1242,
+          "duration": 994
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:49.833Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "东门广场": {
+      "community": "东门广场",
+      "amapName": "东门广场",
+      "location": "114.123861,22.544904",
+      "address": "湖贝路2163号(湖贝地铁站C口步行60米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1905,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 445,
+        "duration": 356
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 445,
+          "duration": 356
+        },
+        {
+          "station": "晒布",
+          "distance": 722,
+          "duration": 578
+        },
+        {
+          "station": "东门",
+          "distance": 773,
+          "duration": 618
+        },
+        {
+          "station": "老街",
+          "distance": 921,
+          "duration": 737
+        },
+        {
+          "station": "国贸",
+          "distance": 1039,
+          "duration": 831
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:12.174Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "南华大厦": {
+      "community": "南华大厦",
+      "amapName": "南华大厦",
+      "location": "114.126809,22.543230",
+      "address": "南极路19号(湖贝地铁站A口步行140米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1839,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 247,
+        "duration": 198
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 247,
+          "duration": 198
+        },
+        {
+          "station": "国贸",
+          "distance": 982,
+          "duration": 786
+        },
+        {
+          "station": "晒布",
+          "distance": 1190,
+          "duration": 952
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:14.956Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金鼎大厦": {
+      "community": "金鼎大厦",
+      "amapName": "金鼎大厦",
+      "location": "114.124909,22.541365",
+      "address": "嘉宾路1001号(湖贝地铁站D口步行340米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1569,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 420,
+        "duration": 336
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 420,
+          "duration": 336
+        },
+        {
+          "station": "国贸",
+          "distance": 700,
+          "duration": 560
+        },
+        {
+          "station": "东门",
+          "distance": 1104,
+          "duration": 883
+        },
+        {
+          "station": "晒布",
+          "distance": 1210,
+          "duration": 968
+        },
+        {
+          "station": "老街",
+          "distance": 1252,
+          "duration": 1002
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:19.255Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "联城美园": {
+      "community": "联城美园",
+      "amapName": "联城美园",
+      "location": "114.128622,22.543379",
+      "address": "新安路59号(文锦地铁站D口步行350米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1943,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 556,
+        "duration": 445
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 556,
+          "duration": 445
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1039,
+          "duration": 831
+        },
+        {
+          "station": "晒布",
+          "distance": 1540,
+          "duration": 1232
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:22.298Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "长丰苑": {
+      "community": "长丰苑",
+      "amapName": "长丰苑",
+      "location": "114.127205,22.541235",
+      "address": "春风路2021号(向西村地铁站B口步行100米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1664,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 526,
+        "duration": 421
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 526,
+          "duration": 421
+        },
+        {
+          "station": "国贸",
+          "distance": 973,
+          "duration": 778
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:24.903Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金龙大厦": {
+      "community": "金龙大厦",
+      "amapName": "金龙大厦",
+      "location": "114.122072,22.542325",
+      "address": "东门南路3007号(湖贝地铁站C口步行390米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1583,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 549,
+        "duration": 439
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 549,
+          "duration": 439
+        },
+        {
+          "station": "国贸",
+          "distance": 573,
+          "duration": 458
+        },
+        {
+          "station": "东门",
+          "distance": 751,
+          "duration": 601
+        },
+        {
+          "station": "晒布",
+          "distance": 857,
+          "duration": 686
+        },
+        {
+          "station": "老街",
+          "distance": 899,
+          "duration": 719
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:29.418Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "鸿基大厦": {
+      "community": "鸿基大厦",
+      "amapName": "鸿基大厦",
+      "location": "114.121455,22.544725",
+      "address": "东门中路1011号(晒布地铁站A1口步行430米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1835,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 547,
+        "duration": 438
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 547,
+          "duration": 438
+        },
+        {
+          "station": "东门",
+          "distance": 547,
+          "duration": 438
+        },
+        {
+          "station": "老街",
+          "distance": 559,
+          "duration": 447
+        },
+        {
+          "station": "湖贝",
+          "distance": 569,
+          "duration": 455
+        },
+        {
+          "station": "国贸",
+          "distance": 825,
+          "duration": 660
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:33.477Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "钻石时代": {
+      "community": "钻石时代",
+      "amapName": "钻石时代",
+      "location": "114.128832,22.542100",
+      "address": "新安路45号(文锦地铁站A口步行310米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1834,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 631,
+        "duration": 505
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 631,
+          "duration": 505
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1133,
+          "duration": 906
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:35.877Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金色都汇": {
+      "community": "金色都汇",
+      "amapName": "金色都汇",
+      "location": "114.125670,22.540460",
+      "address": "春风路2040号(向西村地铁站C口步行80米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1511,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 523,
+        "duration": 418
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 523,
+          "duration": 418
+        },
+        {
+          "station": "国贸",
+          "distance": 899,
+          "duration": 719
+        },
+        {
+          "station": "东门",
+          "distance": 1275,
+          "duration": 1020
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:38.642Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "高嘉花园": {
+      "community": "高嘉花园",
+      "amapName": "高嘉花园",
+      "location": "114.129702,22.543139",
+      "address": "春风路2002号(文锦地铁站D口步行150米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1980,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 683,
+        "duration": 546
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 683,
+          "duration": 546
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 900,
+          "duration": 720
+        },
+        {
+          "station": "晒布",
+          "distance": 1667,
+          "duration": 1334
+        }
+      ],
+      "measuredAt": "2026-08-14T02:25:40.912Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "文星花园": {
+      "community": "文星花园",
+      "amapName": "文星花园",
+      "location": "114.128230,22.541033",
+      "address": "新安路43号(文锦地铁站A口步行390米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1701,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 763,
+        "duration": 610
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 763,
+          "duration": 610
+        },
+        {
+          "station": "国贸",
+          "distance": 1169,
+          "duration": 935
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:51.615Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "云景豪园": {
+      "community": "云景豪园",
+      "amapName": "云景豪园",
+      "location": "114.126799,22.540185",
+      "address": "南湖街道文锦社区春风路2041号(向西村地铁站B口)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1542,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 590,
+        "duration": 472
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 590,
+          "duration": 472
+        },
+        {
+          "station": "国贸",
+          "distance": 996,
+          "duration": 797
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:53.813Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "凯悦华庭": {
+      "community": "凯悦华庭",
+      "amapName": "凯悦华庭",
+      "location": "114.126414,22.540034",
+      "address": "春风路2047号(向西村地铁站A1口步行190米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1507,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 565,
+        "duration": 452
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 565,
+          "duration": 452
+        },
+        {
+          "station": "国贸",
+          "distance": 971,
+          "duration": 777
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:55.958Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "高嘉大厦": {
+      "community": "高嘉大厦",
+      "amapName": "高嘉大厦",
+      "location": "114.130381,22.542791",
+      "address": "春风路2002-9号(文锦地铁站D口步行110米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1989,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 711,
+        "duration": 569
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 711,
+          "duration": 569
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 928,
+          "duration": 742
+        }
+      ],
+      "measuredAt": "2026-08-14T02:20:57.974Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "文锦中学教工楼": {
+      "community": "文锦中学教工楼",
+      "amapName": "文锦中学教工楼",
+      "location": "114.130376,22.541053",
+      "address": "文锦南路1011号(文锦地铁站A口步行130米)",
+      "poiType": "商务住宅;住宅区;住宅区",
+      "portStraightDistance": 1836,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 955,
+        "duration": 764
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 955,
+          "duration": 764
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1112,
+          "duration": 890
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:00.040Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "森威大厦": {
+      "community": "森威大厦",
+      "amapName": "森威大厦",
+      "location": "114.129707,22.540217",
+      "address": "新安路4-9号(文锦地铁站B口步行450米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1721,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 842,
+        "duration": 674
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 842,
+          "duration": 674
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1254,
+          "duration": 1003
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:02.039Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "阳光新干线家园": {
+      "community": "阳光新干线家园",
+      "amapName": "阳光新干线家园",
+      "location": "114.127082,22.537625",
+      "address": "南湖街道嘉南社区东门南路1021号(向西村地铁站A2口步行320米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1327,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 1117,
+        "duration": 894
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 1117,
+          "duration": 894
+        },
+        {
+          "station": "国贸",
+          "distance": 1159,
+          "duration": 927
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:04.080Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "集浩大厦": {
+      "community": "集浩大厦",
+      "amapName": "集浩大厦",
+      "location": "114.135445,22.546456",
+      "address": "深南东路1086号(黄贝岭地铁站E口旁)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2631,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 144,
+        "duration": 115
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 144,
+          "duration": 115
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:05.406Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "文华大厦": {
+      "community": "文华大厦",
+      "amapName": "文华大厦",
+      "location": "114.135448,22.545339",
+      "address": "深南东路1022号(黄贝岭地铁站H口旁)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2538,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 290,
+        "duration": 232
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 290,
+          "duration": 232
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:06.822Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "新天地名居": {
+      "community": "新天地名居",
+      "amapName": "新天地名居",
+      "location": "114.134065,22.544361",
+      "address": "北斗路9号(黄贝岭地铁站G2口步行120米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2362,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 459,
+        "duration": 367
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 459,
+          "duration": 367
+        },
+        {
+          "station": "湖贝",
+          "distance": 1234,
+          "duration": 987
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:08.865Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "福德花园": {
+      "community": "福德花园",
+      "amapName": "福德花园",
+      "location": "114.133319,22.546338",
+      "address": "深南东路1110号(黄贝岭地铁站F1口步行180米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2485,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 349,
+        "duration": 279
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 349,
+          "duration": 279
+        },
+        {
+          "station": "湖贝",
+          "distance": 903,
+          "duration": 722
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:11.036Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "广东基础楼": {
+      "community": "广东基础楼",
+      "amapName": "广东基础楼",
+      "location": "114.136221,22.549193",
+      "address": "华丽东村18栋",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2918,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 770,
+        "duration": 616
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 770,
+          "duration": 616
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:12.548Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "京基·凤凰印象A座": {
+      "community": "京基·凤凰印象A座",
+      "amapName": "京基·凤凰印象A座",
+      "location": "114.133121,22.547418",
+      "address": "凤凰路181号(黄贝岭地铁站F1口步行320米)",
+      "poiType": "商务住宅;楼宇;商务写字楼|商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2571,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 518,
+        "duration": 414
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 518,
+          "duration": 414
+        },
+        {
+          "station": "湖贝",
+          "distance": 947,
+          "duration": 758
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:14.682Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "海珑华苑": {
+      "community": "海珑华苑",
+      "amapName": "海珑华苑",
+      "location": "114.132473,22.546559",
+      "address": "凤凰路179号(黄贝岭地铁站F1口步行270米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2455,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 475,
+        "duration": 380
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 475,
+          "duration": 380
+        },
+        {
+          "station": "湖贝",
+          "distance": 930,
+          "duration": 744
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:16.806Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金城华庭": {
+      "community": "金城华庭",
+      "amapName": "金城华庭",
+      "location": "114.133701,22.549352",
+      "address": "凤凰街18号(黄贝岭地铁站F1口步行440米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2783,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 800,
+        "duration": 640
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 800,
+          "duration": 640
+        },
+        {
+          "station": "翠竹",
+          "distance": 1316,
+          "duration": 1053
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:18.838Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "文锦花园(春风路)": {
+      "community": "文锦花园(春风路)",
+      "amapName": "文锦花园(春风路)",
+      "location": "114.132590,22.543434",
+      "address": "春风路1046号(文锦地铁站C口步行330米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2185,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 914,
+        "duration": 731
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 914,
+          "duration": 731
+        },
+        {
+          "station": "湖贝",
+          "distance": 957,
+          "duration": 766
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:20.929Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "深业东岭": {
+      "community": "深业东岭",
+      "amapName": "深业东岭",
+      "location": "114.139998,22.549126",
+      "address": "黄贝岭三路9号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3164,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 584,
+        "duration": 467
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 584,
+          "duration": 467
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:22.312Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "锦星花园": {
+      "community": "锦星花园",
+      "amapName": "锦星花园",
+      "location": "114.133336,22.541972",
+      "address": "春风路1001号(文锦地铁站B口步行110米)",
+      "poiType": "商务住宅;住宅区;住宅区",
+      "portStraightDistance": 2117,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 725,
+        "duration": 580
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 725,
+          "duration": 580
+        },
+        {
+          "station": "湖贝",
+          "distance": 1123,
+          "duration": 898
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:24.441Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "华丽东村": {
+      "community": "华丽东村",
+      "amapName": "华丽东村",
+      "location": "114.136493,22.551077",
+      "address": "黄贝路1002号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3103,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 975,
+        "duration": 780
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 975,
+          "duration": 780
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1063,
+          "duration": 850
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:26.453Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金盾花园": {
+      "community": "金盾花园",
+      "amapName": "金盾花园",
+      "location": "114.134462,22.550990",
+      "address": "华丽路1067号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2978,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 973,
+        "duration": 778
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 973,
+          "duration": 778
+        },
+        {
+          "station": "翠竹",
+          "distance": 978,
+          "duration": 782
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:28.614Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "华丽西村": {
+      "community": "华丽西村",
+      "amapName": "华丽西村",
+      "location": "114.134546,22.551665",
+      "address": "华丽路1069号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3046,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 958,
+        "duration": 766
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 958,
+          "duration": 766
+        },
+        {
+          "station": "翠竹",
+          "distance": 963,
+          "duration": 770
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:30.604Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "朗钜御风庭": {
+      "community": "朗钜御风庭",
+      "amapName": "朗钜御风庭",
+      "location": "114.131619,22.541571",
+      "address": "文锦南路1010号(文锦地铁站B口步行90米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1963,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 931,
+        "duration": 745
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 931,
+          "duration": 745
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 976,
+          "duration": 781
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:32.644Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "华深公寓": {
+      "community": "华深公寓",
+      "amapName": "华深公寓",
+      "location": "114.133331,22.551843",
+      "address": "爱国路1040号12栋",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3000,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 839,
+        "duration": 671
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 839,
+          "duration": 671
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1133,
+          "duration": 906
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:40.221Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "乐美居": {
+      "community": "乐美居",
+      "amapName": "乐美居",
+      "location": "114.144621,22.544048",
+      "address": "秀东街39号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3164,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 1450,
+        "duration": 1160
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 1450,
+          "duration": 1160
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:34.039Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "景贝南小区": {
+      "community": "景贝南小区",
+      "amapName": "景贝南小区",
+      "location": "114.141967,22.552567",
+      "address": "黄贝路1008号(怡景地铁站B口步行140米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3583,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 1237,
+        "duration": 990
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 1237,
+          "duration": 990
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:35.521Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "电影大厦": {
+      "community": "电影大厦",
+      "amapName": "电影大厦",
+      "location": "114.113273,22.544968",
+      "address": "桂园路2号(老街地铁站G口步行320米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1931,
+      "bestRoute": {
+        "station": "老街",
+        "distance": 474,
+        "duration": 379
+      },
+      "routes": [
+        {
+          "station": "老街",
+          "distance": 474,
+          "duration": 379
+        },
+        {
+          "station": "东门",
+          "distance": 771,
+          "duration": 617
+        },
+        {
+          "station": "大剧院",
+          "distance": 809,
+          "duration": 647
+        },
+        {
+          "station": "国贸",
+          "distance": 1333,
+          "duration": 1066
+        },
+        {
+          "station": "红岭",
+          "distance": 1539,
+          "duration": 1231
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:50.553Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "桂木园(桂园路)": {
+      "community": "桂木园(桂园路)",
+      "amapName": "桂木园(桂园路)",
+      "location": "114.113455,22.546452",
+      "address": "桂园街道桂园路141号(老街地铁站G口步行430米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2084,
+      "bestRoute": {
+        "station": "老街",
+        "distance": 765,
+        "duration": 612
+      },
+      "routes": [
+        {
+          "station": "老街",
+          "distance": 765,
+          "duration": 612
+        },
+        {
+          "station": "东门",
+          "distance": 910,
+          "duration": 728
+        },
+        {
+          "station": "大剧院",
+          "distance": 948,
+          "duration": 758
+        },
+        {
+          "station": "红岭",
+          "distance": 1410,
+          "duration": 1128
+        },
+        {
+          "station": "国贸",
+          "distance": 1472,
+          "duration": 1178
+        },
+        {
+          "station": "晒布",
+          "distance": 1603,
+          "duration": 1282
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:55.324Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "粤华小区": {
+      "community": "粤华小区",
+      "amapName": "粤华小区",
+      "location": "114.113773,22.541157",
+      "address": "沿河东路与深南东路交叉口南120米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1514,
+      "bestRoute": {
+        "station": "东门",
+        "distance": 610,
+        "duration": 488
+      },
+      "routes": [
+        {
+          "station": "东门",
+          "distance": 610,
+          "duration": 488
+        },
+        {
+          "station": "老街",
+          "distance": 694,
+          "duration": 555
+        },
+        {
+          "station": "国贸",
+          "distance": 866,
+          "duration": 693
+        },
+        {
+          "station": "大剧院",
+          "distance": 929,
+          "duration": 743
+        }
+      ],
+      "measuredAt": "2026-08-14T02:18:26.180Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "红围坊": {
+      "community": "红围坊",
+      "amapName": "红围坊",
+      "location": "114.112079,22.545040",
+      "address": "红围街1号(老街地铁站G口步行390米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1979,
+      "bestRoute": {
+        "station": "老街",
+        "distance": 620,
+        "duration": 496
+      },
+      "routes": [
+        {
+          "station": "老街",
+          "distance": 620,
+          "duration": 496
+        },
+        {
+          "station": "大剧院",
+          "distance": 665,
+          "duration": 532
+        },
+        {
+          "station": "东门",
+          "distance": 808,
+          "duration": 646
+        },
+        {
+          "station": "国贸",
+          "distance": 1327,
+          "duration": 1062
+        },
+        {
+          "station": "红岭",
+          "distance": 1591,
+          "duration": 1273
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:59.397Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "恒大天玺公馆": {
+      "community": "恒大天玺公馆",
+      "amapName": "恒大天玺公馆",
+      "location": "114.112219,22.546012",
+      "address": "桂园路99号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2076,
+      "bestRoute": {
+        "station": "老街",
+        "distance": 746,
+        "duration": 597
+      },
+      "routes": [
+        {
+          "station": "老街",
+          "distance": 746,
+          "duration": 597
+        },
+        {
+          "station": "大剧院",
+          "distance": 780,
+          "duration": 624
+        },
+        {
+          "station": "东门",
+          "distance": 891,
+          "duration": 713
+        },
+        {
+          "station": "红岭",
+          "distance": 1431,
+          "duration": 1145
+        },
+        {
+          "station": "国贸",
+          "distance": 1453,
+          "duration": 1162
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:03.813Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "供电南苑": {
+      "community": "供电南苑",
+      "amapName": "供电南苑",
+      "location": "114.112660,22.541554",
+      "address": "宝安南路1052号(大剧院地铁站F口步行460米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1597,
+      "bestRoute": {
+        "station": "大剧院",
+        "distance": 747,
+        "duration": 598
+      },
+      "routes": [
+        {
+          "station": "大剧院",
+          "distance": 747,
+          "duration": 598
+        },
+        {
+          "station": "东门",
+          "distance": 762,
+          "duration": 610
+        },
+        {
+          "station": "老街",
+          "distance": 846,
+          "duration": 677
+        },
+        {
+          "station": "国贸",
+          "distance": 1033,
+          "duration": 826
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:08.300Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "广东省银行大厦": {
+      "community": "广东省银行大厦",
+      "amapName": "广东省银行大厦",
+      "location": "114.118501,22.535090",
+      "address": "人民南路1015号(人民南地铁站B口步行80米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 746,
+      "bestRoute": {
+        "station": "罗湖",
+        "distance": 433,
+        "duration": 346
+      },
+      "routes": [
+        {
+          "station": "罗湖",
+          "distance": 433,
+          "duration": 346
+        },
+        {
+          "station": "国贸",
+          "distance": 541,
+          "duration": 433
+        },
+        {
+          "station": "东门",
+          "distance": 1349,
+          "duration": 1079
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:13.980Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "铂金时代公寓": {
+      "community": "铂金时代公寓",
+      "amapName": "铂金时代公寓",
+      "location": "114.122181,22.535680",
+      "address": "南湖路1009号(罗湖中学西侧正对面)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 878,
+      "bestRoute": {
+        "station": "罗湖",
+        "distance": 743,
+        "duration": 594
+      },
+      "routes": [
+        {
+          "station": "罗湖",
+          "distance": 743,
+          "duration": 594
+        },
+        {
+          "station": "国贸",
+          "distance": 852,
+          "duration": 682
+        },
+        {
+          "station": "东门",
+          "distance": 1562,
+          "duration": 1250
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:17.182Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "罗湖金岸": {
+      "community": "罗湖金岸",
+      "amapName": "罗湖金岸",
+      "location": "114.123581,22.534208",
+      "address": "沿河南路1070号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 806,
+      "bestRoute": {
+        "station": "罗湖",
+        "distance": 800,
+        "duration": 640
+      },
+      "routes": [
+        {
+          "station": "罗湖",
+          "distance": 800,
+          "duration": 640
+        },
+        {
+          "station": "国贸",
+          "distance": 1135,
+          "duration": 908
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:19.397Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "渔民村": {
+      "community": "渔民村",
+      "amapName": "渔民村",
+      "location": "114.112350,22.533191",
+      "address": "鹿丹村地铁站A2口步行450米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 858,
+      "bestRoute": {
+        "station": "罗湖",
+        "distance": 1121,
+        "duration": 897
+      },
+      "routes": [
+        {
+          "station": "罗湖",
+          "distance": 1121,
+          "duration": 897
+        },
+        {
+          "station": "国贸",
+          "distance": 1273,
+          "duration": 1018
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:21.706Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "港逸豪庭": {
+      "community": "港逸豪庭",
+      "amapName": "港逸豪庭",
+      "location": "114.112640,22.534076",
+      "address": "渔村路38号(鹿丹村地铁站A2口步行460米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 901,
+      "bestRoute": {
+        "station": "罗湖",
+        "distance": 1013,
+        "duration": 810
+      },
+      "routes": [
+        {
+          "station": "罗湖",
+          "distance": 1013,
+          "duration": 810
+        },
+        {
+          "station": "国贸",
+          "distance": 1177,
+          "duration": 942
+        },
+        {
+          "station": "大剧院",
+          "distance": 1590,
+          "duration": 1272
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:24.747Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "裕安花园(渔民村路)": {
+      "community": "裕安花园(渔民村路)",
+      "amapName": "裕安花园(渔民村路)",
+      "location": "114.112152,22.533768",
+      "address": "渔民村53号(鹿丹村地铁站A2口步行470米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 915,
+      "bestRoute": {
+        "station": "罗湖",
+        "distance": 1080,
+        "duration": 864
+      },
+      "routes": [
+        {
+          "station": "罗湖",
+          "distance": 1080,
+          "duration": 864
+        },
+        {
+          "station": "国贸",
+          "distance": 1232,
+          "duration": 986
+        },
+        {
+          "station": "大剧院",
+          "distance": 1666,
+          "duration": 1333
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:27.601Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "东门天地": {
+      "community": "东门天地",
+      "amapName": "东门天地",
+      "location": "114.122353,22.549588",
+      "address": "东门中路2123号(晒布地铁站D1口步行70米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2383,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 64,
+        "duration": 51
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 64,
+          "duration": 51
+        },
+        {
+          "station": "湖贝",
+          "distance": 1018,
+          "duration": 814
+        },
+        {
+          "station": "东门",
+          "distance": 1128,
+          "duration": 902
+        },
+        {
+          "station": "老街",
+          "distance": 1140,
+          "duration": 912
+        }
+      ],
+      "measuredAt": "2026-08-14T02:25:44.493Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "嘉年华名苑": {
+      "community": "嘉年华名苑",
+      "amapName": "嘉年华名苑",
+      "location": "114.121698,22.549766",
+      "address": "晒布路18号(晒布地铁站D1口步行140米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2394,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 300,
+        "duration": 240
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 300,
+          "duration": 240
+        },
+        {
+          "station": "湖贝",
+          "distance": 1115,
+          "duration": 892
+        },
+        {
+          "station": "东门",
+          "distance": 1234,
+          "duration": 987
+        },
+        {
+          "station": "老街",
+          "distance": 1246,
+          "duration": 997
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:46.371Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "新世界大厦": {
+      "community": "新世界大厦",
+      "amapName": "新世界大厦",
+      "location": "114.123785,22.549965",
+      "address": "东门中路2074号(晒布地铁站B口旁)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2451,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 370,
+        "duration": 296
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 370,
+          "duration": 296
+        },
+        {
+          "station": "翠竹",
+          "distance": 974,
+          "duration": 779
+        },
+        {
+          "station": "湖贝",
+          "distance": 1080,
+          "duration": 864
+        },
+        {
+          "station": "老街",
+          "distance": 1367,
+          "duration": 1094
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:52.214Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "华盛君荟名庭": {
+      "community": "华盛君荟名庭",
+      "amapName": "华盛君荟名庭",
+      "location": "114.122755,22.550564",
+      "address": "东门街道花场社区东门中路2125号(晒布地铁站C口步行80米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2497,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 203,
+        "duration": 162
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 203,
+          "duration": 162
+        },
+        {
+          "station": "翠竹",
+          "distance": 1117,
+          "duration": 894
+        },
+        {
+          "station": "湖贝",
+          "distance": 1188,
+          "duration": 950
+        },
+        {
+          "station": "老街",
+          "distance": 1310,
+          "duration": 1048
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:57.921Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "南海中心": {
+      "community": "南海中心",
+      "amapName": "南海中心",
+      "location": "114.121624,22.548262",
+      "address": "东门中路2071号(晒布地铁站D3口旁)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2227,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 207,
+        "duration": 166
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 207,
+          "duration": 166
+        },
+        {
+          "station": "湖贝",
+          "distance": 893,
+          "duration": 714
+        },
+        {
+          "station": "东门",
+          "distance": 1003,
+          "duration": 802
+        },
+        {
+          "station": "老街",
+          "distance": 1015,
+          "duration": 812
+        },
+        {
+          "station": "国贸",
+          "distance": 1333,
+          "duration": 1066
+        }
+      ],
+      "measuredAt": "2026-08-14T02:25:48.665Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "立新花园(人民北路)": {
+      "community": "立新花园(人民北路)",
+      "amapName": "立新花园(人民北路)",
+      "location": "114.120710,22.548579",
+      "address": "立新路10号(晒布地铁站D3口步行50米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2252,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 289,
+        "duration": 231
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 289,
+          "duration": 231
+        },
+        {
+          "station": "老街",
+          "distance": 819,
+          "duration": 655
+        },
+        {
+          "station": "东门",
+          "distance": 991,
+          "duration": 793
+        },
+        {
+          "station": "湖贝",
+          "distance": 1095,
+          "duration": 876
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:14.181Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "园林宿舍": {
+      "community": "园林宿舍",
+      "amapName": "园林宿舍",
+      "location": "114.123122,22.552061",
+      "address": "童乐路24号(晒布地铁站C口步行320米)",
+      "poiType": "商务住宅;住宅区;宿舍",
+      "portStraightDistance": 2667,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 410,
+        "duration": 328
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 410,
+          "duration": 328
+        },
+        {
+          "station": "翠竹",
+          "distance": 1064,
+          "duration": 851
+        },
+        {
+          "station": "湖贝",
+          "distance": 1395,
+          "duration": 1116
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:18.555Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "世濠大厦": {
+      "community": "世濠大厦",
+      "amapName": "世濠大厦",
+      "location": "114.119664,22.548284",
+      "address": "人民北路2139号(晒布地铁站A1口步行430米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2213,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 501,
+        "duration": 401
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 501,
+          "duration": 401
+        },
+        {
+          "station": "老街",
+          "distance": 667,
+          "duration": 534
+        },
+        {
+          "station": "东门",
+          "distance": 885,
+          "duration": 708
+        },
+        {
+          "station": "湖贝",
+          "distance": 1034,
+          "duration": 827
+        },
+        {
+          "station": "国贸",
+          "distance": 1163,
+          "duration": 930
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:22.853Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "都心名苑": {
+      "community": "都心名苑",
+      "amapName": "都心名苑",
+      "location": "114.126114,22.549101",
+      "address": "中兴路165号(晒布地铁站A2口步行310米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2419,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 594,
+        "duration": 475
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 594,
+          "duration": 475
+        },
+        {
+          "station": "湖贝",
+          "distance": 1010,
+          "duration": 808
+        },
+        {
+          "station": "翠竹",
+          "distance": 1111,
+          "duration": 889
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:25.900Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "好年华大厦": {
+      "community": "好年华大厦",
+      "amapName": "好年华大厦",
+      "location": "114.119313,22.548191",
+      "address": "立新路68号(晒布地铁站A1口步行420米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2202,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 527,
+        "duration": 422
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 527,
+          "duration": 422
+        },
+        {
+          "station": "老街",
+          "distance": 609,
+          "duration": 487
+        },
+        {
+          "station": "东门",
+          "distance": 776,
+          "duration": 621
+        },
+        {
+          "station": "湖贝",
+          "distance": 1060,
+          "duration": 848
+        },
+        {
+          "station": "国贸",
+          "distance": 1189,
+          "duration": 951
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:30.663Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "缤纷时代家园": {
+      "community": "缤纷时代家园",
+      "amapName": "缤纷时代家园",
+      "location": "114.125468,22.551285",
+      "address": "东门中路2112号(晒布地铁站B口步行310米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2633,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 461,
+        "duration": 369
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 461,
+          "duration": 369
+        },
+        {
+          "station": "翠竹",
+          "distance": 905,
+          "duration": 724
+        },
+        {
+          "station": "湖贝",
+          "distance": 1401,
+          "duration": 1121
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:33.517Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "方海商苑": {
+      "community": "方海商苑",
+      "amapName": "方海商苑",
+      "location": "114.120704,22.545875",
+      "address": "解放路1002号(晒布地铁站A1口步行340米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 1953,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 511,
+        "duration": 409
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 511,
+          "duration": 409
+        },
+        {
+          "station": "老街",
+          "distance": 639,
+          "duration": 511
+        },
+        {
+          "station": "东门",
+          "distance": 648,
+          "duration": 518
+        },
+        {
+          "station": "湖贝",
+          "distance": 697,
+          "duration": 558
+        },
+        {
+          "station": "国贸",
+          "distance": 926,
+          "duration": 741
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:37.887Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "华隆园": {
+      "community": "华隆园",
+      "amapName": "华隆园",
+      "location": "114.126939,22.550282",
+      "address": "翠园街38号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2570,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 668,
+        "duration": 534
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 668,
+          "duration": 534
+        },
+        {
+          "station": "湖贝",
+          "distance": 890,
+          "duration": 712
+        },
+        {
+          "station": "翠竹",
+          "distance": 1007,
+          "duration": 806
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:40.555Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "一品东门雅园": {
+      "community": "一品东门雅园",
+      "amapName": "一品东门雅园",
+      "location": "114.127664,22.550008",
+      "address": "中兴路168号(中兴路与乐园路交汇处)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2567,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 832,
+        "duration": 666
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 832,
+          "duration": 666
+        },
+        {
+          "station": "湖贝",
+          "distance": 934,
+          "duration": 747
+        },
+        {
+          "station": "翠竹",
+          "distance": 1043,
+          "duration": 834
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1419,
+          "duration": 1135
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:44.009Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "128号大院": {
+      "community": "128号大院",
+      "amapName": "128号大院",
+      "location": "114.122741,22.554140",
+      "address": "童乐路与文锦中路辅路交叉口南220米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2890,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 783,
+        "duration": 626
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 783,
+          "duration": 626
+        },
+        {
+          "station": "翠竹",
+          "distance": 1196,
+          "duration": 957
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:46.127Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "物资大院": {
+      "community": "物资大院",
+      "amapName": "物资大院",
+      "location": "114.128276,22.551124",
+      "address": "东升街15号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2705,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 950,
+        "duration": 760
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 950,
+          "duration": 760
+        },
+        {
+          "station": "晒布",
+          "distance": 951,
+          "duration": 761
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1517,
+          "duration": 1214
+        },
+        {
+          "station": "湖贝",
+          "distance": 1518,
+          "duration": 1214
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:34.359Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "聚龙大厦": {
+      "community": "聚龙大厦",
+      "amapName": "聚龙大厦",
+      "location": "114.127164,22.553384",
+      "address": "文锦中路2123号(翠竹地铁站D口步行430米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2906,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 670,
+        "duration": 536
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 670,
+          "duration": 536
+        },
+        {
+          "station": "晒布",
+          "distance": 850,
+          "duration": 680
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:16.657Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "名阳阁": {
+      "community": "名阳阁",
+      "amapName": "名阳阁",
+      "location": "114.129225,22.550929",
+      "address": "文锦中路2019-12号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2721,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 960,
+        "duration": 768
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 960,
+          "duration": 768
+        },
+        {
+          "station": "晒布",
+          "distance": 1158,
+          "duration": 926
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1254,
+          "duration": 1003
+        },
+        {
+          "station": "湖贝",
+          "distance": 1255,
+          "duration": 1004
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:38.042Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "同乐大厦": {
+      "community": "同乐大厦",
+      "amapName": "同乐大厦",
+      "location": "114.124594,22.555418",
+      "address": "笋岗东路1001号",
+      "poiType": "商务住宅;楼宇;商住两用楼宇|商务住宅;楼宇;商务写字楼",
+      "portStraightDistance": 3062,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 719,
+        "duration": 575
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 719,
+          "duration": 575
+        },
+        {
+          "station": "晒布",
+          "distance": 933,
+          "duration": 746
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:26.594Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "名都大厦A座": {
+      "community": "名都大厦A座",
+      "amapName": "名都大厦A座",
+      "location": "114.129821,22.550737",
+      "address": "文锦中路2019号名都大厦",
+      "poiType": "商务住宅;楼宇;商务写字楼|商务住宅;住宅区;住宅区",
+      "portStraightDistance": 2726,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 907,
+        "duration": 726
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 907,
+          "duration": 726
+        },
+        {
+          "station": "晒布",
+          "distance": 1105,
+          "duration": 884
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1201,
+          "duration": 961
+        },
+        {
+          "station": "湖贝",
+          "distance": 1202,
+          "duration": 962
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:43.981Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "怡泰大厦B座": {
+      "community": "怡泰大厦B座",
+      "amapName": "怡泰大厦B座",
+      "location": "114.127675,22.554437",
+      "address": "文锦中路2092号(翠竹地铁站D口步行300米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇|商务住宅;楼宇;商务写字楼",
+      "portStraightDistance": 3033,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 336,
+        "duration": 269
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 336,
+          "duration": 269
+        },
+        {
+          "station": "晒布",
+          "distance": 939,
+          "duration": 751
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:12.794Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "蓝馨苑": {
+      "community": "蓝馨苑",
+      "amapName": "蓝馨苑",
+      "location": "114.130076,22.551514",
+      "address": "文锦中路2010号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2816,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 789,
+        "duration": 631
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 789,
+          "duration": 631
+        },
+        {
+          "station": "晒布",
+          "distance": 1262,
+          "duration": 1010
+        },
+        {
+          "station": "黄贝岭",
+          "distance": 1325,
+          "duration": 1060
+        },
+        {
+          "station": "湖贝",
+          "distance": 1414,
+          "duration": 1131
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:23.779Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "碧湖花园": {
+      "community": "碧湖花园",
+      "amapName": "碧湖花园",
+      "location": "114.120880,22.557738",
+      "address": "洪湖路20号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3269,
+      "bestRoute": {
+        "station": "晒布",
+        "distance": 1253,
+        "duration": 1002
+      },
+      "routes": [
+        {
+          "station": "晒布",
+          "distance": 1253,
+          "duration": 1002
+        },
+        {
+          "station": "翠竹",
+          "distance": 1267,
+          "duration": 1014
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:47.373Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "雅馨居": {
+      "community": "雅馨居",
+      "amapName": "雅馨居",
+      "location": "114.111241,22.549066",
+      "address": "桂园北路2号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2429,
+      "bestRoute": {
+        "station": "红岭",
+        "distance": 964,
+        "duration": 771
+      },
+      "routes": [
+        {
+          "station": "红岭",
+          "distance": 964,
+          "duration": 771
+        },
+        {
+          "station": "老街",
+          "distance": 1066,
+          "duration": 853
+        },
+        {
+          "station": "大剧院",
+          "distance": 1165,
+          "duration": 932
+        },
+        {
+          "station": "东门",
+          "distance": 1211,
+          "duration": 969
+        }
+      ],
+      "measuredAt": "2026-08-14T02:19:48.738Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "双城世纪大厦": {
+      "community": "双城世纪大厦",
+      "amapName": "双城世纪大厦",
+      "location": "114.120948,22.533201",
+      "address": "沿河南路1021号(罗湖地铁站出入口步行440米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 575,
+      "bestRoute": {
+        "station": "罗湖",
+        "distance": 484,
+        "duration": 387
+      },
+      "routes": [
+        {
+          "station": "罗湖",
+          "distance": 484,
+          "duration": 387
+        },
+        {
+          "station": "国贸",
+          "distance": 1014,
+          "duration": 811
+        }
+      ],
+      "measuredAt": "2026-08-14T02:22:10.756Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "翠都花园": {
+      "community": "翠都花园",
+      "amapName": "翠都花园",
+      "location": "114.129757,22.557476",
+      "address": "翠竹路口(翠竹地铁站C口旁)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3421,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 231,
+        "duration": 185
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 231,
+          "duration": 185
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:10.652Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "翠竹苑": {
+      "community": "翠竹苑",
+      "amapName": "翠竹苑",
+      "location": "114.131605,22.559011",
+      "address": "翠竹街道翠竹社区东门北路2057号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3646,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 465,
+        "duration": 372
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 465,
+          "duration": 372
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:14.299Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "华丽园": {
+      "community": "华丽园",
+      "amapName": "华丽园",
+      "location": "114.129108,22.559993",
+      "address": "田贝一路2号(翠竹地铁站C口步行400米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3667,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 509,
+        "duration": 407
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 509,
+          "duration": 407
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:18.742Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "逸翠园(翠竹路)": {
+      "community": "逸翠园(翠竹路)",
+      "amapName": "逸翠园(翠竹路)",
+      "location": "114.130288,22.561173",
+      "address": "翠竹路1056号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3828,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 674,
+        "duration": 539
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 674,
+          "duration": 539
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:28.381Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "英丽阁花园": {
+      "community": "英丽阁花园",
+      "amapName": "英丽阁花园",
+      "location": "114.127832,22.560862",
+      "address": "田贝二路15号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3725,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 805,
+        "duration": 644
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 805,
+          "duration": 644
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:30.340Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "碧桂园(罗湖区)": {
+      "community": "碧桂园(罗湖区)",
+      "amapName": "碧桂园(罗湖区)",
+      "location": "114.130321,22.562093",
+      "address": "翠竹路与田贝二路交叉口东北100米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3927,
+      "bestRoute": {
+        "station": "翠竹",
+        "distance": 720,
+        "duration": 576
+      },
+      "routes": [
+        {
+          "station": "翠竹",
+          "distance": 720,
+          "duration": 576
+        }
+      ],
+      "measuredAt": "2026-08-14T02:17:45.378Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "南园新村东区": {
+      "community": "南园新村东区",
+      "amapName": "南园新村东区",
+      "location": "114.094495,22.539191",
+      "address": "南园路与松岭路交叉口北40米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2779,
+      "bestRoute": {
+        "station": "科学馆",
+        "distance": 351,
+        "duration": 281
+      },
+      "routes": [
+        {
+          "station": "科学馆",
+          "distance": 351,
+          "duration": 281
+        },
+        {
+          "station": "燕南",
+          "distance": 757,
+          "duration": 606
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:37.529Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "玮鹏花园": {
+      "community": "玮鹏花园",
+      "amapName": "玮鹏花园",
+      "location": "114.094633,22.542175",
+      "address": "华强北街道福强社区振中路1号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2925,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 453,
+        "duration": 362
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 453,
+          "duration": 362
+        },
+        {
+          "station": "科学馆",
+          "distance": 645,
+          "duration": 516
+        },
+        {
+          "station": "通新岭",
+          "distance": 950,
+          "duration": 760
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:40.195Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "佳兆业中心": {
+      "community": "佳兆业中心",
+      "amapName": "佳兆业中心",
+      "location": "114.096952,22.539295",
+      "address": "南园路66号(科学馆地铁站F口步行100米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2559,
+      "bestRoute": {
+        "station": "科学馆",
+        "distance": 371,
+        "duration": 297
+      },
+      "routes": [
+        {
+          "station": "科学馆",
+          "distance": 371,
+          "duration": 297
+        },
+        {
+          "station": "燕南",
+          "distance": 1060,
+          "duration": 848
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:42.178Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "南园公寓(松岭路)": {
+      "community": "南园公寓(松岭路)",
+      "amapName": "南园公寓(松岭路)",
+      "location": "114.094915,22.538520",
+      "address": "松岭路62-64号(科学馆地铁站E口步行190米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2708,
+      "bestRoute": {
+        "station": "科学馆",
+        "distance": 477,
+        "duration": 382
+      },
+      "routes": [
+        {
+          "station": "科学馆",
+          "distance": 477,
+          "duration": 382
+        },
+        {
+          "station": "燕南",
+          "distance": 903,
+          "duration": 722
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:44.152Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "旧墟村": {
+      "community": "旧墟村",
+      "amapName": "旧墟村",
+      "location": "114.090156,22.538167",
+      "address": "上步南园路(华强南地铁站B口步行410米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3145,
+      "bestRoute": {
+        "station": "科学馆",
+        "distance": 744,
+        "duration": 595
+      },
+      "routes": [
+        {
+          "station": "科学馆",
+          "distance": 744,
+          "duration": 595
+        },
+        {
+          "station": "燕南",
+          "distance": 1078,
+          "duration": 862
+        }
+      ],
+      "measuredAt": "2026-08-14T02:21:46.220Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "国城花园": {
+      "community": "国城花园",
+      "amapName": "国城花园",
+      "location": "114.095083,22.550858",
+      "address": "百花一路1号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3496,
+      "bestRoute": {
+        "station": "通新岭",
+        "distance": 499,
+        "duration": 399
+      },
+      "routes": [
+        {
+          "station": "通新岭",
+          "distance": 499,
+          "duration": 399
+        },
+        {
+          "station": "燕南",
+          "distance": 1273,
+          "duration": 1018
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:51.855Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "百花园二期": {
+      "community": "百花园二期",
+      "amapName": "百花园二期",
+      "location": "114.094763,22.552282",
+      "address": "百花一路2号(体育中心地铁站A2口步行120米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3633,
+      "bestRoute": {
+        "station": "通新岭",
+        "distance": 509,
+        "duration": 407
+      },
+      "routes": [
+        {
+          "station": "通新岭",
+          "distance": 509,
+          "duration": 407
+        },
+        {
+          "station": "燕南",
+          "distance": 1283,
+          "duration": 1026
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:53.910Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "长城大厦": {
+      "community": "长城大厦",
+      "amapName": "长城大厦",
+      "location": "114.089743,22.551305",
+      "address": "百花五路5号(华新地铁站C口步行420米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3931,
+      "bestRoute": {
+        "station": "通新岭",
+        "distance": 923,
+        "duration": 738
+      },
+      "routes": [
+        {
+          "station": "通新岭",
+          "distance": 923,
+          "duration": 738
+        },
+        {
+          "station": "燕南",
+          "distance": 1124,
+          "duration": 899
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:55.909Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "鹏盛年华": {
+      "community": "鹏盛年华",
+      "amapName": "鹏盛年华",
+      "location": "114.100342,22.556916",
+      "address": "园岭地铁站A口步行470米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3700,
+      "bestRoute": {
+        "station": "通新岭",
+        "distance": 1281,
+        "duration": 1025
+      },
+      "routes": [
+        {
+          "station": "通新岭",
+          "distance": 1281,
+          "duration": 1025
+        }
+      ],
+      "measuredAt": "2026-08-14T02:23:57.408Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "汽车大厦": {
+      "community": "汽车大厦",
+      "amapName": "汽车大厦",
+      "location": "114.093487,22.544102",
+      "address": "振华路45号(燕南地铁站B口旁)",
+      "poiType": "商务住宅;住宅区;住宅区",
+      "portStraightDistance": 3140,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 204,
+        "duration": 163
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 204,
+          "duration": 163
+        },
+        {
+          "station": "科学馆",
+          "distance": 675,
+          "duration": 540
+        },
+        {
+          "station": "通新岭",
+          "distance": 842,
+          "duration": 674
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:00.225Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "中泰燕南名庭": {
+      "community": "中泰燕南名庭",
+      "amapName": "中泰燕南名庭",
+      "location": "114.093553,22.545096",
+      "address": "燕南路88号(燕南地铁站B口步行100米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3197,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 216,
+        "duration": 173
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 216,
+          "duration": 173
+        },
+        {
+          "station": "通新岭",
+          "distance": 671,
+          "duration": 537
+        },
+        {
+          "station": "科学馆",
+          "distance": 800,
+          "duration": 640
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:03.123Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "宝树台": {
+      "community": "宝树台",
+      "amapName": "宝树台",
+      "location": "114.092510,22.543250",
+      "address": "华强北街道福强社区燕南路13号(燕南地铁站A口旁)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 3174,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 225,
+        "duration": 180
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 225,
+          "duration": 180
+        },
+        {
+          "station": "科学馆",
+          "distance": 560,
+          "duration": 448
+        },
+        {
+          "station": "通新岭",
+          "distance": 1035,
+          "duration": 828
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:05.922Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "汽车大院北区": {
+      "community": "汽车大院北区",
+      "amapName": "汽车大院北区",
+      "location": "114.093618,22.543303",
+      "address": "燕南路与振中路交叉口东北80米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3080,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 241,
+        "duration": 193
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 241,
+          "duration": 193
+        },
+        {
+          "station": "科学馆",
+          "distance": 581,
+          "duration": 465
+        },
+        {
+          "station": "通新岭",
+          "distance": 1075,
+          "duration": 860
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:08.657Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金茂礼都": {
+      "community": "金茂礼都",
+      "amapName": "金茂礼都",
+      "location": "114.091326,22.545901",
+      "address": "振兴路(桑达电子工业区内)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3436,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 294,
+        "duration": 235
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 294,
+          "duration": 235
+        },
+        {
+          "station": "通新岭",
+          "distance": 842,
+          "duration": 674
+        },
+        {
+          "station": "科学馆",
+          "distance": 982,
+          "duration": 786
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:11.704Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "桑达小区": {
+      "community": "桑达小区",
+      "amapName": "桑达小区",
+      "location": "114.092020,22.546271",
+      "address": "华发北路(燕南地铁站C口步行400米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3402,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 261,
+        "duration": 209
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 261,
+          "duration": 209
+        },
+        {
+          "station": "通新岭",
+          "distance": 763,
+          "duration": 610
+        },
+        {
+          "station": "科学馆",
+          "distance": 915,
+          "duration": 732
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:14.485Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "航天立业华庭": {
+      "community": "航天立业华庭",
+      "amapName": "航天立业华庭",
+      "location": "114.094714,22.544374",
+      "address": "振华路21号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3054,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 218,
+        "duration": 174
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 218,
+          "duration": 174
+        },
+        {
+          "station": "通新岭",
+          "distance": 679,
+          "duration": 543
+        },
+        {
+          "station": "科学馆",
+          "distance": 802,
+          "duration": 642
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:17.464Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "君悦阁": {
+      "community": "君悦阁",
+      "amapName": "君悦阁",
+      "location": "114.092796,22.542046",
+      "address": "燕南路9号(科学馆地铁站B口步行290米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 3081,
+      "bestRoute": {
+        "station": "科学馆",
+        "distance": 470,
+        "duration": 376
+      },
+      "routes": [
+        {
+          "station": "科学馆",
+          "distance": 470,
+          "duration": 376
+        },
+        {
+          "station": "燕南",
+          "distance": 472,
+          "duration": 378
+        },
+        {
+          "station": "通新岭",
+          "distance": 1263,
+          "duration": 1010
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:20.465Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "阁林网苑": {
+      "community": "阁林网苑",
+      "amapName": "阁林网苑",
+      "location": "114.093574,22.546911",
+      "address": "华强北街道燕南路86号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3317,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 390,
+        "duration": 312
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 390,
+          "duration": 312
+        },
+        {
+          "station": "通新岭",
+          "distance": 561,
+          "duration": 449
+        },
+        {
+          "station": "科学馆",
+          "distance": 974,
+          "duration": 779
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:23.166Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "桑达大厦": {
+      "community": "桑达大厦",
+      "amapName": "桑达大厦",
+      "location": "114.089648,22.544865",
+      "address": "华发北路46号(燕南地铁站C口步行240米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3518,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 311,
+        "duration": 249
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 311,
+          "duration": 249
+        },
+        {
+          "station": "科学馆",
+          "distance": 999,
+          "duration": 799
+        },
+        {
+          "station": "通新岭",
+          "distance": 1110,
+          "duration": 888
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:25.835Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "滨江爱义南方大厦A座": {
+      "community": "滨江爱义南方大厦A座",
+      "amapName": "滨江爱义南方大厦A座",
+      "location": "114.095525,22.544375",
+      "address": "振华路一号滨江爱义南方大厦",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 2986,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 301,
+        "duration": 241
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 301,
+          "duration": 241
+        },
+        {
+          "station": "通新岭",
+          "distance": 596,
+          "duration": 477
+        },
+        {
+          "station": "科学馆",
+          "distance": 885,
+          "duration": 708
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:28.666Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "爱华大院北区": {
+      "community": "爱华大院北区",
+      "amapName": "爱华大院北区",
+      "location": "114.090967,22.541557",
+      "address": "振中四街与深南中路交叉口北100米",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3220,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 506,
+        "duration": 405
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 506,
+          "duration": 405
+        },
+        {
+          "station": "科学馆",
+          "distance": 521,
+          "duration": 417
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:30.731Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "桑达新村": {
+      "community": "桑达新村",
+      "amapName": "桑达新村",
+      "location": "114.089999,22.541884",
+      "address": "华发北路22号(华强北地铁站D2口步行370米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3325,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 687,
+        "duration": 550
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 687,
+          "duration": 550
+        },
+        {
+          "station": "科学馆",
+          "distance": 889,
+          "duration": 711
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:32.844Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "群星广场B座": {
+      "community": "群星广场B座",
+      "amapName": "群星广场B座",
+      "location": "114.088356,22.548217",
+      "address": "红荔路38-1号(华新地铁站B口步行230米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 3834,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 833,
+        "duration": 666
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 833,
+          "duration": 666
+        },
+        {
+          "station": "通新岭",
+          "distance": 906,
+          "duration": 725
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:35.212Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "东方时代广场": {
+      "community": "东方时代广场",
+      "amapName": "东方时代广场",
+      "location": "114.086208,22.545665",
+      "address": "茂业天地(华强北店)(华强北地铁站B口步行60米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 3868,
+      "bestRoute": {
+        "station": "燕南",
+        "distance": 753,
+        "duration": 602
+      },
+      "routes": [
+        {
+          "station": "燕南",
+          "distance": 753,
+          "duration": 602
+        }
+      ],
+      "measuredAt": "2026-08-14T02:24:36.990Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    }
+  },
+  "errors": {
+    "都市名园": "fetch failed",
+    "金园花园": "fetch failed"
+  }
+}
