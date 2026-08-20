@@ -2,6 +2,7 @@ const baseData = window.RENTAL_DATA;
 const scanData = window.RENTAL_SCAN || { rentals: [], communities: [], stats: {} };
 const photoData = window.RENTAL_PHOTO_COUNTS || { counts: {}, stats: {} };
 const analysisData = window.RENTAL_ANALYSIS || { communities: [], evidence: [], stats: {} };
+const dataFooter = document.querySelector("#dataFooter");
 const communityMetrics = new Map(analysisData.communities.map(item => [item.name, item]));
 const stationCommute = analysisData.stationCommute || {};
 const primaryStationNames = ["国贸", "老街", "大剧院", "科学馆", "红岭", "晒布", "通新岭", "翠竹", "湖贝", "燕南", "东门"];
@@ -339,15 +340,21 @@ function renderCollectionState() {
 }
 
 function renderResearch() {
-  const verified = analysisData.evidence.slice(0, 12).map(item => ({ tag: item.source, title: `${item.community}｜${item.evidenceType}`, note: item.summary, url: item.url }));
-  researchList.innerHTML = [...verified, ...research].map(item => `<a class="research-item" href="${item.url}" target="_blank" rel="noreferrer"><span class="research-tag">${escapeHtml(item.tag)}</span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.note)}</p></div><span class="research-arrow">→</span></a>`).join("");
+  const verified = [...analysisData.evidence]
+    .sort((a, b) => Number(b.source === "用户实地看房") - Number(a.source === "用户实地看房"))
+    .slice(0, 12)
+    .map(item => ({ tag: item.source, title: `${item.community}｜${item.evidenceType}`, note: item.summary, url: item.url }));
+  researchList.innerHTML = [...verified, ...research].map(item => {
+    const content = `<span class="research-tag">${escapeHtml(item.tag)}</span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.note)}</p></div><span class="research-arrow">${item.url ? "→" : "实地"}</span>`;
+    return item.url ? `<a class="research-item" href="${item.url}" target="_blank" rel="noreferrer">${content}</a>` : `<div class="research-item field-note">${content}</div>`;
+  }).join("");
 }
 
 function renderCommunityInsights() {
   if (!communityInsightGrid) return;
   let items = analysisData.communities.filter(item => !state.station || item.station === state.station);
   const residentialOnly = document.querySelector("#residentialOnly")?.checked;
-  if (residentialOnly) items = items.filter(item => item.safety >= 3.5 && !item.propertyUse.includes("写字楼"));
+  if (residentialOnly) items = items.filter(item => item.safety >= 3.5 && !item.propertyUse.includes("写字楼") && item.fieldVisit?.verdict !== "降级");
   const sort = document.querySelector("#communitySort")?.value || "score";
   items.sort((a,b) => sort === "commute" ? a.totalCommuteMinutes-b.totalCommuteMinutes : sort === "walk" ? a.walkMinutes-b.walkMinutes : sort === "rent" ? a.median-b.median : sort === "stock" ? b.effectiveCount-a.effectiveCount : sort === "safety" ? b.safety-a.safety : b.score-a.score);
   document.querySelector("#analysisPulse").textContent = `${items.length} 个小区 · ${analysisData.stats.effective || 0} 条有效样本`;
@@ -355,7 +362,8 @@ function renderCommunityInsights() {
     <div class="insight-rank"><span>#${String(item.rank).padStart(2,"0")}</span><b>${item.score}</b></div>
     <div class="insight-main"><p>${escapeHtml(item.station)} · 步行 ${item.walkMinutes} 分 / ${item.walkDistance}m · 全程约 ${item.totalCommuteMinutes} 分</p><h3>${escapeHtml(item.name)}</h3><div class="insight-price"><strong>¥${money(item.median)}</strong><span>中位租金</span></div></div>
     <div class="insight-facts"><span>稳健均租 <b>¥${money(item.robustAverage)}</b></span><span>区间 <b>¥${money(item.p25)}–${money(item.p75)}</b></span><span>有效库存 <b>${item.effectiveCount}/${item.rawCount}</b></span><span>安全基础 <b>${item.safety}/5</b></span></div>
-    <div class="insight-note"><span>${escapeHtml(item.closure)} · ${escapeHtml(item.propertyUse)}</span><small>${item.evidenceCount ? `${item.evidenceCount} 条跨平台证据` : "评价证据待补"}</small></div>
+    ${item.fieldVisit ? `<div class="site-visit-warning"><b>实地降级</b><span>${escapeHtml(item.fieldVisit.condition)} · ${escapeHtml(item.fieldVisit.density)}</span></div>` : ""}
+    <div class="insight-note"><span>${escapeHtml(item.closure)} · ${escapeHtml(item.propertyUse)}</span><small>${item.evidenceCount ? `${item.evidenceCount} 条评价/实地证据` : "评价证据待补"}</small></div>
     <button type="button">筛选该小区房源 →</button></article>`).join("") || `<p class="empty-state">当前条件下没有符合要求的小区。</p>`;
   communityInsightGrid.querySelectorAll(".insight-card button").forEach(button => button.addEventListener("click", () => {
     const name = button.closest(".insight-card").dataset.community; const metric = communityMetrics.get(name);
@@ -372,6 +380,8 @@ function render() {
   renderListings();
   renderCommunityInsights();
 }
+
+if (dataFooter) dataFooter.textContent = `更新至 ${analysisData.updated || "待核"}：乐有家 ${money(analysisData.stats.listings || 0)} 条一居挂牌、${money(analysisData.stats.effective || 0)} 条清洗后有效样本，覆盖 ${analysisData.stats.communities || 0} 个有房小区；已纳入 ${analysisData.fieldVisits?.length || 0} 条用户实地看房反馈。签约前仍需核实在租状态、单层住户数、电梯高峰、门禁、水电及中介费。`;
 
 document.querySelector("#searchInput").addEventListener("input", event => { state.query = event.target.value.trim(); resetPage(); render(); });
 function updateRentRange(changed) {

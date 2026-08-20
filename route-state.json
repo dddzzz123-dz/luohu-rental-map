@@ -4461,6 +4461,72 @@
       ],
       "measuredAt": "2026-08-14T02:24:36.990Z",
       "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "龙园苑": {
+      "community": "龙园苑",
+      "amapName": "龙园苑",
+      "location": "114.137554,22.542407",
+      "address": "沿河南路3008号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2470,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 1012,
+        "duration": 810
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 1012,
+          "duration": 810
+        }
+      ],
+      "measuredAt": "2026-08-20T04:31:57.641Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "锦上花家园": {
+      "community": "锦上花家园",
+      "amapName": "锦上花家园",
+      "location": "114.135916,22.540593",
+      "address": "锦联路45号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 2213,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 943,
+        "duration": 754
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 943,
+          "duration": 754
+        }
+      ],
+      "measuredAt": "2026-08-20T04:31:58.965Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "新秀村南区": {
+      "community": "新秀村南区",
+      "amapName": "新秀村南区",
+      "location": "114.144582,22.545704",
+      "address": "新秀路41号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3266,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 1137,
+        "duration": 910
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 1137,
+          "duration": 910
+        }
+      ],
+      "measuredAt": "2026-08-20T04:32:00.307Z",
+      "routeEndpoint": "AMap v3 direction/walking"
     }
   },
   "errors": {

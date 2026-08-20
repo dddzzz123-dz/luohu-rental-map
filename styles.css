@@ -121,6 +121,7 @@ input[type="search"] { border: 0; border-bottom: 1px solid var(--ink); backgroun
 .insight-price{display:flex;align-items:end;gap:8px;margin:16px 0}.insight-price strong{font:800 30px "Noto Serif SC",serif}.insight-price span{font-size:9px;color:var(--muted);padding-bottom:6px}
 .insight-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px solid var(--rule);padding-top:13px}.insight-facts span{font-size:9px;color:var(--muted)}.insight-facts b{display:block;color:var(--ink);font-size:11px;margin-top:3px}
 .insight-note{margin-top:auto;padding:14px 0;display:flex;justify-content:space-between;gap:8px;font-size:9px;color:var(--muted)}.insight-note small{color:var(--red)}
+.site-visit-warning{display:flex;gap:.55rem;align-items:center;margin:.7rem 0;padding:.55rem .7rem;border:1px solid #f0a58e;background:#fff1ec;color:#8f2f16;font-size:.78rem}.site-visit-warning b{background:#bd3f1f;color:#fff;padding:.18rem .4rem;border-radius:999px;white-space:nowrap}.site-visit-warning span{line-height:1.35}
 .insight-card button{border:1px solid var(--ink);background:var(--ink);color:var(--paper);min-height:40px;cursor:pointer;font:10px "IBM Plex Mono",monospace}
 .collection-bar { margin-top: 34px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
 .collection-bar > span { margin-left:auto; color:var(--muted); font-size:10px; }

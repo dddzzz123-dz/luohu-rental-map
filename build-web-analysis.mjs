@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 const analysis = JSON.parse(await fs.readFile("analysis-data.json", "utf8"));
 const profiles = JSON.parse(await fs.readFile("community-profiles.json", "utf8")).profiles;
 const evidence = JSON.parse(await fs.readFile("review-evidence.json", "utf8"));
+const fieldVisits = JSON.parse(await fs.readFile("field-visits.json", "utf8"));
 const norm = s => String(s || "").replace(/[·•\s（）()\-—_]/g, "").replace(/京基100/g, "京基一百");
 const profileFor = name => {
   const list = profiles[name]?.list || [];
@@ -32,6 +33,7 @@ const stationCommute = {
 };
 const evidenceCount = new Map();
 for (const row of evidence) evidenceCount.set(row.community, (evidenceCount.get(row.community) || 0) + 1);
+const fieldVisitBy = new Map(fieldVisits.map(row => [row.community, row]));
 const communities = analysis.summaries.map(s => {
   const p = profileFor(s.community);
   const metro = stationCommute[s.station] || { stops: null, transfers: null, minutes: 0 };
@@ -40,7 +42,9 @@ const communities = analysis.summaries.map(s => {
   const commute = Math.max(0, 5 - totalCommuteMinutes / 8);
   const price = Math.max(0, Math.min(5, (5000 - s.median) / 520));
   const stock = Math.min(5, Math.log2(s.effectiveCount + 1));
-  const score = Math.round((commute * 7 + safety * 5 + price * 5 + stock * 3) * 10) / 10;
+  const fieldVisit = fieldVisitBy.get(s.community) || null;
+  const fieldVisitPenalty = fieldVisit?.verdict === "降级" ? 12 : 0;
+  const score = Math.round(Math.max(0, commute * 7 + safety * 5 + price * 5 + stock * 3 - fieldVisitPenalty) * 10) / 10;
   return {
     name: s.community, station: s.station, walkDistance: s.walkDistance, walkMinutes: s.walkMinutes,
     metroMinutes: metro.minutes, metroStops: metro.stops, transfers: metro.transfers, totalCommuteMinutes,
@@ -49,10 +53,11 @@ const communities = analysis.summaries.map(s => {
     confidence: s.sampleConfidence, category: s.propertyCategory, closure: p["是否封闭"] || "待核",
     propertyUse: p["物业用途"] || "待核", propertyCompany: p["物业公司"] || "待核", greenRate: p["绿化率"] ?? null,
     address: p["小区地址"] || "", communityUrl: String(p["小区详情地址"] || "").replace(/\?.*$/, ""),
-    safety, score, evidenceCount: evidenceCount.get(s.community) || 0
+    safety, score, evidenceCount: evidenceCount.get(s.community) || 0,
+    fieldVisit, fieldVisitPenalty
   };
 }).sort((a,b) => b.score - a.score);
 communities.forEach((x,i) => x.rank = i + 1);
-const out = { updated: new Date().toISOString().slice(0, 10), stats: { communities: communities.length, listings: analysis.rawRows.length, effective: analysis.rawRows.filter(x => x.effective).length, routes: Object.values(analysis.routeState.completed).reduce((n,x)=>n+x.routes.length,0) }, stationCommute, communities, evidence };
+const out = { updated: new Date().toISOString().slice(0, 10), stats: { communities: communities.length, listings: analysis.rawRows.length, effective: analysis.rawRows.filter(x => x.effective).length, routes: Object.values(analysis.routeState.completed).reduce((n,x)=>n+x.routes.length,0) }, stationCommute, communities, evidence, fieldVisits };
 await fs.writeFile("analysis.js", `window.RENTAL_ANALYSIS=${JSON.stringify(out)};\n`, "utf8");
 console.log(out.stats);

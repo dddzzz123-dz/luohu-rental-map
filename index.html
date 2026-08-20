@@ -100,11 +100,11 @@
     <section class="insight-shell" id="communityInsights">
       <div class="insight-head">
         <div><p class="section-index">03 / COMMUNITY LENS</p><h2>先看小区，<br>再看单套房</h2></div>
-        <p>均价采用异常与疑似重复挂牌清洗后的稳健样本；通勤使用高德实际步行路线。安全分只负责提示门禁和混合物业风险，不能替代夜间实地看房。</p>
+        <p>均价采用异常与疑似重复挂牌清洗后的稳健样本；通勤使用高德实际步行路线。实地反馈优先级高于平台档案：已确认“明显旧、单层住户多”的大厦会直接降级，优先改看封闭式住宅小区。</p>
       </div>
       <div class="insight-controls">
         <label>小区排序<select id="communitySort"><option value="score">综合初选</option><option value="commute">到罗湖总通勤最快</option><option value="walk">步行最快</option><option value="rent">中位租金最低</option><option value="stock">有效库存最多</option><option value="safety">安全基础分最高</option></select></label>
-        <label class="safe-check"><input id="residentialOnly" type="checkbox" /> 优先住宅 / 安全分 ≥ 3.5</label>
+        <label class="safe-check"><input id="residentialOnly" type="checkbox" /> 优先住宅 / 排除实地降级大厦</label>
         <span id="analysisPulse"></span>
       </div>
       <div class="community-insight-grid" id="communityInsightGrid"></div>
@@ -125,7 +125,7 @@
   </dialog>
 
   <footer>
-    <p>更新至 2026-08-14：乐有家 1,355 条一居挂牌、1,013 条清洗后有效样本，覆盖 146 个有房小区；11个一级站点已全部接入，并保留黄贝岭与罗湖扩展站。小区安全分为初筛线索，签约前仍需核实在租状态、门禁、夜间路线、水电及中介费。</p>
+    <p id="dataFooter">房源与实地反馈数据正在加载。小区安全分为初筛线索，签约前仍需核实在租状态、单层住户数、电梯高峰、门禁、夜间路线、水电及中介费。</p>
   </footer>
   <script src="data.js"></script>
   <script src="images.js"></script>
