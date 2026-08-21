@@ -84,10 +84,47 @@ function queryVariants(name) {
   return [...new Set(variants)];
 }
 
-function isMatch(foundName, poiName, keyword) {
+const confirmedNameAliases = new Map(Object.entries({
+  "金龙大厦": ["金龙大厦（东门）"],
+  "群星广场B座": ["群星广场"],
+  "雅馨居": ["TCL雅馨居"],
+  "红桂皇冠名庭": ["红桂皇冠"],
+  "怡泰大厦B座": ["怡泰大厦"],
+  "京基东方都会": ["东方都会"],
+  "汽车大院北区": ["汽车大院"],
+  "滨江爱义南方大厦A座": ["滨江爱义南方大厦"],
+  "园岭新村一区": ["园岭新村"],
+  "南园新村东区": ["南园新村西区"],
+  "名都大厦A座": ["名都大厦"],
+  "国际名园": ["集建国际名园"],
+  "日豪名园2A": ["日豪名园"],
+  "深业东岭": ["深业东岭二期"],
+  "京基·凤凰印象A座": ["京基凤凰印象"],
+  "文锦花园(春风路)": ["文锦花园"],
+  "东门天地": ["东门天地大厦"],
+  "飞扬时代大厦": ["飞扬时代"],
+  "桂木园(桂园路)": ["桂木园燃料公司住宅楼", "桂木园小区"],
+  "渔民村": ["渔民村住宅区"],
+  "逸翠园(翠竹路)": ["逸翠园"],
+  "碧湖花园": ["碧湖花园（罗湖）"],
+  "滨河新村(东园路)": ["滨河新村"],
+  "中南小区(宝安南路)": ["中南小区"],
+  "南园公寓(松岭路)": ["南园公寓"],
+  "裕安花园(渔民村路)": ["裕安花园"],
+  "立新花园(人民北路)": ["立新花园"],
+  "百花园二期": ["百花园一期"],
+  "爱华大院北区": ["爱华大院"]
+}));
+
+const excludedAreaTokens = /光明(?:区|新区)?|南山区|宝安区|龙岗区|龙华区|坪山区|盐田区|大鹏新区|坂田|科技南一路|蛇口/u;
+
+function isMatch(foundName, poiName, item) {
   const found = normalize(foundName);
-  const candidates = [normalize(poiName), normalize(keyword)].filter(Boolean);
-  return candidates.some(candidate => found === candidate || (Math.min(found.length, candidate.length) >= 3 && (found.includes(candidate) || candidate.includes(found))));
+  const expected = normalize(poiName);
+  const aliases = (confirmedNameAliases.get(poiName) || []).map(normalize);
+  const address = stripHtml(item?.["小区地址"]);
+  if (excludedAreaTokens.test(address)) return false;
+  return found === expected || aliases.includes(found);
 }
 
 async function amapAround(station, location, typeCode) {
@@ -147,15 +184,15 @@ async function lyjSearch(community) {
     return candidates;
   }
   let candidates = await searchKeyword(keyword);
-  let matches = candidates.filter(item => isMatch(item["小区名称"], community.name, keyword));
+  let matches = candidates.filter(item => isMatch(item["小区名称"], community.name, item));
   for (const variant of keywords.slice(1)) {
     if (matches.length) break;
     keyword = variant;
     candidates = await searchKeyword(keyword);
-    matches = candidates.filter(item => isMatch(item["小区名称"], community.name, keyword));
+    matches = candidates.filter(item => isMatch(item["小区名称"], community.name, item));
   }
   const uniqueCandidates = [...new Map(candidates.map(item => [stripHtml(item["详情地址"]), item])).values()];
-  matches = uniqueCandidates.filter(item => isMatch(item["小区名称"], community.name, keyword));
+  matches = uniqueCandidates.filter(item => isMatch(item["小区名称"], community.name, item));
   return matches.map(item => ({
     id: `scan-${stripHtml(item["详情地址"]).split("/").pop()?.split(".")[0] || Math.random().toString(36).slice(2)}`,
     name: stripHtml(item["小区名称"]),
@@ -171,33 +208,45 @@ async function lyjSearch(community) {
     target: 3500,
     photoCount: null,
     sourceCommunity: community.name,
+    listingAddress: stripHtml(item["小区地址"]),
     url: stripHtml(item["详情地址"]).replace(/\?.*$/, "")
   })).filter(item => item.url && item.rent >= 2400 && item.rent <= 5000);
 }
 
-const amapRows = [];
-for (const [station, location] of Object.entries(stations)) {
-  for (const typeCode of residentialTypes) amapRows.push(...await amapAround(station, location, typeCode));
-}
+const reuseCommunities = process.argv.includes("--reuse-communities");
+let amapRows = [];
+let communities;
+let reusedStats = {};
+if (reuseCommunities) {
+  const previousText = await fs.readFile("scan.js", "utf8");
+  const previous = JSON.parse(previousText.replace(/^window\.RENTAL_SCAN=/, "").replace(/;\s*$/, ""));
+  communities = previous.communities.map(item => ({ ...item, listingCount: 0 }));
+  reusedStats = previous.stats || {};
+  process.stderr.write(`AMAP reused ${communities.length} saved residential candidates\n`);
+} else {
+  for (const [station, location] of Object.entries(stations)) {
+    for (const typeCode of residentialTypes) amapRows.push(...await amapAround(station, location, typeCode));
+  }
 
-const grouped = new Map();
-for (const row of amapRows) {
-  const current = grouped.get(row.name) || [];
-  current.push(row);
-  grouped.set(row.name, current);
+  const grouped = new Map();
+  for (const row of amapRows) {
+    const current = grouped.get(row.name) || [];
+    current.push(row);
+    grouped.set(row.name, current);
+  }
+  communities = [...grouped.entries()].map(([name, rows]) => {
+    const nearest = [...rows].sort((a, b) => a.distance - b.distance)[0];
+    return {
+      name,
+      nearestStation: nearest.station,
+      distance: nearest.distance,
+      portDistance: nearest.portDistance,
+      typeCodes: [...new Set(rows.map(row => row.typeCode))].sort(),
+      stations: [...new Set(rows.map(row => row.station))],
+      listingCount: 0
+    };
+  }).sort((a, b) => a.distance - b.distance || a.name.localeCompare(b.name, "zh-CN"));
 }
-const communities = [...grouped.entries()].map(([name, rows]) => {
-  const nearest = [...rows].sort((a, b) => a.distance - b.distance)[0];
-  return {
-    name,
-    nearestStation: nearest.station,
-    distance: nearest.distance,
-    portDistance: nearest.portDistance,
-    typeCodes: [...new Set(rows.map(row => row.typeCode))].sort(),
-    stations: [...new Set(rows.map(row => row.station))],
-    listingCount: 0
-  };
-}).sort((a, b) => a.distance - b.distance || a.name.localeCompare(b.name, "zh-CN"));
 
 let cursor = 0;
 const found = [];
@@ -224,11 +273,11 @@ for (const rental of found) {
   if (!existing || rental.distance < existing.distance) byUrl.set(rental.url, rental);
 }
 const rentals = [...byUrl.values()].sort((a, b) => a.station.localeCompare(b.station, "zh-CN") || a.distance - b.distance || a.rent - b.rent);
-const stationCoverage = Object.fromEntries(Object.keys(stations).map(station => [station, new Set(amapRows.filter(row => row.station === station).map(row => row.name)).size]));
+const stationCoverage = reuseCommunities ? reusedStats.stationCoverage : Object.fromEntries(Object.keys(stations).map(station => [station, new Set(amapRows.filter(row => row.station === station).map(row => row.name)).size]));
 const scan = {
   updated: new Date().toISOString(),
   stats: {
-    amapRawRecords: amapRows.length,
+    amapRawRecords: reuseCommunities ? reusedStats.amapRawRecords : amapRows.length,
     amapUniqueCommunities: communities.length,
     stationCoverage,
     queriedCommunities: communities.length,

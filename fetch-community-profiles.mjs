@@ -4,6 +4,9 @@ if (!key) throw new Error("LYJ_API_KEY is required");
 const analysis = JSON.parse(await fs.readFile("analysis-data.json", "utf8"));
 let state = { profiles: {}, errors: {} };
 try { state = JSON.parse(await fs.readFile("community-profiles.json", "utf8")); } catch {}
+const activeCommunities = new Set(analysis.summaries.map(item => item.community));
+state.profiles = Object.fromEntries(Object.entries(state.profiles || {}).filter(([name]) => activeCommunities.has(name)));
+state.errors = Object.fromEntries(Object.entries(state.errors || {}).filter(([name]) => activeCommunities.has(name)));
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 for (let i = 0; i < analysis.summaries.length; i++) {
@@ -26,4 +29,5 @@ for (let i = 0; i < analysis.summaries.length; i++) {
   }
   await fs.writeFile("community-profiles.json", `${JSON.stringify(state, null, 2)}\n`, "utf8");
 }
+await fs.writeFile("community-profiles.json", `${JSON.stringify(state, null, 2)}\n`, "utf8");
 console.log(JSON.stringify({ profiles: Object.keys(state.profiles).length, errors: state.errors }, null, 2));

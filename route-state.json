@@ -4527,6 +4527,55 @@
       ],
       "measuredAt": "2026-08-20T04:32:00.307Z",
       "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "京基东方都会": {
+      "community": "京基东方都会",
+      "amapName": "京基东方都会",
+      "location": "114.142937,22.548212",
+      "address": "沿河北路1003号",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 3310,
+      "bestRoute": {
+        "station": "黄贝岭",
+        "distance": 819,
+        "duration": 655
+      },
+      "routes": [
+        {
+          "station": "黄贝岭",
+          "distance": 819,
+          "duration": 655
+        }
+      ],
+      "measuredAt": "2026-08-21T03:25:08.726Z",
+      "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "飞扬时代大厦": {
+      "community": "飞扬时代大厦",
+      "amapName": "飞扬时代大厦",
+      "location": "114.089675,22.539316",
+      "address": "南园街道南园社区华发南路66号(华强南地铁站F口步行200米)",
+      "poiType": "商务住宅;楼宇;商住两用楼宇",
+      "portStraightDistance": 3238,
+      "bestRoute": {
+        "station": "科学馆",
+        "distance": 794,
+        "duration": 635
+      },
+      "routes": [
+        {
+          "station": "科学馆",
+          "distance": 794,
+          "duration": 635
+        },
+        {
+          "station": "燕南",
+          "distance": 1072,
+          "duration": 858
+        }
+      ],
+      "measuredAt": "2026-08-21T03:25:10.098Z",
+      "routeEndpoint": "AMap v3 direction/walking"
     }
   },
   "errors": {
