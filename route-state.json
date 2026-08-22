@@ -4576,6 +4576,48 @@
       ],
       "measuredAt": "2026-08-21T03:25:10.098Z",
       "routeEndpoint": "AMap v3 direction/walking"
+    },
+    "金城大厦": {
+      "community": "金城大厦",
+      "amapName": "金城大厦",
+      "location": "114.121813,22.542989",
+      "address": "深南东路3001号(湖贝地铁站C口步行440米)",
+      "poiType": "商务住宅;住宅区;住宅小区",
+      "portStraightDistance": 1650,
+      "bestRoute": {
+        "station": "湖贝",
+        "distance": 567,
+        "duration": 454
+      },
+      "routes": [
+        {
+          "station": "湖贝",
+          "distance": 567,
+          "duration": 454
+        },
+        {
+          "station": "国贸",
+          "distance": 650,
+          "duration": 520
+        },
+        {
+          "station": "东门",
+          "distance": 769,
+          "duration": 615
+        },
+        {
+          "station": "晒布",
+          "distance": 875,
+          "duration": 700
+        },
+        {
+          "station": "老街",
+          "distance": 917,
+          "duration": 734
+        }
+      ],
+      "measuredAt": "2026-08-22T15:43:59.099Z",
+      "routeEndpoint": "AMap v3 direction/walking"
     }
   },
   "errors": {
